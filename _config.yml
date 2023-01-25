@@ -20,6 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   által oktatott Rendszerfejlesztés II. tárgyhoz kapcsolódó szakmai anyagokat gyüjti össze.
   A gyűjtést a hallgatók órai feladat keretében végezték.
   A master branch tartalma az oktatók jóváhagyásával módosítható.
+baseurl: "/cave-of-chiron"
 github_username: geryxyz
 minimal_mistakes_skin: default
 search: false
@@ -66,16 +67,7 @@ author:
       url: "https://www.inf.u-szeged.hu/sed"
 
 footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+  links: None
 
 defaults:
   # _pages
@@ -85,6 +77,10 @@ defaults:
     values:
       layout: single
       author_profile: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Ezen az oldalon"
+
 
 category_archive:
   type: liquid
