@@ -1,3 +1,5 @@
 main:
+  - title: "Címkék"
+    url: /tags/
   - title: "Rólunk"
     url: /about/

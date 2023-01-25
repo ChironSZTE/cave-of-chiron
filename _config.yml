@@ -92,3 +92,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+head_scripts:
+  - https://kit.fontawesome.com/010718a7db.js
