@@ -1,0 +1,21 @@
+---
+title: Címkék
+layout: single
+permalink: /tags/
+---
+
+{% assign all_page_tags = site.pages | map: "tags" | uniq | sort_natural %}
+
+{% for tag in all_page_tags %}
+    {% unless tag == nill %}
+        <h2>{{ tag | capitalize }} <a href="#{{ tag | slugify }}"><i class="fa-solid fa-link"></i></a></h2>
+        <ul>
+            {% assign sorted_pages = site.pages | sort_natural: "title" %}
+            {% for page in sorted_pages %}
+                {% if page.tags contains tag %}
+                    <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endunless %}
+{% endfor %}

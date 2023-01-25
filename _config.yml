@@ -13,16 +13,17 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
-email:
+title: Chiron Barlangja
+email: geryxyz@inf.u-szeged.hu
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
+  Ez az oldal a Szegedi Tudományegyetem Szoftverfejlesztés Tanszéke
+  által oktatott Rendszerfejlesztés II. tárgyhoz kapcsolódó szakmai anyagokat gyüjti össze.
+  A gyűjtést a hallgatók órai feladat keretében végezték.
+  A master branch tartalma az oktatók jóváhagyásával módosítható.
+baseurl: "/cave-of-chiron"
+github_username: geryxyz
 minimal_mistakes_skin: default
-search: true
+search: false
 
 # Build settings
 markdown: kramdown
@@ -58,47 +59,17 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  name   : "Szegedi Tudományegyetem, Szoftverfejlesztés tanszék"
+  avatar : "/assets/images/SZTE_crest.png"
   links:
-    - label: "Website"
+    - label: "Hivatalos oldal"
       icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://www.inf.u-szeged.hu/sed"
 
 footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+  links: None
 
 defaults:
-  # _posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
   # _pages
   - scope:
       path: "_pages"
@@ -106,6 +77,10 @@ defaults:
     values:
       layout: single
       author_profile: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Ezen az oldalon"
+
 
 category_archive:
   type: liquid
@@ -113,3 +88,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+head_scripts:
+  - https://kit.fontawesome.com/010718a7db.js
