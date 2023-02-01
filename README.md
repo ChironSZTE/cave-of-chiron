@@ -30,4 +30,6 @@ Any contribution with inpropare language will be rejected.
   3. If not done automatically assign ask a reviewer to check your work in the pull request.  
      You must choose at least one [code owner](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#about-code-owners) as reviewers.
 10. If you got any request for fix ...
-  1. 
+  1. Mark the pull request draft again.  
+     ![image](https://user-images.githubusercontent.com/2602591/216082072-ea900e7b-cc32-4ef6-a784-c1cfdbdfe353.png)
+  2. Goto *"Continue to work on the issue"*
