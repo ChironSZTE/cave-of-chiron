@@ -15,16 +15,38 @@ tags:
 
 Az [Oracle VirtualBox](https://www.virtualbox.org/) egy virtualizációs termék. Segítségével virtuális számítógépeket hozhatunk létre tetszőleges (de a fizikai erőforrásainkat nem meghaladó) erőforrásokkal, majd ezen virtuális gépeken - éppúgy, mintha fizikai lenne - telepíthetünk operációs rendszereket, majd ezekre a rendszerekre felhasználói programokat. A Dockerrel ellentétben itt egy egész számítógépet virtualizálunk, nem csak a felhasználói (vagy operációs rendszer) programokat.
 
-### Letöltés
+## Letöltés
 
 Az Oracle VirtualBox letölthető az [eredeti oldalról](https://www.virtualbox.org/wiki/Downloads), több architektúrára és operációs rendszerre is. Példánkban Windows 10 és ArchLinux hostra is fogjuk telepíteni.
 
 ![Oracle VirtualBox letöltési opciói](screenshots/virtualbox_download.png)
 
 Windows 10 hosthoz válasszuk az első lehetőséget, ArchLinux esetén használjuk a csomagkezelőnket a telepítéshez (ArchLinux esetén a letöltés és a telepítés egyetlen parancsból áll).
-### Telepítés
+## Telepítés
 
-#### Telepítés Windows 10 gazdagépre
+### Telepítés Windows 10 gazdagépre
 
-#### Telepítés ArchLinux gazdagépre
-Nyissunk egy terminált, és gépeljük be az alábbi parancsot:
+1. Keressük meg a letöltési helyen a letöltött telepítő fájlt.
+2. Indítsuk el, és engedélyezzük a futását rendszergazdaként.
+3. 
+
+### Telepítés ArchLinux gazdagépre
+1. Nyissunk egy terminált!
+2. Root felhasználóként lépjünk be a linuxos gépünkbe.
+3. Gépeljük be az alábbi parancsot: `pacman -Syu` (ezzel frissítjük csomagjainkat).
+4. Nézzük meg milyen kernellel rendelkezünk, majd az alapján telepítsük fel az alábbi csomagokat.
+    - `linux` kernel esetén: `pacman -S virtualbox virtualbox-host-modules-arch`
+    - `linux-lts`, `linux-hardened`, és `linux-zen` esetén: `pacman -S virtualbox virtualbox-host-dkms`
+5. Ha mindennel készen vagyunk, és nem kaptunk hibát, az alkalmazásmenüből a Rendszereszközök menüpont alatt elérhetjük "Oracle VM VirtualBox" néven.
+
+Le tudjuk kérdezni az aktuális kernelt az `uname -r` parancs segítségével.
+
+## A VirtualBox beállítása
+
+### Ajánlott kezdeti beállítások
+
+1. Nyissuk meg az Oracle VirtualBox kezelőt!
+2. A fájl (File) menüben kattintsunk a Beállítások (Preferences) menüpontra *vagy* nyomjuk meg a CTRL+G billentyű kombinációt a kezelőfelület kezdőképernyőjén.
+3. Az Általános (General) oldalon érdemes a leendő virtuális gépek alapértelmezett mappáját átállítani olyan meghajtóra (vagy a meghajtó egy partíciójára), amely HDD eszközön van, mert az SSD-ket hamar tönkreteheti a folyamatos írás-olvasás.
+4. A frissítések oldalon érdemes bepipálni a lehetőséget, hogy időközönként keressen frissítéseket a VirtualBox.
+    - 
