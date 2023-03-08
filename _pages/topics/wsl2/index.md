@@ -1,91 +1,92 @@
 ﻿---
-title: "Setting up and configuring WSL2"
+title: "WSL 2 használata és beállítása"
 tags:
-    - wsl2
-    - windows linux
-    - subsystem
-    - wsl distro
-    - win-kex
+    - Windows Subsystem for Linux
 ---
 
-The Windows Subsystem for Linux (WSL) lets developers install a Linux distribution (such as Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, etc) and use Linux applications, utilities, and Bash command-line tools directly on Windows, unmodified, without having to use a traditional virtual machine or dualboot setup.
+A Windows Subsystem for Linux (WSL) lehetővé teszi a fejlesztőknek, hogy egy Linux disztribúciót telepítsenek eszközükre (például Ubuntu, OpenSUSE, Kali, Debian, Arch Linux stb.), és közvetlenül a Windows rendszeren használják a Linux alkalmazásokat, eszközöket és a Bash parancssori utasításokat, anélkül hogy hagyományos virtuális gépet vagy dualboot beállítást kellene használni.
 
-#  Prerequisites
 
-You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 to use the simple commands for installing WSL.
+# Előfeltételek
 
-# Choosing a method
+A WSL egyszerű telepítéséhez szükséges, hogy a Windows 10 verziója legalább 2004 legyen (vagy újabb) és a Build száma legalább 19041 legyen (vagy újabb). A Windows 11 alapból támogatja a WSL-t.
 
-There are two ways to run a Linux distribution using WSL. 
+# Módszer kiválasztása
 
-## Using Windows Terminal
+Két fő módszer létezik a Linux disztribúció futtatására a WSL-en keresztül. Az alábbiakban választhatsz hogy melyik tetszik jobban.
 
-A more traditional way, using the **Windows Terminal** to access the Bash command-line tools and other utilities directly on Windows 10 or 11. It is simple and lightweight, recommended if you are experienced with the Linux Terminal.
+## Windows terminálon keresztül
+
+Ez egy hagyományosabb módszer amely a **Windows terminált** használja a Bash parancssori utasítások és eszközök elérésére, közvetlenül Windows 10 vagy 11 rendszeren. Ez egyszerű és gyors megoldás, a Linux terminálban jártasak számára ajánlott.
+
+ [Így néz ki Windows terminálban](https://i.imgur.com/X1tn84o.png)
+
+## Grafikus asztali környezet (Graphical Desktop Environment)
+Egy grafikus asztali környezet (Graphical Desktop Environment) segítségével, amely teljes Linux élményt nyújt a Windows operációs rendszerben, kihasználva a Windows-nak a protokollokhoz és kliensekhez való natív hozzáférést (**további szoftverek vagy virtuális gépek nélkül**).
  
- [This is how the terminal version looks](https://i.imgur.com/X1tn84o.png)
+ [Így néz ki a grafikus környezet](https://i.imgur.com/5HBjVl4.png)
 
-## Graphical Desktop Environment
+# WSL2 telepítése
 
-Using a **Graphical Desktop Environment** which brings the full Linux experience to our Windows operating system, utilizing protocols and clients **native to Windows** *(without additional software or virtual machine)*.
- 
- [This is how the desktop environment looks](https://i.imgur.com/5HBjVl4.png)
+## Telepítés grafikus környezet nélkül
 
-# Installing WSL2
+Nyiss meg egy Windows Terminált és futtasd az alábbi parancsot: `wsl --list --online` . Ez ki fogja listázni az összes elérhető Linux disztribúciót. Nagyon ajánlott az ott felsorolt disztribúciók közül választani egyet.
 
-## Installing WSL without a graphical environment
+Miután kiválasztottad, futtasd a következő parancsot a telepítéshez: <br>
+`wsl --install -d <Distro Name>` . Írd át a `<Distro Name>` részt a pontos Linux disztribúció nevével, amelyet telepíteni szeretnél.
 
-Open a Windows Terminal and run the following command: <br>
-`wsl --list --online` . This will show all the available Linux distributions. It is highly recommended to choose one from the distributions listed there.
+Amint telepítetted a WSL-t és a disztribúciót, egy másik terminál fog megjelenni ami kérni fog hogy hozz létre egy linux felhasználónevet és adminisztrátor jelszót az újonnan telepített Linux disztribúció számára. Kövesd az ablakban megjelenő lépéseket.
 
-After deciding, run the following command to install it: <br>
-`wsl --install -d <Distro Name>` . Replace `<Distro Name>` with the exact name of the Linux distribution you would like to install.
-
-Once you have installed WSL and the distribution, another terminal will pop up asking you to create a user account and password for your newly installed Linux distribution. Follow the steps shown on the screen.
-
-After finishing, you are ready to use Linux on Windows. Try checking a few Bash commands like 
+Ha sikerült, már készen is állsz arra, hogy Linuxot használj Windows-on. Próbálj ki néhány Bash parancsot: <br>
 `ls`, `sudo apt update`, `cat /etc/os-release`.
 
-*WSL version 2 will be installed by default. For more information, see: `wsl --help`.*
+*Alapértelmezetten a WSL 2-es verziója fog telepítődni. További információkért, lásd: `wsl --help`.*
 
-## Installing WSL with a graphical desktop environment
-For this method, you will need a base distribution installed, preferably Kali Linux. To do this, run the following command: <br>
-`wsl --install -d kali-linux` . After creating a user account and password, run the following commands in an opened Linux terminal: `sudo apt update`  and `sudo apt install -y kali-win-kex`.
+## WSL telepítése grafikus felhasználói felülettel
+Ehhez a módszerhez szükséged lesz egy alap Linux disztribúcióra, lehetőleg **Kali Linux**-ra. Ehhez futtasd a következő parancsot: `wsl --install -d kali-linux` . Miután létrehoztál egy felhasználói fiókot és jelszót, futtasd a következő parancsokat egy megnyitott Linux terminálban: `sudo apt update` és `sudo apt install -y kali-win-kex`.
 
 
-### Optional: Installing the full package
-To have the full Kali Linux experience, enter this command: `sudo apt install -y kali-linux-large` .This will install all the required tools, softwares and utility packages for programming, cybersecurity and much more. 
+### Opcionális: Teljes csomag telepítése
+Ha a teljes Kali Linux csomagot szeretnéd telepíteni, megteheted az alábbi parancsal:
+`sudo apt install -y kali-linux-large`. Ezzel a parancsal minden szükséges eszközt, szoftvert és segédprogramot telepíteni fog programozáshoz, kiberbiztonsághoz és egyéb feladatokhoz.
 
-***Notice:*** *this may take longer to install and might use up to 20GB of space. Any required software can be manually installed later.*
+***Figyelem!*** *Ez a telepítés hosszabb ideig eltarthat, és akár 15 GB helyet is igénybe vehet. Minden egyéb szoftvert manuálisan is telepíteni tudsz késöbb.*
  
 
-*(To install the graphical environment for Ubuntu [please visit their site and follow the steps.](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview))*
+*(Az Ubuntu grafikus környezetének telepítéséhez [kérlek látogass el a hivatalos oldalukra ahol további útmutatást kaphatsz.](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview))*
 
-# Launching WSL2
+# WSL2 futtatása
 
-## Starting Linux in terminal mode
-To launch your installed Linux distribution, start a Windows Terminal, click on the [arrow next to the new tab](https://i.imgur.com/aLcHvrC.png) button and from the dropdown list select Linux. You can also open it by searching your distribution [in windows search](https://i.imgur.com/iT4w9za.png).
-You can start using it as soon as the theme changes to Bash terminal and you see your Linux username: 
+## Linux indítása terminál módban
+A Linux disztribúció indításához nyiss meg egy Windows terminált, kattints a [új lap melletti nyilra](https://i.imgur.com/aLcHvrC.png) és a lenyíló menüben válaszd ki a Linuxot. Ugyanakkor megnyithatod 
+[rákeresve a Windows alkalmazások között](https://i.imgur.com/iT4w9za.png).
+Amint a konzol átvált Bash terminálra és megjelenik a Linux felhasználóneved, már használhatod is:
 **`name@PCname:~$`**
 
-## Starting Linux in desktop mode
+## Linux indítása asztali üzemmódban
  
-- To launch the desktop mode, run : `kex --esm -s` <br> (*ESM mode helps to keep the Windows and Kali environments visually apart,  -s is for enabling sounds)*. 
-- Enter your linux password when asked.
-- A [window](https://www.kali.org/docs/wsl/win-kex-esm/RDP-Message-1.png) will pop up asking to connect. Click **connect** to launch the desktop environment.
+- Az asztali üzemmód elindításához futtasd a következő parancsot: `kex --esm -s` <br> (*Az ESM mód vizuálisan elkülöníti egymástól a Windows és a Kali környezetet, a -s pedig a hangok engedélyezésére szolgál.)*. 
+- Gépeld be a linux sudo jelszavad amikor kéri
+- Egy [ablak](https://www.kali.org/docs/wsl/win-kex-esm/RDP-Message-1.png) fog megjelenni amely felkér a csatlakozásra. Klikkelj a **connect** gombra hogy elindítsd a desktop környezetet.
 
-## Shutting down Linux 
-Please note, that closing the Windows Terminal might not fully shut down your linux session! Check if it's still running by entering this command on a **Windows Terminal**: `wsl -l -v` .<br> To fully stop it, simply type `wsl --shutdown`. 
-When exiting desktop mode, click the power button on the top right corner, then log out. You will be asked to save the session. By [ticking it](https://i.imgur.com/u8z1008.png), your changes will be saved on the next startup.
+<br>
+*További információkért, lásd: `kex --help`*
+## Linux leállítása
+- Vedd figyelembe, hogy a Windows terminál bezárása nem állítja le teljesen a Linux munkamenetet! Ellenőrizd, hogy még fut-e a WSL a következő parancs segítségével a **Windows terminálban**: 
+`wsl -l -v` . A teljes leállításhoz, használd a `wsl --shutdown` utasítást. Ez hasznos lehet abban az esetben ha eszközöd lassabb.
+- Az asztali üzemmódból való kilépéshez kattints a jobb felső sarokban lévő power gombra, majd jelentkezz ki. Lehetőséged van elmenteni a munkamenetet. Ehhez [pipáld ezt be](https://i.imgur.com/u8z1008.png), hogy változtatásaid mentve maradjanak a következő indításnál.
 
-# Accessing Linux root directory
+# Linux gyökérkönyvtárának elérése
 
-It is possible to access the installed distribution's directory directly in **File Explorer** on Windows. To do so, simply run this command in a Linux terminal: `explorer.exe .` . This allows you to access the root folder and create, delete, and easily modify any directories. Furthermore, you can transfer documents from your Windows PC to your local Linux folder.
+Lehetőséged van a telepített disztribúció könyvtárának közvetlen elérésére a File Explorer segítségével Windows-on. Ehhez futtasd a következő parancsot a Linux terminálban: `explorer.exe .` . 
 
-# Uninstalling WSL
-To uninstall WSL you only need to remove the previously installed distributions. To check what distros are installed, run: 
-`wsl --list`. To remove any of them, simply use the following command: `wsl --unregister <distro>` . Replace `<distro>` with your Linux version's name. This will unregister the distribution and delete the root filesystem.
+Ez megnyitja a gyökérkönyvtárat, és megfelelő jogok mellett képes vagy új mappákat létrehozni, törölni vagy akár módosítani. Emellett egyéb dokumentumokat és fájlokat is könnyedén át tudsz helyezni Windows PC-ről a helyi Linux könyvtáradba.
+
+# WSL eltávolítása
+Az WSL eltávolításához csak az előzőleg telepített disztribúciókat kell eltávolítanod. Hogy megnézd milyen disztribúciók vannak telepítve, futtasd a következő parancsot:
+`wsl --list`. A törléshez használd a következő utasítást: <br> `wsl --unregister <distro>`, ahol a `<distro>` a törölni kívánt Linux neve. Ez törölni fogja a disztribúciót és az összes kapcsólódó fájlt a gépedről.
 
 
-_Guide created by: @ChimiChumi, @mollevi._
+_Az útmutatót készítette: Dobos Hunor (@ChimiChumi) és Molnár Levente (@mollevi)_
 
-_Source: [WSL installation](https://learn.microsoft.com/en-us/windows/wsl/install), [Win-Kex for WSL](https://www.kali.org/docs/wsl/win-kex/)_
+_Forrás: [WSL installation](https://learn.microsoft.com/en-us/windows/wsl/install), [Win-Kex for WSL](https://www.kali.org/docs/wsl/win-kex/)_
