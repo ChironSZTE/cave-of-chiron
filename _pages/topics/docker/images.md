@@ -1,7 +1,9 @@
 # Container Images
 
 Container images are immutable, snapshotted states of a container.
-They contain the filesystem of containers (including system files, configuration files, and application files), but also parameters required for properly running a container that is instantiated from it, like the entry point (the program to be started), the user account of the started program, etc.
+They contain the filesystem of containers (including system files, configuration files, and application files),
+but also parameters required for properly running a container that is instantiated from it,
+like the entry point (the program to be started), the user account of the started program, etc.
 
 ## Basic Usage
 
