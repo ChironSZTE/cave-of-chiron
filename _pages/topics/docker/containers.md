@@ -12,7 +12,8 @@ Likely the most frequent task you will do with containers is starting them from 
 You do that with the `docker run [options] <image>` command.  
 If the image to be used have not been downloaded beforehand, the command will automatically do so.
 
-This **always** creates a **new** container from the specified image file, and start a predefined program in it. The program to be started, its arguments and other configuration can be overridden with options.  
+This **always** creates a **new** container from the specified image file, and start a predefined program in it. The program to be started, its arguments and other configuration can be overridden with options.
+
 When the `--detached` option is not used, the container will run in the terminal where it was started, until it exits by itself or is requested to do so.
 In this case it can be stopped by pressing `Ctrl+C`. If you press it twice, Docker will not wait for the container to gracefully stop, instead it will kill it immediately, which might result in data corruption.
 
@@ -23,11 +24,11 @@ Below are some useful options. You don't need to memorize them, you can always c
 
 |Option|Meaning|  
 |---|---|
-|-d, --detach|Run in background, without showing container logs|
+|-d, --detach|Run in background, without showing container logs and keeping the terminal busy|
 |--name|Assign a name for easier identification. Otherwise the container will get a randomly generated human readable name|
 |--rm|Delete the container on exit. Useful for temproary containers|
 |--network|Attach the container to a preexisting Docker network by its name|
-|-p, --publish|Bind networks ports of container to Host's network interfaces (all of them), so that they are accessible from the networks where the Host has an interface|
+|-p, --publish|Bind networks ports of the container to the Host's network interfaces (all of them), so that they are accessible from the networks where the Host is accessible|
 |--volume|Attach the specified Docker storage volumes to this container|
 |-e \<envvar list>, --env \<envvar list>|Run with the given environment variables|
 |-i, --interactive|Keep STDIN stream open, so that the software running in the container can be controlled through it. Frequently used with `-t` for making it accessible from a terminal|
@@ -36,7 +37,7 @@ Below are some useful options. You don't need to memorize them, you can always c
 
 ### Listing existing containers
 
-If you have already created containers, you may list them with the `docker container ls --all` command. The `--all` argument makes sure that containers that are currently not running are also listed.
+If you have already created containers, you may list them with the `docker container ls --all` command. The `--all` option makes sure that containers that are currently not running are also listed.
 
 ```
 $ sudo docker container ls --all
@@ -51,7 +52,7 @@ d8a4f03849d4   ghcr.io/linuxserver/wireguard         "/init"                  2 
 [...]
 ```
 
-Containers can be identified 2 ways in docker commands:
+There are 2 ways for identifying containers in docker commands:
 - by their container ID (e.g. `81af1462f96d`)
 - by their name (e.g. `gitea`)
 
@@ -65,7 +66,7 @@ You can stop a running container with the `docker container stop <container>` co
 When stopping a container, its filesystem and configuration is kept.
 
 Containers are attached to the images from which they were instantiated.
-If the image file to be used has been changed, you will have to create a new container from the new image file.
+If the image file to be used has changed (a new version was released), you will have to create a new container from the new image file to use it.
 
 ### Deleting containers
 
@@ -73,9 +74,11 @@ If you don't need a container anymore, you can delete it with the `docker contai
 For deleting a running container, you will need to use the `--force` option.  
 For deleting all anonymous volumes of a container, you will need to use the `--volumes` option. This is recommended to use when you really don't need the container anymore.
 
+Deletions are not reversible, take extreme care when deleting containers or volumes.
+
 ## Advanced usage
 
-All of the container management commands are found as subcommands of the `docker container` command.  
+All of the container management commands are subcommands of the `docker container` command.  
 They can be listed by running `docker container --help`, but below I have made a list of the more useful ones:
 
 |Subcommand|Meaning|

@@ -1,12 +1,14 @@
 # Docker Volumes
 
 Volumes are used for persistent file storage.  
-They allow you to store contents of directories outside of containers, and so independently of their state.
+They allow you to store contents of directories outside of containers, and in turn independently of their state.
 This means that when you delete and recreate them (e.g. because you have updated them), files stored in volumes are kept.
 
-Volumes may also be used for sharing files between multiple containers, but this setup needs to be supported by the software running in both of them, otherwise data corruption is expected to happen.
+Volumes may also be used for sharing files between multiple containers,
+but this setup needs to be supported by the software running in both of them, otherwise you should expect data corruption to happen.
 
-Based on the volume driver in use, the files may be stored at a network location, they may be encrypted, compressed, and other possibilities may becom available with them.
+Based on the volume driver in use, the files may be stored at a network location,
+they may be encrypted, compressed, and other possibilities may become available with them.
 
 The official documentation can be read [here](https://docs.docker.com/storage/volumes/).
 
@@ -17,12 +19,12 @@ The volumes are primarily differentiated based on how can you refer to them.
 Anonymous volumes are ones you cant refer to.  
 They are created when it is defined in the container image that certain directories should be stored in a volume, but the user did not set them up as a named volume.  
 Although they are not automatically removed along with the container, recreating the container will result in new anonymous volumes being used.  
-Their main purpose is simply to indicate which directories should be persisted when the user wants that, but still not interfere when the user intends to use create a totally temporary container.
+Their main purpose is simply to indicate which directories should be persisted when the user wants that, but still not interfere when the user intends to create a totally temporary container.
 
 Named volumes can be referred to by their names, and they will be reused as expected when the container is recreated.
 
 Bind mounts are not actually volumes, but it is useful to mention them here.  
-They will not persist your data like a named volume, but Docker will not list them among volumes.
+They will persist your data like a named volume, but Docker will not list them among volumes.
 You define them by specifying a filesystem path instead of a volume name.
 
 ## Volume syntax
@@ -75,7 +77,7 @@ Below you will find a brief summary of the volume management commands, but you m
 Volumes can be created with the `docker volume create [options] [name]` command.  
 Omitting the `name` parameter will result in an anonymous volume being created.
 
-A specific driver and driver options can be set with the `--driver` and `--driver-opts` arguments.
+A specific driver and driver options can be set with the `--driver` and `--driver-opts` options.
 
 ### Listing volumes
 Existing volumes can be listed with the `docker volume list` command.
