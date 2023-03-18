@@ -76,6 +76,13 @@ For deleting all anonymous volumes of a container, you will need to use the `--v
 
 Deletions are not reversible, take extreme care when deleting containers or volumes.
 
+### The container upgrade procedure
+
+When a new version of the containerized software is released, updating it differs from how is it done usually.  
+Instead of updating the software in the container with the package manager or with manually overwriting files, you just download the new container image, delete the old container, and recreate it with the same (or adjusted if necessary) settings as before.
+
+As all important data is stored on volumes, nothing of value should be lost.
+
 ## Advanced usage
 
 All of the container management commands are subcommands of the `docker container` command.  
