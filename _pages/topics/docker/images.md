@@ -28,6 +28,9 @@ Status: Downloaded newer image for gitea/gitea:latest
 docker.io/gitea/gitea:latest
 ```
 
+With this command images are downloaded from a container registry.  
+When no container registry is given at the beginning of the name, it is downloaded from Docker Hub.
+
 ### Listing downloaded images
 
 Container images can take up quite some storage space.  
@@ -58,17 +61,17 @@ Deleted: sha256:4ef365e73bc587daa4164a00a5717708d767ede2b2500fa371b1dc9ff691758e
 
 Management of images are done with subcommands of the `docker image` command.
 
-### Identification
+### Identification of images
 
 Images are identified by their names and tags, or their "digests": `NAME[:TAG|@DIGEST]`.  
 Images can always be referred to in this format.
 
-Their name is a human readable name, usually the name of a project. They might contain different sections that are divided by `/` characters:  
+Their name is a human readable name, usually the name of a software. They might contain different sections that are divided by `/` characters:  
 - When obtained from a container registry, the name will also include the user or organization that publishes it (e.g. `gitea/gitea`).  
 - Names might also contain the container registry from where they were downloaded (e.g. `lscr.io/linuxserver/wireguard`).
 
 Tags are used to differentiate between different flavors of the image, based on version number, release type (release, development, nightly), base linux distribution, or others.  
-The `latest` tag frequently points to the last uploaded container image, which might be a nightly release when you just wanted the latest stable one, so its use is generally discouraged.  
+When no tags are specified, `latest` is used, which frequently points to the last uploaded container image, which might be a nightly release when you just wanted the latest stable one, so its use is generally discouraged.  
 A specific NAME:TAG pair might still have further image variants when different images are built for different "platforms" (CPU architectures).
 
 The digest is the checksum (usually SHA256) of (the top layer of) a container image.
@@ -94,5 +97,5 @@ Then you can use `docker image push <image>` to start the upload process.
 ### Creating images
 
 You can also create container images, and for that you have 2 options:
-- with the build process using Dockerfiles (the proper way)
+- with the build process using `Dockerfile`s (the proper way)
 - by snapshotting a container, thus preserving its current state in a new immutable layer

@@ -28,7 +28,7 @@ Of course you can make additional networks, for which you will primarily use the
 
 Management of Docker networks are done with subcommands of the `docker network` command. These are also documented [here](https://docs.docker.com/engine/reference/commandline/network/).
 
-Below you will find a brief summary of the network management commands, but you may also read the official tutorial about using bridge networks [here](https://docs.docker.com/network/network-tutorial-standalone/).
+Below you will find a brief summary of the common network management commands, but you may also read the official tutorial about utilizing bridge networks [here](https://docs.docker.com/network/network-tutorial-standalone/).
 
 ### Listing networks
 
@@ -54,26 +54,26 @@ You can create a network with the `docker network create [options] <name>` comma
 docker network create my_network
 ```
 
-Useful parameters:
+Useful options:
 
 |Option|Meaning|
 |---|---|
 |-d \<driver name>, --driver \<driver name>|Specify the network driver to use|
-|--internal|The network will not provide access to the Host's LAN and to the internet|
+|--internal|The network will not be interconnected with other networks|
 
 ### Modifying networks
 
-Modification of networks is not possible. If you changed your mind about the confgiuration of a network, you will need to delete and recreate it.
+Modification of networks is not possible. If you changed your mind about the configuration of a network, you will need to delete and recreate it.
 
 ### Deleting networks
 
-You can delete a network with the `docker network rm <network name>` command.
-Before you delete the network, you will need to disconnect all containers from it, either with stopping them, or by using `docker network disconnect <network name> <container name or id>`.
+You can delete a network with the `docker network rm <network>` command.
+Before you delete the network, you will need to disconnect all containers from it, either with stopping them, or by using `docker network disconnect <network> <container>`.
 
 ### Advanced network management commands
 
 It is possible to manage the network connections of containers while they are running.  
-You can use the `docker network connect <network name> <container name or id>` and `docker network disconnect <network name> <container name or id>` command for that.
+You can use the `docker network connect <network> <container>` and `docker network disconnect <network> <container>` command for that.
 
 For finding out about the current state and configuration of a network, you can use the `docker network inspect <network name>` command.  
 This may be useful for debugging a network problem.
