@@ -63,6 +63,42 @@ You can read about them on this [page](docker/volumes.md).
 
 ## Configuration
 
+Dockers configuration can be divided into 3 pieces:
+- configuration of individual docker resources
+- docker daemon configuration
+- docker CLI configuration
+
+The configuration of individual docker resources were covered in pages referenced from the usage section.
+
+### Docker daemon configuration
+
+The Docker daemon is the background process that controls the containers and all other Docker resources.  
+It is usually [automatically started](https://docs.docker.com/config/daemon/start/) by the system, and runs until it is shut down.
+
+The primary way of its configuration is by editing the `daemon.json` file.  
+On Linux systems, it is located at `/etc/docker/daemon.json`.  
+On Windows systems, it is located at `C:\ProgramData\docker\config\daemon.json`.
+
+The available configuration options are documented [here](https://docs.docker.com/engine/reference/commandline/dockerd/).
+
+There are 2 notable configuration options, both of which override default configuration values of containers:
+
+|Option|Meaning|
+|---|---|
+|dns|Use a different set of DNS servers by default for every container. Useful if you run a DNS server on the Host, possibly as a Docker container, and you want Docker to be able to make use of locally defined domain names.|
+|log-driver|Use a different log storage driver by default for every container. The [default `json-file` driver](https://docs.docker.com/config/containers/logging/json-file/) might be inefficient (large files) for chatty containers, compared to the [`local` driver](https://docs.docker.com/config/containers/logging/local/).|
+
+### Docker CLI configuration
+
+Docker CLI is the name of the `docker` command.
+
+#### Contexts
+
+[Contexts](https://docs.docker.com/engine/context/working-with-contexts/) allow Docker CLI to be used to control a different Docker Daemon than the default one.  
+This is useful if you [run multiple Docker Daemons](https://docs.docker.com/engine/reference/commandline/dockerd/#run-multiple-daemons),
+when you run it in [rootless mode](https://docs.docker.com/engine/security/rootless/),
+or if you want to [control a remote Daemon](https://docs.docker.com/config/daemon/remote-access/) without the use of SSH.
+
 ## Advanced Usage
 
 note on privileges: you dont have to be root. docker contexts.
