@@ -53,7 +53,7 @@ Example volume specification with the "volume" syntax:
 The "mount" syntax may be easier to understand, but it is much longer.  
 It consists of comma separated key-value pairs.
 Keys are `source`, `destination`, `type`, `readonly` and `volume-opt`, several of which has a shortened version.  
-`volume-opt` makes it possible to select a storage driver and pass configuration options to it. 
+`volume-opt` makes it possible to pass configuration options to the selected volume driver. 
 
 Example volume specification wih the "mount" syntax:
 
@@ -90,25 +90,35 @@ Warning! All data will be lost!
 
 ## Volume drivers
 
-Detailed documentation on all official storage drivers can be found [here](https://docs.docker.com/storage/storagedriver/).
+The driver of a volume and its parameters can be only set at creation, they cannot be changed later.  
+Volume driver specific parameters can be specified with the `volume-opts` key of the "mount" syntax.
 
-### `local`
-This driver will use the capabilities of the system for finding a place for the volume's contents. The specifics can be configured in driver options, which for this driver are documented [here](https://docs.docker.com/engine/reference/commandline/volume_create/#opt).
+Detailed use of volume drivers are documented [here](https://docs.docker.com/storage/volumes/#use-a-volume-driver).
 
-On Windows, driver options are not supported, and volume data can only be stored on mounted filesystems.
+### The `local` driver
+This driver will use the capabilities of the Host system for finding a place for the volume's contents.  
+The specifics can be configured in driver options, 
+which for this driver are documented [here](https://docs.docker.com/engine/reference/commandline/volume_create/#opt).
 
-On Linux based Host systems, the parameterization is similar to the `mount` command.  
-The parameters will be handed over to the `mount` command, which means anything can be used that has a mount wrapper installed.  
+On Windows, driver options are not supported, and volume data can only be stored on already mounted filesystems.
+
+On Linux based Host systems, the parameterization is similar to using the `mount` command.  
+The parameters will be handed over to the `mount` command, which means any type of filesystem can be used that has a mount wrapper installed.  
 The following parameters are used:
 
 |Parameter|Meaning|
 |---|---|
-|device|File path of block device on which filesystem is stored for local filesystems, or other. See the section "Indicating the device and filesystem" in the man page of the `mount` utility for details|
-|type|Type of filesystem. Search for `--types` in the man page of the `mount` utility for details|
+|device|Location of backing data. Usually path of a block device in case of local filesystems. See the section "Indicating the device and filesystem" in the man page of the `mount` utility for details|
+|type|Type of filesystem. See the documentation of `--types` in the man page of the `mount` utility for details|
 |o|Comma separated list of mount options. See the documentation of `--options` in the man page of the `mount` utility for details|
 
-[comment]: <> (This driver will store files of the volume in their original form on the local filesystem inside Docker's technical directory, usually `/var/lib/docker/volumes`.)
+On configuration of the `local` driver on Linux systems further explanation can be read [here](https://docs.docker.com/storage/volumes/#block-storage-devices).
+Note that the page mentions specifically "block devices", but actually it is relevant independently to the kind of filesystem you use.
 
+Note: it is possible to create named volumes that also work like a bind mount.  
+To achieve that, you will need to use the `volume-opt=type=none` and `volume-opt=o=bind` parameters, and also specifiy a bind destination with `volume-opt=device=...`.  
+Example: `--mount "type=volume,source=myapp_data,destination=/var/lib/myapp,volume-opt=type=none,volume-opt=o=bind,volume-opt=device=/srv/myapp/data"`.  
+It is important to note that the volume data will not be stored at the bound location, it is merely _available_ at that path. Data is stored at the original location, and takes up storage space there, which is unchanged from conventional named volumes.
 
 ### 3rd party drivers
 
