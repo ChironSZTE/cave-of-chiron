@@ -24,34 +24,42 @@ If someone has made one for the software you want to use, you can download and u
 
 ## Installation
 
-[install.md](docker/install.md)
+You can find information about installating Docker [on this page](docker/install.md).
 
 ## Usage
 
 When using Docker, frequently you will deal with containers, and the resources used by them.  
-When you use Docker Engine (but should apply to Docker Desktop too), you'll manage these through the `docker` command and its subcommands.
+When you use Docker Engine (but should apply to Docker Desktop too), you'll be able to manage these through the `docker` command and its subcommands.
 
 When giving examples to commands, I may use `[foo]` and `<bar>`. These mean that `foo` is an optional parameter, but `bar` is mandatory.
 
-For the sake of simplicity, I may not list every option that is available for a command. The full list of subcommands and options can be obtained with using the `--help` option for any command.
+Almost all docker commands have options for modifying their behavior,
+but for the sake of simplicity, I may not list every one of them.
+The full list of subcommands and options can be obtained with using the `--help` option for any command.
 
 You may have to run the `docker` command with administrator privileges.
 
 ### Containers
 
-[containers.md](docker/containers.md)
+Containers are the objects that run your software, and store its mutable state.  
+You can read about them [on this page](docker/containers.md).
 
 ### Images
 
-[images.md](docker/images.md)
+Images are the objects that store the immutable parts of your containers. It is not uncommon that images, or at least a part of them are shared between multiple containers.
+You can read about them on this [page](docker/images.md).
 
 ### Networks
 
-[networks.md](docker/networks.md)
+Containers are normally totally isolated from your Host system, but you can give them access to resources of it.  
+You can use Docker Networks to define what kind of networks they have access to, be it the Host's LAN (with even internet access through it) or a small network only accessible by a select few containers.  
+You can read about them on this [page](docker/networks.md).
 
 ### Volumes
 
-[volumes.md](docker/volumes.md)
+Similarly to Docker Networks, volumes give access to filesystems of the Host system, or possibly only parts of it.  
+Volumes are also commonly used for storing data that should not be forgot when replacing your container with a newer version.
+You can read about them on this [page](docker/volumes.md).
 
 ## Configuration
 
