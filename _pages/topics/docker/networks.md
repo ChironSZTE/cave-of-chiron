@@ -22,6 +22,8 @@ Docker networks work differently based on what network driver they use. They are
  
 By default, every new container is connected to the "bridge" network.
 
+Of course you can make additional networks, for which you will primarily use the `bridge` driver.
+
 ## Managing networks
 
 Management of Docker networks are done with subcommands of the `docker network` command. These are also documented [here](https://docs.docker.com/engine/reference/commandline/network/).
@@ -73,5 +75,5 @@ Before you delete the network, you will need to disconnect all containers from i
 It is possible to manage the network connections of containers while they are running.  
 You can use the `docker network connect <network name> <container name or id>` and `docker network disconnect <network name> <container name or id>` command for that.
 
-For printing the current state and configuration of a network, you can use the `docker network inspect <network name>` command.  
+For finding out about the current state and configuration of a network, you can use the `docker network inspect <network name>` command.  
 This may be useful for debugging a network problem.
