@@ -1,63 +1,25 @@
 # Docker Containers
 
+Containers facilitate running your software isolated from your Host system, and also from other containers.  
+They also store a reference to the container image from which they were instantiated,
+and all of the files and container configuration that were changed compared to the image.
+
 ## Basic Usage
 
-## Advanced usage
-<további részletek, you can read more here: dokum,hi8vatalos dokumentáció>
+### Running a new container
 
-## Example
+Likely the most frequent task you will do with containers is starting them from an image file.  
+You do that with the `docker run [options] <image>` command.  
+If the image to be used have not been downloaded beforehand, the command will automatically do so.
 
-Below is an example run of the command.
-It can be seen that Docker first downloaded the image layer-by-layer, then started the web service inside it after "Status: Downloaded newer image for gitea/gitea:latest".
-```
-$ sudo docker run gitea/gitea
-Unable to find image 'gitea/gitea:latest' locally
-latest: Pulling from gitea/gitea
-ef5531b6e74e: Pull complete 
-ab8bb6fd5d53: Pull complete 
-e24dd90f528a: Pull complete 
-1c9e4370e57b: Pull complete 
-4b30b17675f2: Pull complete 
-9b32fd3f7863: Pull complete 
-bdf38634abf8: Pull complete 
-83d2e7692aa6: Pull complete 
-Digest: sha256:4c54a18fc46fe81b6f1400e3b03f187952de50ff464f199bba1215b71881475f
-Status: Downloaded newer image for gitea/gitea:latest
-Generating /data/ssh/ssh_host_ed25519_key...
-Generating /data/ssh/ssh_host_rsa_key...
-Generating /data/ssh/ssh_host_dsa_key...
-Generating /data/ssh/ssh_host_ecdsa_key...
-Server listening on :: port 22.
-Server listening on 0.0.0.0 port 22.
-2023/03/17 17:22:53 cmd/web.go:106:runWeb() [I] Starting Gitea on PID: 17
-2023/03/17 17:22:53 ...s/install/setting.go:21:PreloadSettings() [I] AppPath: /usr/local/bin/gitea
-2023/03/17 17:22:53 ...s/install/setting.go:22:PreloadSettings() [I] AppWorkPath: /app/gitea
-2023/03/17 17:22:53 ...s/install/setting.go:23:PreloadSettings() [I] Custom path: /data/gitea
-2023/03/17 17:22:53 ...s/install/setting.go:24:PreloadSettings() [I] Log path: /data/gitea/log
-2023/03/17 17:22:53 ...s/install/setting.go:25:PreloadSettings() [I] Configuration file: /data/gitea/conf/app.ini
-2023/03/17 17:22:53 ...s/install/setting.go:26:PreloadSettings() [I] Prepare to run install page
-2023/03/17 17:22:53 ...s/install/setting.go:29:PreloadSettings() [I] SQLite3 is supported
-2023/03/17 17:22:54 cmd/web.go:220:listen() [I] [6414a1ee] Listen: http://0.0.0.0:3000
-2023/03/17 17:22:54 cmd/web.go:224:listen() [I] [6414a1ee] AppURL(ROOT_URL): http://localhost:3000/
-2023/03/17 17:22:54 ...s/graceful/server.go:62:NewServer() [I] [6414a1ee] Starting new Web server: tcp:0.0.0.0:3000 on PID: 17
-```
+This **always** creates a **new** container from the specified image file, and start a predefined program in it. The program to be started, its arguments and other configuration can be overridden with options.  
+When the `--detached` option is not used, the container will run in the terminal where it was started, until it exits by itself or is requested to do so.
+In this case it can be stopped by pressing `Ctrl+C`. If you press it twice, Docker will not wait for the container to gracefully stop, instead it will kill it immediately, which might result in data corruption.
 
----
+Be aware that by default containers are not deleted when stopped.  
+That means, if you always create a new container this way, it might slowly fill up your storage space.
 
-#### Creation
-
-When you want to create a new container, you do it by executing the `docker [options] run <image>` command.
-Options are optional, the image specification is mandatory.
-I'll explain "images" and their identification soon.
-
-If you ran an image for the first time, Docker will first download it automatically for you (by default from the [Docker Hub](https://hub.docker.com) container registry).  
-When the download has finished, or if the image was already downloaded, the container will be started, and the software running in it will do its work, whether it is a one-off script (a utility for e.g. file conversion), or a network service (e.g. a website).
-
-The container runs until the main process inside it exits, or you stop it by pressing `Ctrl+C`. When that happens, you will see the exit code printed in the terminal.
-
-The above command also accepts options that modify the behavior of it.
-Some of the more useful are the following.
-You needn't memorize them right away, you can always come back when you remember one of them might be useful for you.
+Below are some useful options. You don't need to memorize them, you can always come back when you need one, but it is recommended to at least skim through what is available.
 
 |Option|Meaning|  
 |---|---|
@@ -72,8 +34,60 @@ You needn't memorize them right away, you can always come back when you remember
 |-t, --tty|Allocate a virtual terminal. Frequently used with `-i`|
 |--help|Lists all available options, including those that were not listed here|
 
+### Listing existing containers
 
+If you have already created containers, you may list them with the `docker container ls --all` command. The `--all` argument makes sure that containers that are currently not running are also listed.
 
-#### Stopping and restarting
+```
+$ sudo docker container ls --all
+[sudo] password for apophis:
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED       STATUS                   PORTS                                                                      NAMES
+81af1462f96d   local/gitea/gitea:1.18.3              "/usr/bin/dumb-init …"   6 days ago    Up 6 days                2222/tcp, 3000/tcp                                                         gitea
+e407f84e1272   ghcr.io/linuxserver/mariadb:10.6.12   "/init"                  6 days ago    Up 6 days                3306/tcp                                                                   gitea_db_1
+1f7a0e4bb6ce   ghcr.io/linuxserver/mariadb:10.6.12   "/init"                  6 days ago    Up 6 days                3306/tcp                                                                   vikunja_db_1
+d8a4f03849d4   ghcr.io/linuxserver/wireguard         "/init"                  2 weeks ago   Up 12 days               192.168.56.2:51820->51820/udp                                              wireguard
+499a616c9e9a   traefik:v2.4                          "/entrypoint.sh trae…"   3 weeks ago   Up 12 days               0.0.0.0:80->80/tcp, :::80->80/tcp, 0.0.0.0:443->443/tcp, :::443->443/tcp   traefik
+1e1617582ae8   pihole/pihole:2022.10                 "/s6-init"               3 weeks ago   Up 12 days (healthy)     192.168.56.2:53->53/tcp, 192.168.56.2:53->53/udp, 67/udp, 80/tcp           pihole
+[...]
+```
 
-#### Deletion
+Containers can be identified 2 ways in docker commands:
+- by their container ID (e.g. `81af1462f96d`)
+- by their name (e.g. `gitea`)
+
+It is common for container names to indicate the software they are running.
+
+### Starting and stopping an existing container
+
+If you have already created a container, and you want to reuse it, you can start it with the `docker container start <container>` command, where you have to provide the name or ID of the container to be started.
+
+You can stop a running container with the `docker container stop <container>` command.  
+When stopping a container, its filesystem and configuration is kept.
+
+Containers are attached to the images from which they were instantiated.
+If the image file to be used has been changed, you will have to create a new container from the new image file.
+
+### Deleting containers
+
+If you don't need a container anymore, you can delete it with the `docker container rm [options] <container>` command.  
+For deleting a running container, you will need to use the `--force` option.  
+For deleting all anonymous volumes of a container, you will need to use the `--volumes` option. This is recommended to use when you really don't need the container anymore.
+
+## Advanced usage
+
+All of the container management commands are found as subcommands of the `docker container` command.  
+They can be listed by running `docker container --help`, but below I have made a list of the more useful ones:
+
+|Subcommand|Meaning|
+|---|---|
+|start|Starts an existing container. For details see above|
+|stop|Stops a running container. For details see above|
+|restart|Restarts a running container in one step|
+|ls|Lists running/existing containers. For details see above|
+|exec|Execute a command in a running container. Commonly used with the `-it` options|
+|logs|Read logs printed by the main process of the container|
+|rename|Rename the container|
+|commit|Create a new container image from the current state of the container|
+
+All of the subcommands will print their detailed usage and available options when run with the `--help` option.
+All of them are also documented in detail [here](https://docs.docker.com/engine/reference/commandline/container/).
