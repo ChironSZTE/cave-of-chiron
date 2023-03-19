@@ -1,4 +1,7 @@
-# Docker Networks
+---
+title: Docker Networks
+tag: Docker
+---
 
 Use of Docker networks are required for containers that need any kind of network access.  
 They appear in the Host system as network interfaces, but containers only see the the networks to which they are connected.
