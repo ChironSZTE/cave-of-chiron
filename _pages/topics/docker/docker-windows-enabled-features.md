@@ -1,4 +1,7 @@
-# Enabling Windows features required by Docker
+---
+title: Enabling Windows features required by Docker
+tag: Docker
+---
 
 Docker, when ran on Windows, requires enabling the features corresponding to the virtualization backend to be used.  
 If you are using Linux, you don't have to do anything similar, as virtualization does not happen there.

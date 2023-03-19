@@ -1,4 +1,7 @@
-# Installation
+---
+title: Installation
+tag: Docker
+---
 
 Docker has 2 editions you can choose from when installing:
 - [Docker Engine](https://docs.docker.com/engine/): The main part of Docker, manageable from the command line (recommended)
