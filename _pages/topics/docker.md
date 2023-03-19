@@ -102,3 +102,60 @@ Docker CLI is the name of the `docker` command.
 This is useful if you [run multiple Docker Daemons](https://docs.docker.com/engine/reference/commandline/dockerd/#run-multiple-daemons),
 when you run it in [rootless mode](https://docs.docker.com/engine/security/rootless/),
 or if you want to [control a remote Daemon](https://docs.docker.com/config/daemon/remote-access/) without the use of SSH.
+
+## Maintenance
+
+### Updating docker
+
+Docker usually runs with root privileges, and it can also easily become part of critical infrastructure, thus it is important to install updates to it.
+Fortunately it rarely introduces breaking changes, so updating it regularly shouldn't cause trouble.
+
+Deprecations and known breaking changes are published [on this page](https://docs.docker.com/engine/breaking_changes/).
+
+### Freeing up unused resources
+
+Over time, you may accumulate resources that are no longer needed, but consume significant amounts of storage space.  
+The space consumed by these resources can be viewed by running the `docker system df` command:
+```
+sudo docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          11        11        1.453GB   406.9MB (28%)
+Containers      12        12        47.98MB   0B (0%)
+Local Volumes   1         0         0B        0B
+Build Cache     0         0         0B        0B
+```
+
+You can go over the list of images, containers and volumes and delete what is not needed anymore,
+or you can ask Docker to delete what is not currently in use with the `docker system prune` command.
+You may refine its operation by using the options it provides.
+
+### Useful maintenance tools
+
+Docker is a popular containerization platform, and it has many 3rd party tools that may be used for its management.
+
+One such example is [Portainer](https://www.portainer.io/docker-swarm-container-management-platform-gui), that allows the management of your Docker resources through your web browser.  
+It also supports management of other containerization environments, like Podman, Kubernetes, and Nomad.
+
+Some highlights:
+
+|Container list|Image list|Container details|
+|---|---|---|
+|![Container list menu of Portainer.png](../../assets/images/portainer-containers.png)|![Image list menu of Portainer](../../assets/images/portainer-images.png)|![img.png](../../assets/images/portainer-container-details.png)|
+
+
+## Similar software
+
+### Podman
+
+A similar containerization platform to Docker is [Podman](https://docs.podman.io/en/latest/).
+
+Some of its advantages include:
+- rootless by default
+  - regular (non-privileged) users can use it without compromising on features
+  - less impactful security vulnerabilities
+- daemonless
+  - container processes run by themselves
+  - lighter resource usage
+  - no background process with escalated privileges required
+- Docker-like workflow and usage
+- Uses OCI containers: compatible with Docker
