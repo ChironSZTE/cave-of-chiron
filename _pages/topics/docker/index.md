@@ -28,7 +28,7 @@ If someone has made one for the software you want to use, you can download and u
 
 ## Installation
 
-You can find information about installating Docker [on this page](docker/install.md).
+You can find information about installating Docker [on this page](install.md).
 
 ## Usage
 
@@ -46,24 +46,24 @@ You may have to run the `docker` command with administrator privileges.
 ### Containers
 
 Containers are the objects that run your software, and store its mutable state.  
-You can read about them [on this page](docker/containers.md).
+You can read about them [on this page](containers.md).
 
 ### Images
 
 Images are the objects that store the immutable parts of your containers. It is not uncommon that images, or at least a part of them are shared between multiple containers.
-You can read about them [on this page](docker/images.md).
+You can read about them [on this page](images.md).
 
 ### Networks
 
 Containers are normally isolated from your Host system, but you can give them access to resources accessible to it.  
 You can use Docker Networks to define what kind of networks they have access to, be it the Host's LAN (with even internet access through it) or a small network only accessible by a select few containers.  
-You can read about them [on this page](docker/networks.md).
+You can read about them [on this page](networks.md).
 
 ### Volumes
 
 Similarly to Docker Networks, volumes give access to filesystems of the Host system, or possibly only parts of it.  
 Volumes are also commonly used for storing data that should not be forgotten when replacing your container with a newer version.
-You can read about them [on this page](docker/volumes.md).
+You can read about them [on this page](volumes.md).
 
 ## Configuration
 
@@ -140,7 +140,7 @@ Some highlights:
 
 |Container list|Image list|Container details|
 |---|---|---|
-|![Container list menu of Portainer.png](../../assets/images/portainer-containers.png)|![Image list menu of Portainer](../../assets/images/portainer-images.png)|![img.png](../../assets/images/portainer-container-details.png)|
+|![Container list menu of Portainer.png](../../../assets/images/portainer-containers.png)|![Image list menu of Portainer](../../../assets/images/portainer-images.png)|![img.png](../../../assets/images/portainer-container-details.png)|
 
 
 ## Similar software
