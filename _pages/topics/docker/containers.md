@@ -30,7 +30,8 @@ Below are some useful options. You don't need to memorize them, you can always c
 |--network|Attach the container to a preexisting Docker network by its name|
 |-p, --publish|Bind networks ports of the container to the Host's network interfaces (all of them), so that they are accessible from the networks where the Host is accessible|
 |--volume|Attach the specified Docker storage volumes to this container|
-|-e \<envvar list>, --env \<envvar list>|Run with the given environment variables|
+|--restart|Whether to automatically restart the container at certain conditions (shutdown, error, system reboot, etc)|
+|-e --env|Run with the given environment variables|
 |-i, --interactive|Keep STDIN stream open, so that the software running in the container can be controlled through it. Frequently used with `-t` for making it accessible from a terminal|
 |-t, --tty|Allocate a virtual terminal. Frequently used with `-i`|
 |--help|Lists all available options, including those that were not listed here|
