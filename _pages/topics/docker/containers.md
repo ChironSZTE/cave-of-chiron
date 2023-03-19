@@ -3,7 +3,7 @@ title: Docker Containers
 tag: Docker
 ---
 
-Containers facilitate running your software isolated from your Host system, and also from other containers.  
+Containers are the objects that run your software, isolated from the system and other containers, and store its mutable state.  
 They also store a reference to the container image from which they were instantiated,
 and all of the files and container configuration that were changed compared to the image.
 
