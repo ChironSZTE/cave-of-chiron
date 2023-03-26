@@ -77,7 +77,7 @@ Le tudjuk kérdezni az aktuális kernelt az `uname -r` parancs segítségével.
 
 A beállítások között más opciókat is lehet állítani, mint például Proxy-t, vagy a megjelenítési témát. Ezek átállítása személyes preferencia (és szükség szerint) változtatható.
 
-## Előkészületek a virtualizációhoz
+## Előkészületek a virtualizációhoz (Opcionális)
 
 ### Virtuális médiák kezelése
 Minden virtuális gépnek - éppúgy, mint a fizikai gépeknek - szüksége van valamilyen bootolható tárolóeszközre. Általánosságban a booteszköz lehet hordozható CD vagy DVD vagy USB eszköz (esetleg Floppy), illetve a rögzített SSD vagy HDD (pontosabban annak boot partíciója). Ezen eszközök létrehozhatóak a virtuális gép létrehozásakor, vagy önmagukban is. Ebben a részben az utóbbival fogunk foglalkozni.
@@ -88,8 +88,8 @@ Minden virtuális gépnek - éppúgy, mint a fizikai gépeknek - szüksége van 
     - A "Create" lehetőséggel létrehozható új virtuális eszköz (a lejjebb kiválasztott típusból).
 ![Virtuális médiakezelő lapja](screenshots/VirtualBox_Medialap.png)
 
-### Virtuális merevlemez készítése
-1. Kerüljünk a Virtual Media Manager ablaktáblára (lásd.: Virtuális médiák kezelése).
+### Új virtuális merevlemez készítése
+1. Navigáljunk a Virtual Media Manager ablaktáblára (lásd.: Virtuális médiák kezelése).
 2. Válasszuk ki a "Hard disks" fület
 3. Kattintsunk a "Create" gombra.
 4. A megjelenő ablakban válasszunk egy lemeztípust, majd kattintsunk a "Next" feliratú gombra.
@@ -103,5 +103,71 @@ Minden virtuális gépnek - éppúgy, mint a fizikai gépeknek - szüksége van 
 7. Az ablak bezárulta után látható, hogy a merevlemezünk megjelent a listán, és a műveleti lehetőségeink is kibővültek az ablaktábla felső részén.
 ![Ablaktábla az új virtuális merevlemezünkkel](screenshots/VirtualBox_CreateVHardDisk_3.png)
 
-### Virtuális optikai lemez (CD vagy DVD) készítése ISO lemezképfájlból.
+### Meglévő lemezképfájl hozzáadása az virtuális optikai lemeztárolóhoz.
+1. Navigáljunk a Virtual Media Manager ablaktáblára (lásd.: Virtuális médiák kezelése).
+2. Válasszuk ki az "Optical disks" fület
+3. Kattintsunk az "Add" gombra.
+4. Tallózzuk ki a lemezképfájlunkat.
+5. Nyissuk meg a kiválasztott lemezképfájlt.
+Ezzel hozzáadtuk a virtuális optikai lemezképtárolónkhoz a lemezképet. Innentől használhatjuk telepítésre, bootolásra, vagy egyéb használati esetre a lemezképfájlunkat, mintha csak fizikai lemezt helyeznénk fizikai gépbe.
+
+Nemcsak telepítőmédiákról készült lemezképeket, hanem hagyományos (képeket, zenét, stb.) tartalmazó lemezképfájlokat is csatolhatunk leendő virtuális gépünkhöz, de a leggyakoribb használati eset a bootolható telepítőmédia felcsatolása.
+{: .notice--primary}
+
+## Virtuális gépek létrehozása, beállítása.
+Ha felkészültnek érezzük magunkat, hogy elkezdjünk virtuális gépekkel foglalkozni, az első lépés, hogy elkészítsük a virtuális gépünket, majd beállítsuk a folyamatos használatra.
+### Virtuális gépek létrehozása.
+1. Nyissuk meg az Oracle VirtualBox Managert.
+2. A megjelenő üdvözlőképernyőn kattintsunk a "New" feliratú gombra.
+![Kezdőképernyő, "New" feliratú gomb bekeretezve](screenshots/VirtualBox_NEWMACHINE_1.png)
+3. A megjelent ablakban megadhajuk a virtuális gép alapadatait, mint
+    - a virtuális gép nevét
+    - a mappát, ahol tárolni szeretnénk a virtuális géphez tartozó fájlokat
+    - az ISO képfájlt
+    - a gép típusát (ez a későbbiekben az erőforrások kezdőbeállításait fogja befolyásolni)
+    - az operációs rendszer verzióját (ez szintén a kezdőértékeket befolyásolja)
+![Kezdőképernyő, ahol beállítható a virtuális gép egyes paraméterei](screenshots/VirtualBox_NEWMACHINE_2.png)
+4. Ha beállítottuk tetszés szerint az értékeket, kattintsunk a "Next" feliratú gombra.
+5. A megjelenő ablakban beállíthatjuk a memória mennyiségét, és a processzorok számát (magok számát). Ugyanitt beállítható UEFI is BIOS helyett.
+![Memória, processzor, uefi beállítása](screenshots/VirtualBox_NEWMACHINE_3.png)
+6. Ha beállítottuk tetszés szerint az értékeket, kattintsunk a "Next" feliratú gombra.
+7. A megjelenő ablakban készíthetünk virtuális merevlemezt (kék keret), felhasználhatunk egy, a már médiakezelőnkben lévő virtuális merevlemezt (narancssárga keret), vagy ki is hagyhatjuk teljesen a merevlemez lépést (zöld keret).
+![Merevlemez készítése, hozzárendelése, kihagyása](screenshots/VirtualBox_NEWMACHINE_4.png)
+8. Ha beállítottuk tetszés szerint az értékeket, kattintsunk a "Next" feliratú gombra.
+9. Végül megtekinthetjük az összegzést. Ha mindent rendben találtunk, kattintsunk a "Finish" feliratú gombra.
+![Összegzőfelület](screenshots/VirtualBox_NEWMACHINE_5.png)
+10. A befejezést követően az ablak bezáródik, és a kezelőfelületen megjelenik a virtuális gép indításra készen.
+![Kezelőfelület, az általunk létrehozott virtuális gép adataival, indításra készen.](screenshots/VirtualBox_NEWMACHINE_6.png)
+
+Windows esetén kérhettünk volna automata telepítést is. Ekkor a varázsló bekéri a leendő gép gépnevét, a felhasználó nevét és jelszavát, valamint lehetőségünk van termékkulcsot is megadni
+{: .notice--info}
+
+Mind a Type, mind a Version csak tájékoztató jellegű. Például Windows XP-t beállítva is lehet Windows 10-et telepíteni, vagy Windowst beállítva Linuxot. Természetesen ajánlott jól beállítani, hogy a következő lépésekben ne kelljen sokat módosítani az alapértelmezett erőforrás értékeken.
+{: .notice--primary}
+
+### Virtuális gépek beállítása.
+Miközben létrehoztuk a gépünket, a legtöbb beállításon végigvezetett a varázsló. Vannak azonban olyan beállítások, melyeket csak utólag lehet beállítani, illetve minden eddig beállított opción is módosíthatunk, ha szükségét érezzük.
+1. Kattintsunk jobb egérgombbal a virtuális gépünkre a kezelőfelület bal oldalán, majd válasszuk a kontextus menüből a "Settings" opciót.
+![Beállítások kontextus-menüje](screenshots/VirtualBox_MACHINE-SETUP_1.png)
+2. Megjelent a beállítási ablak, mely kinézetre hasonlít a kezelőfelület beállítási ablakához.
+![Virtuális gép beállításai](screenshots/VirtualBox_MACHINE-SETUP_2.png)
+    - A General lapon lehet általános beállításokat tenni. Általában nincs szükség beállításokat módosítani itt.
+    - A System lapon lehet befolyásolni a memória- és processzor-erőforrások mennyiségét, a boot sorrendet, a chipsetet, a TPM modul verzióját, az egérmutató típusát, és még sok mást.
+    - A Display lapon lehet megjelenítési beállításokat (videó memória, grafikus vezérlő, 3D gyorsítás, stb.) eszközölni.
+    - A Storage lapon lehet további vezérlőket (SATA, IDE, SCSI, floppy, SAS, NVMe), illetve vezérlőkhöz további tárolóeszközöket hozzáadni, azok beállításait változtatni.
+    - Az Audio lapon beállítható a virtuális gépből jövő, illetve abba menő audiofolyam beállításai.
+    - A Network lapon hozzáadhatunk, illetve meglévő hálózati vezérlők beállításait módosíthatjuk.
+    - A Serial Ports lapon adhatunk soros portokat a virtuális géphez, illetve a soros portok beállításait módosíthatjuk.
+    - Az USB lapon hozzáadhatunk filterezést, illetve beállíthatjuk az USB vezérlő verzióját.
+    - A Shared Folders lapon hozzáadhatunk és kezelhetünk megosztott mappákat, hogy könnyebb legyen a gazdagép, és a virtuális gép között fájlokat mozgatni (kell a Guest Additions, hogy működjön a funkció)
+    - Az User Interface lapon beállíthatjuk hogy milyen elrendezésű, és eszköztárú ablakkal induljon a virtuális gép.
+A továbbiakban néhány fontosabb beállítást fogunk bemutatni a fent említett lapokból néhányon.
+
+#### A System lap fontosabb beállításai
+
+#### A Display lap fontosabb beállításai
+
+#### A Storage lap fontosabb beállításai
+
+#### A Network lap fontosabb beállításai
 
