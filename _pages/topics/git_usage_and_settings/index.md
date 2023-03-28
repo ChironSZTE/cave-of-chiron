@@ -148,10 +148,43 @@ Ezt többféleképpne teheti meg, és az alapértelmezett viselkedés konfigurá
   - `merge`: amikor a git megpróbálja összeolvasztani a változásokat (egy ilyen `merge commit` segítségével, aminek az összes többi commit-al ellentétben 2 szülő commit-ja van); amikor az automatikus összeolvasznás nem sierül, akkor egy `merge conflict`-ot kapunk, és a git az ütköző régiókba beleteszi mindkettő variációt, és nekünk kell feloldani a conflict-ot az egyik, másik vagy egy hibrid megoldás elkészítésével
 
 ## Tippek
-### git log
 ### git blame
+
+A `git blame <file név>` parancs-al menézhetjük, hogy abban a fileban egy adott sort ki módosított utoljára
+
 ### terminál kiegészítők
-### git diff
-### ssh-kulcsok
-### kulcscsomó használata
+
+Ha a terminálban vagyunk, sokszor nem egyértelmű, hogy az adott mappa amiben állunk, az egy git repo-e vagy nem, és ha igen akkor nem tudunk róla semmit
+
+Erre van számos shell-hez (`bash`, `zsh`, `fish`) vannak kiegészítők, hogy hasznos információkat automatikusan megjelenítsenek a shell promt-ban
+
+A git-el alapból kapunk egy alap promt kiegészítőt bash-hez, ezt csak be kell kapcsolni; több infó a [git dokumentációban (https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Bash)](https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Bash)
+
+Ezek általában a git repo állapotát tartalmazzák: jelenlegi branch, módosított fileok száma, nem feltöltött commitok száma, és hasonlók
+
+### Automatikus autentikáció
+
+Alapból ha valahonnan `clone`-oltuk a repo-t, akkor ha oda fel akarjuk tölteni a változtatásainkat, akkor valamien módon autentikálni kell magunkat, hogy biztosan van-e jogunk oda feltölteni
+
+Ez az esetek nagyrészében email-jelszó párossal tehetjük meg, de ha ezt használjuk, akkor minden push és pull előtt autentikálni kell megunkat.
+
+Ez megkerülhető ssh-kulcsok használatával, vagy a jelszavak megjegyezhetők a rendszer kulcscsomójára
+
+#### ssh-kulcsok
+
+Ehhez generálnunk kell magunknak egy public/private kulcspárt, és a publikus kulcsot fel kell vinni a távoli szerverre, és a megfelelő repo-ban a remote-ot át kell állítani az ssh-t használó url-re (amik általában a `git@github.com:ChironSZTE/cave-of-chiron.git` féle mintát követik)
+
+Részletes dokumentációk elérhetőek [github-hoz (https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) és [gitlab-hoz (https://docs.gitlab.com/ee/user/ssh.html)](https://docs.gitlab.com/ee/user/ssh.html) is
+
+#### kulcscsomó használata
+
+Ha az adott távoli git szerver ezt nem támogatná, vagy a 22-es ssh port zárva van, vagy nincs kedvünk kulcsokat generálni, akokr az eddig használ felhasználónév-jelszó párost elmenthetjük a rendszer kulcscsomójára
+
+számos linux distro-n elérhető több `libsecret`-et használó megoldás, a két legnépszerűbb a `gnome-keyring` (a hozzá tartozó GUI a `seahorse` néven elérhető) és a `kde-wallet` (bármely kde desktop-al alapból telepítve van, GUI-val együtt)
+
+Ahhoz hogy ezt használhassuk, csupán a git plugint kell bekapcsolni: 
+```shell
+git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
+```
+több részlet a [Gnome keyring arch wiki (https://wiki.archlinux.org/title/GNOME/Keyring#Git_integration)](https://wiki.archlinux.org/title/GNOME/Keyring#Git_integration) oldalán olvasható
 
