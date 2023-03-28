@@ -1,5 +1,8 @@
 ### IntelliJ IDEA IDE Community Edition Telepítése és beállítása, Hatékony használata tesztelés közben
 
+#### Rendszerkövetelmények: 
+![image](screenshots/image7.png)
+
 #### Telepítés
 #### Hivatalos leírás: [link](https://www.jetbrains.com/help/idea/installation-guide.html)
 1. telepítő letöltése: [link](https://www.jetbrains.com/idea/download/#section=windows)
