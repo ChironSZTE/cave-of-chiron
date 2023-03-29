@@ -50,7 +50,7 @@ Ha rezolváltad a conflict-ot, akkor `git add <conflict-oló fileok>` majd `git 
 ## Alap konfigurációs opciók
 Két féle git konfigurációs lehetőség van: global és local
 
-A global az alapvetően minden git repo-ra érvényes azon a számítógépen
+A global az alapvetően minden git repo-ra érvényes azon a számítógépen.
 A local config-okkal ezek a global opciók felülírhatók projeckt-speicifikus értékekkel
 
 két féle config file-ban általában eltérő féle adatok vannak:
@@ -93,10 +93,10 @@ például egy local config:
     merge = refs/heads/20-git-usage-and-settings
 ```
 
-A git által használt szövegszerkeztő (amit alapból commit-oláskor nyit meg) az a `$EDITOR` környezeti változóval befolyásolható, vim alapértelmezés (ha ez a környezeti változó nem lenne beállítva)
+A git által használt szövegszerkeztő (amit alapból commit-oláskor nyit meg) az a `$EDITOR` környezeti változóval befolyásolható, `vim` az alapértelmezett (ha ez a környezeti változó nem lenne beállítva)
 
-A `.gitignore` file-al befolyásolható, hogy mely file-mintákat hadja figyelmen kívül a git, amikor az `untracked` fileokat vizsgálja (már tracked fileokat nem érint a gitignore)
-A file nagyon egyszerű, mindössze soronként egy mintát tartalmaz
+A `.gitignore` file-al befolyásolható, hogy mely file-mintákat hadja figyelmen kívül a git, amikor az `untracked` fileokat vizsgálja (már tracked fileokat nem érint a gitignore).
+A file nagyon egyszerű, mindössze soronként egy mintát tartalmaz.
 A mintákról részletesen a [git dokumentációban (https://git-scm.com/docs/gitignore)](https://git-scm.com/docs/gitignore) olvashatsz
 
 ## Git müködése
@@ -112,11 +112,11 @@ ezt a parancsot egy fileba is kiirányíthatjuk, és azt szerkezthetjük, és vi
 
 ### Branch-ek
 
-A branch-ek lehetővé teszik, hogy egyszerre több embel dolgozzon párhuzamosan, és ezek ne akadjanak össze, vagy ha mégis, akkor egy lépésben (merge) le lehet kezelni az esetleges conflict-okat, és nem kell minden commitnál ezzel bajlódni
+A branch-ek lehetővé teszik, hogy egyszerre több ember dolgozzon párhuzamosan, és ezek ne akadjanak össze, vagy ha mégis, akkor egy lépésben (merge) le lehet kezelni az esetleges conflict-okat, és nem kell minden commitnál ezzel bajlódni
 
 Egy új branch-et a `git branch <branch neve>` parancsal hozhatunk létre, ami alapból ott fog állni, ahol a parancs kiadásakor álltunk
 
-Ahhoz hogy ezen a branch-on bírjunk dolgozni, át kell rá váltani a `git switch <branch neve>` vagy `git checkout <branch nev>` parancsok egyikével
+Ahhoz hogy ezen a branch-on bírjunk dolgozni, át kell rá váltani a `git switch <branch neve>` vagy `git checkout <branch neve>` parancsok egyikével
 
 ### navigáció a history-ban
 
@@ -127,7 +127,7 @@ A `git log --oneline --graph` paraméterekkel egy tömörebb nézetet is kaphatu
 
 A `git switch <branch neve>` parancsal átválthatunk egy másik branch-re
 
-A `git checkout <branch neve, commit hash vagy címke>` parancsal átváltahatunk egy másik branch-re, vagy egy adott commit-ra (ez úgynezett detached HEAD módba rakja a repo-t, ahol csak körülnézni bírunk), vagy egy adott címkére (a HEAD az például egy címke, de lehet sajátokat létrehozni, ezt általában verziószámozásra szokták használni)
+A `git checkout <branch neve, commit hash vagy címke>` parancsal átváltahatunk egy másik branch-re, vagy egy adott commit-ra (ez úgynevezett detached HEAD módba rakja a repo-t, ahol csak körülnézni bírunk), vagy egy adott címkére (a HEAD az például egy címke, de lehet sajátokat létrehozni, ezt általában verziószámozásra szokták használni)
 
 
 ### bare repository-k
@@ -152,7 +152,7 @@ Ezt többféleképpne teheti meg, és az alapértelmezett viselkedés konfigurá
 
 A `git blame <file név>` parancs-al menézhetjük, hogy abban a fileban egy adott sort ki módosított utoljára
 
-### terminál kiegészítők
+### Terminál kiegészítők
 
 Ha a terminálban vagyunk, sokszor nem egyértelmű, hogy az adott mappa amiben állunk, az egy git repo-e vagy nem, és ha igen akkor nem tudunk róla semmit
 
@@ -168,7 +168,7 @@ Alapból ha valahonnan `clone`-oltuk a repo-t, akkor ha oda fel akarjuk tölteni
 
 Ez az esetek nagyrészében email-jelszó párossal tehetjük meg, de ha ezt használjuk, akkor minden push és pull előtt autentikálni kell megunkat.
 
-Ez megkerülhető ssh-kulcsok használatával, vagy a jelszavak megjegyezhetők a rendszer kulcscsomójára
+Ez megkerülhető ssh-kulcsok használatával, vagy a jelszavak megjegyeztethetők a rendszer kulcscsomójára
 
 #### ssh-kulcsok
 
@@ -178,7 +178,7 @@ Részletes dokumentációk elérhetőek [github-hoz (https://docs.github.com/en/
 
 #### kulcscsomó használata
 
-Ha az adott távoli git szerver ezt nem támogatná, vagy a 22-es ssh port zárva van, vagy nincs kedvünk kulcsokat generálni, akokr az eddig használ felhasználónév-jelszó párost elmenthetjük a rendszer kulcscsomójára
+Ha az adott távoli git szerver ezt nem támogatná, vagy a 22-es ssh port zárva van, vagy nincs kedvünk kulcsokat generálni, akkor az eddig használt felhasználónév-jelszó párost elmenthetjük a rendszer kulcscsomójára
 
 számos linux distro-n elérhető több `libsecret`-et használó megoldás, a két legnépszerűbb a `gnome-keyring` (a hozzá tartozó GUI a `seahorse` néven elérhető) és a `kde-wallet` (bármely kde desktop-al alapból telepítve van, GUI-val együtt)
 
@@ -186,5 +186,6 @@ Ahhoz hogy ezt használhassuk, csupán a git plugint kell bekapcsolni:
 ```shell
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 ```
+És amikor legközelebb autentikáljuk magunkat, akkor a git atuomatikusan elmenti a bejelentkezési adatokat, és a továbbiakban automatikusan felhasználja őket a kulcscsomóról;
 több részlet a [Gnome keyring arch wiki (https://wiki.archlinux.org/title/GNOME/Keyring#Git_integration)](https://wiki.archlinux.org/title/GNOME/Keyring#Git_integration) oldalán olvasható
 
