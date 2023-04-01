@@ -75,7 +75,7 @@ Ezután a telepítési folyamat befelyezése után indítsuk újra a számítóg
 
 A [telepítési útmutató](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview) elérhető az Ubuntu hivatalos oldalán is.
 
-# Telepítés virtuális gépre
+## Telepítés virtuális gépre
 
 Virtuális gépre való telepítés csupán annyiban különbözik, hogy a letöltött ISO fájlt "behelyezzük" a létrehozott virtuális gépünkbe, majd a követjük a fent leírt lépéseket.
 
