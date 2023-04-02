@@ -21,6 +21,9 @@ Rosszul írtad le a commitodat, vagy esetleg rossz változtatások kerültek bel
 ### Megoldás
 A `git commit --amend` lecseréli a `HEAD` commitot, így ahelyett hogy lenne egy "add cool feature" commit és egyből utána egy "fix embarrassing typo in previous change" commit, csak egy "add cool feature" commit van typo nélkül.  A parancs amúgy ugyanúgy működik mint mindig, tehát a `git add` vagy `git commit --patch` hívása ugyanúgy szükséges a változtatások hozzáadásához, de ha csak a commit leírását akarod változtatni akkor nem.
 
+### Git merge
+A jelenlegi és egy adott másik branch szétválása óta történt változásokat fésüli össze arra a branchre amin jelenleg vagyunk. Többekközött a git pull is ezt használja hogy a remote repositoryba feltöltött változásokat beleolvassza a local repository kódjába, de bármelyik két tetszőleges branch változásait összefésülhetjük. Különbség a rebase-héz képest hogy a merge nem írja át/fésüli össze a két branch commit historyát az összegzés során, csak létrehoz egy merge commitot amiben az összes változás egyszerre jelenik meg.
+
 ## Megpróbáltam a rebase/merge/etc parancsot, de csak rosszabb lett minden, valami kigyulladt, a rendőrök már a házban vannak, mit tegyek, melyik országba meneküljek?
 Mielőtt belekezdünk a rebase témába, érdemes tudni mit csinálj mikor garantáltan bajba jutsz az első próbálkozás során.
 
@@ -34,5 +37,29 @@ Ez egy elég általános eszköz, ami veszélyes, de nagyon hasznos ha tudod mit
 ### rebase vagy merge?
 A `merge` egy speciális commitot készít, míg a `rebase` egy commit listát szerkeszt, bizonyos értelemben átírva a "történelmet".  Merge helyett is használható, nem csak hibajavításra, mert fast-forward merge-et tesz lehetővé.
 
-### fast-forward???
-TODO describe fast forward, probably move it to basics section
+### fast-forward?
+Ha mergelés folyamán ha egy olyan commitot akarsz egy másik committal mergelni ami elérhető az első commit history-át követve, akkor a Git azzal egyszerűsíti le a dolgokat hogy a második commit head-jére állítja az első pointerét, mert nincsenek divergens változtatások amit mergelni kellene, ez a “fast-forward”.
+
+Például, ha master nem divergált akkor egy új commit létrehozása helyett a master HEAD-jét az adott feature branch legutolsó commitjára állítja -> nem lesz merge commit sikeres fast forward esetén
+
+### Git reset
+A Git resetet alapvetően arra használjuk hogy egy adott branchet egy korábbi tetszőleges állapotra álítsunk vissza. Ennek három különböző verziója van: hard, mixed és soft.
+
+Példának vegyük a következő commit historyt: - A - B - C (master)
+
+## Git reset --soft
+A parancs kiadása előtt a HEAD és az index is C-re mutat, B-re akarjuk soft módon visszaállítani.
+
+A git reset --soft B parancs kiadása után a HEAD a B-re mutat, viszont az index tartalmazza a C commitban lévő változásokat.
+A git status parancs a C-ben lévő változásokat staged-ként jelöli meg, ha kiadjuk a commit parancsot új commitot kapunk a C-ben lévő változásokkal
+
+## Git reset --mixed (alapértelmezett reset mód)
+A parancs kiadása előtt a HEAD és az index is C-re mutat, B-re akarjuk mixed módon visszaállítani.
+
+A git reset --mixed B parancs hatására a HEAD B-re mutat és az index is B-re mutat. A C commitban lévő változások a lokális directory-ban unstaged állapotban jelennek meg, mivel az index B commit tartalmára mutat. Git add és git commit parancs kiadása után új commit jön létre a nekünk megfelelő változtatásokkal
+
+## Git reset --hard
+A parancs kiadása előtt a HEAD és az index is C-re mutat, B-re akarjuk hard módon visszaállítani.
+
+git reset --hard B parancs HEAD és index változás szempontjából sokban hasonlít a mixed verzióra, azzal a lényeges különbséggel hogy hard mód esetén az összes C commitban lévő változás és a commitálatlan lokális változtatások is elvesznek. Ebből kifolyólag nagyon óvatosan kell használni a parancsot, kiadása előtt git statussal ellenőrizzük hogy van-e változás a lokális directory-ban illetve hogy megengedhető-e az adott commit utáni változások elvesztése.
+
