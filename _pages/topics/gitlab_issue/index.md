@@ -35,10 +35,36 @@ A következő attribútumokra lehet szűrni:
 
 Ezen felül még létezik a `Search Wtihin` ahol szövegrészletre lehet keresni a címekben vagy a leírásokban.
 
-## Hogyan kell létrehozni egy Issue-t?
-### Hogyan lehet hozzáadni címet és leírást?
-### Hogyan lehet hozzáadni címkéket, felelősöket és határidőket?
-### Hogyan lehet hozzáadni csatolmányokat az Issue-hoz?
+## Hogyan lehet létrehozni egy Issue-t?
+
+A projekt oldalán válasszuk ki az `Issues` menüpontot, majd kattintsunk jobb felül a `New Issue` gombra, hogy elkezdjük az új Issue létrehozását.
+
+A következő Issue-t létrehozó felület jön elő:
+![new-issue](screenshots/new-issue.png)
+
+###  Issue tulajdonságai
+
+Az alábbiakat lehet megadni:
+
+* **Title**: Az Issue címe, amely rövid és informatív leírást ad az Issue-ról.
+
+* **Description**: Részletes leírás az Issue-ról, hogy mikor és pontosan hogyan működjün az Issue-ban leírtak. A leírás támogatja a [Markdown](https://www.markdownguide.org/) formázást. A Markdown segítségével könnyedén formázhatjuk az Issue leírását a szöveg és a bekezdések formázásához, címek, lista és táblázatok készítéséhez.
+
+* **Labels**: Az Issue-hoz tartozó címkék, amelyek segíthetnek az Issue könnyebb azonosításában és kategorizálásában. Minden label-hez rendelhető egy szín is, alapból 21 színből lehet választani, de HEX color code-al egyedi is megadható.
+
+* **Assignee**: Be lehet állítani a felelős személyt az Issue-ra, GitLab esetén csak 1 fő tartozhat 1 Issue-hoz.
+
+* **Milestones**: Az Issue-hoz tartozó mérföldkövek. Milestone-okat külön kell létrehozni, hozzájuk rendelhető: `Title`, `Start Date`, `Due Date`  és maga az Issue-hoz hasonlóan egy `Description`.
+
+* **Due date**: Az Issue-hoz tartozó határidő.
+
+* **Csatolmányok**: Az Issue-hoz tartozó fájlok. A csatolmányokat az Issue alatt lehet feltölteni és ott is jelennek meg a fájlok előnézeteivel.
+
+###  Issue elkészülte
+
+Miután beállítottunk mindent, kattintsunk a `Submit issue` gombra, hogy létrejöjjön az új Issue.
+
+Az Issue létrehozása után a fejlesztők megkezdhetik az Issue megcsinálását, és a címzettek kapnak értesítést az Issue-ról. Az Issue-kat később is szerkeszthetjük vagy frissíthetjük a `Issues` oldalon keresztül.
 
 ## Hogyan kell módosítani egy Issue-t?
 ### Hogyan lehet frissíteni a címet és a leírást?
