@@ -70,8 +70,20 @@ A kombináció lenyomása után kapunk egy felugró ablakot, amiben szövegesen 
 
 ![Parancs_keresése](./screenshots/action_search.png)
 
+### Navigáció
+
+#### Felhasználási helyek keresése
+
+Kombináció: <kbd>ctrl</kbd> + <kbd>Left Click</kbd>
+
+Amennyiben csak 1 helyen van használva az adott kód elem (pl függvény), akkor egyenesen oda navigál minket. Amennyiben több helyen is használva van, akkor egy listát kapunk, ahol kiválaszthatjuk hova szeretnénk navigálni.
+
+Hasznos lehet, ha szeretnénk megtalálni, hogy egy adott függvény hol van deffiniálva.
+
 ### Szerkesztés
 
 #### Átnevezés
 
 Kombináció : <kbd>shift</kbd> + <kbd>F6</kbd>
+
+Átnevezi az összes referenciát az adott mappára, fájlra, osztályra, függvényre, konstansra vagy változóra.
