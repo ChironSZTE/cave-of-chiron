@@ -10,7 +10,7 @@ tags:
 
 ### Keresés
 
-Több féle tartalmat is van lehetőségünk keresni
+Többféle tartalmat is van lehetőségünk keresni
 
 - Szöveget
 - Fájlokat
@@ -28,9 +28,9 @@ Egész projektben: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>F</kbd>
 
 ![Lokális keresés](./screenshots/global_string_search.png)
 
-Szöveg keresése során van lehetőségünk teljes szavakra keresni, kis és nagy betűk között különbséget tenni, valamint reguláris kifejezéseket is használhatunk. Valamint arra is van lehetőségünk, hogy a találatok között szabadon navigáljunk.
+Szöveg keresése során van lehetőségünk teljes szavakra keresni, kis és nagy betűk között különbséget tenni, valamint reguláris kifejezéseket is használhatunk.Arra is van továbbá lehetőségünk, hogy a találatok között szabadon navigáljunk.
 
-Amennyiben keresés során leszeretnénk cserélni a keresett szöveget valami teljesen másra, akkor az <kbd>F</kbd> gomb helyet az <kbd>R</kbd> gombot megnyomva kapunk egy plusz sort ahova begépelgetjük az új szöveg tartalmát
+Amennyiben keresés során le szeretnénk cserélni a keresett szöveget valami teljesen másra, akkor az <kbd>F</kbd> gomb helyett az <kbd>R</kbd> gombot megnyomva kapunk egy plusz sort ahova begépelhetjük az új szöveg tartalmát
 
 ![Lokális keresés_és_cserélés](./screenshots/local_string_replace.png)
 
@@ -78,12 +78,12 @@ Kombináció: <kbd>ctrl</kbd> + <kbd>Left Click</kbd>
 
 Amennyiben csak 1 helyen van használva az adott kód elem (pl függvény), akkor egyenesen oda navigál minket. Amennyiben több helyen is használva van, akkor egy listát kapunk, ahol kiválaszthatjuk hova szeretnénk navigálni.
 
-Hasznos lehet, ha szeretnénk megtalálni, hogy egy adott függvény hol van deffiniálva.
+Hasznos lehet, ha szeretnénk megtalálni, hogy egy adott függvény hol van definiálva.
 
 #### Tabok használata
 
-IntelliJ-ben van lehetőség fülek használatára, melyekkel egyszerre akár több fájl is nyitva lehet párhuzamos szerkesztésre, de akár ugyan azt a fájl többször is megnyithatjuk egymás mellé. <br />
-Ezeket a tabokat elhelyezhetjük több féle elrendezésben is. pl.:
+IntelliJ-ben van lehetőség fülek használatára, melyekkel egyszerre akár több fájl is nyitva lehet párhuzamos szerkesztésre, de akár ugyanazt a fájlt többször is megnyithatjuk egymás mellé. <br />
+Ezeket a tabokat elhelyezhetjük többféle elrendezésben is. pl.:
 
 - Csak 1 fül látszik
 - Egymás mellett több fül látszik
@@ -107,18 +107,18 @@ Az adott kontextusban elérhető és releváns összes kiegészítést felajánl
 
 #### Kód hibák és pontatlanságok kiemelése és javítás
 
-Kombináció(javítás): <kbd>alt</kbd> + <kbd>enter</kbd>
+Kombináció (javítás): <kbd>alt</kbd> + <kbd>enter</kbd>
 
 
 ##### Hiba kiemelés
 
-Amennyiben szemmel láthatóan hibás kódot írunk (nem létező változóra próbálunk hivatkozni stb), akkor azt a fejlesztői környezet pirossal alá húzza, valamint a legtöbb esetben fel is ajánl egy javítási lehetőséget
+Amennyiben szemmel láthatóan hibás kódot írunk (nem létező változóra próbálunk hivatkozni stb), akkor azt a fejlesztői környezet pirossal aláhúzza, valamint a legtöbb esetben fel is ajánl egy javítási lehetőséget
 
 ![Hiba_kiemelés](./screenshots/error_highlighting.png)
 
 ##### Figyelmeztetés kiemelés
 
-Kombináció(javítás): <kbd>alt</kbd> + <kbd>enter</kbd>
+Kombináció (javítás): <kbd>alt</kbd> + <kbd>enter</kbd>
 
 Amennyiben olyan kódot írunk, amiben lehetséges hogy van hiba (végtelen ciklus stb), akkor azt a fejlesztői környezet sárgával alá húzza,  valamint a legtöbb esetben fel is ajánl egy javítási lehetőséget
 
@@ -127,9 +127,9 @@ Amennyiben olyan kódot írunk, amiben lehetséges hogy van hiba (végtelen cikl
 
 ##### Félreírás kiemelés
 
-Kombináció(javítás): <kbd>alt</kbd> + <kbd>enter</kbd>
+Kombináció (javítás): <kbd>alt</kbd> + <kbd>enter</kbd>
 
-Amennyiben félreírunk egy kifejezeést, akkor azt zöld színnel aláhúzza. Alap helyzetben az IDE csak az angol szótárat ismeri, szóval minden egyéb nyelven írt szót alá fog húzni. Van lehetőség extra szótárakat hozzá adni, a következő képpen: https://www.jetbrains.com/help/idea/spellchecking.html#dictionaries
+Amennyiben félreírunk egy kifejezést, akkor azt zöld színnel aláhúzza. Alap helyzetben az IDE csak az angol szótárat ismeri, szóval minden egyéb nyelven írt szót alá fog húzni. Van lehetőség extra szótárakat hozzáadni, a következőképpen: https://www.jetbrains.com/help/idea/spellchecking.html#dictionaries
 
 ![Félreírás_kiemelés](./screenshots/typo_highlighting.png)
 
@@ -142,8 +142,8 @@ Több opciónk is van elkészült kódunk futtatására, tesztelésére
 
 ### Futtatás terminálban
 
-Hasznos lehet nem különálló terminált nyitni, hanem a fejlesztői környezetbe beépítettet használni, mert így elég egy eszköz több feladat ellátására, valamint ha új terminált nyitunk meg az IDE-ben, akkor azonnal a projekt kezdő pontjáben lesz nyitva, szóval nem szükséges elnavigálnunk oda, ezzel is időt spórolva.
+Hasznos lehet nem különálló terminált nyitni, hanem a fejlesztői környezetbe beépítettet használni, mert így elég egy eszköz több feladat ellátására, valamint ha új terminált nyitunk meg az IDE-ben, akkor azonnal a projekt kezdőpontjáben lesz nyitva, szóval nem szükséges elnavigálnunk oda, ezzel is időt spórolva.
 
 ### Futtatás run fülön
 
-Amennyiben szeretnénk egy adott parancsot (pl mvn compile) gyakran, akár gyorsgombbal is futtatni (<kbd>shift</kbd> + <kbd>F10</kbd>), akkor érdemes lehet futtatási környezetet létrehozni erre. Hogy ezt megtegyünk nincs más dolgunk, mint a jobb felső sarkoban található "Run/Debug Configuration" fület lenyitni, majd az "Edit Configurations..." opciót kiválasztva felvehetünk újat, vagy akár szerkeszthetjük már meglévő konfigurációinkat. Futó konfigurációinkat van lehetőség megállítani, vagy akár újraíndítani egyetlen gombnyomással
+Amennyiben szeretnénk egy adott parancsot (pl mvn compile) gyakran, akár gyorsgombbal is futtatni (<kbd>shift</kbd> + <kbd>F10</kbd>), akkor érdemes lehet futtatási környezetet létrehozni erre. Hogy ezt megtegyünk nincs más dolgunk, mint a jobb felső sarokban található "Run/Debug Configuration" fület lenyitni, majd az "Edit Configurations..." opciót kiválasztva felvehetünk újat, vagy akár szerkeszthetjük már meglévő konfigurációinkat. Futó konfigurációinkat van lehetőség megállítani, vagy akár újraindítani egyetlen gombnyomással.
