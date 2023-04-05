@@ -108,11 +108,11 @@ Az `Ubuntu Software` alkalmazásban több ezer szoftver érhető el, amelyek kö
 
 Ha egy konkrét szoftvert keresünk, a keresőmezőbe beírhatjuk a szoftver nevét vagy kategóriáját, majd a találatok közül kiválaszthatjuk a számunkra megfelelőt.
 
-![search_ubuntu_software](./screenshots/search_ubuntu_software.png)
+![search_ubuntu_software_pic](./screenshots/search_ubuntu_software_pic.png)
 
 Ha megtaláltuk a kívánt szoftvert, kattintsunk a telepítés gombra, majd kövessük az utasításokat.
 
-![install_ubuntu_software](./screenshots/install_ubuntu_software.png)
+![install_ubuntu_software_pic](./screenshots/install_ubuntu_software_pic.png)
 
 Ha egy szoftvert nem találunk az Ubuntu Software-ben, akkor az `apt` csomagkezelőt használhatjuk a terminálból való telepítéshez. Az `apt` lehetővé teszi számunkra, hogy az Ubuntu csomagjai közül telepítsünk bármely szoftvert.
 
@@ -181,7 +181,7 @@ Fontos megjegyezni, hogy a `sudo` parancs használatakor nagyon óvatosnak kell 
 
 Az Ubuntu alapértelmezett alkalmazásait lehetőségünk van saját preferenciáink szerint módosítani. Ehhez a `Settings` (Beállítások) alkalmazásban kell navigálnunk az `Details` (Részletek) menüpontra, majd a `Default Applications` (Alapértelmezett alkalmazások) részre. Itt lehetőségünk van megváltoztatni például az alapértelmezett webböngészőt, levelezőprogramot, képnézegetőt és sok más alkalmazást.
 
-![default_app](./screenshots/default_app.png)
+![default_app_pic](./screenshots/default_app_pic.png)
 
 ## Megosztás beállítása
 
