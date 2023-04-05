@@ -1,6 +1,6 @@
 ---
 title: Using and configuring Docker
-tag: Docker
+tags: Docker
 ---
 
 In this document I'll briefly introduce Docker, and the common operations of it you may need to use.

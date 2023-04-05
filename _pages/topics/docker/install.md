@@ -1,6 +1,6 @@
 ---
 title: Installation
-tag: Docker
+tags: Docker
 ---
 
 Docker has 2 editions you can choose from when installing:
