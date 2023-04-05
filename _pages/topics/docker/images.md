@@ -1,6 +1,6 @@
 ---
 title: Container Images
-tag: Docker
+tags: Docker
 ---
 
 Container images are immutable, snapshotted states of a container.

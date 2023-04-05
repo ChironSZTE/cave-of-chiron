@@ -1,6 +1,6 @@
 ---
 title: Docker Networks
-tag: Docker
+tags: Docker
 ---
 
 Use of Docker networks are required for containers that need any kind of network access.  
