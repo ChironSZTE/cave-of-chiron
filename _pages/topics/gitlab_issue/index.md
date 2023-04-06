@@ -95,7 +95,41 @@ Egy issueban sok féle dolgot tudunk módosítani, ez függ a GitLab verziónkt�
 ![open-issue](screenshots/open-issue.png)
 ![reopen-issue](screenshots/reopen-issue.png)
 3. Megnyomásával az issuet le tudjuk zárni vagy már lezárt issuet újranyitni.
+
 ## Hogyan kell használni az Issue Boards-ot?
+
+1. Lépjünk be a GitLab fiókunkba és nyissuk meg az adott projektet.
+2. Bal oldalt az 'Issues' fülre rákattintva vagy ráhúzva az egeret láthatunk egy 'Boards' opciót
+3. A 'Boards' fülre kattintva juthatunk ell a projekt Issue Boards-ához
+![issue-boards](screenshots/issue-boards.png)
+
 ### Mi az Issue Boards és hogyan működik?
+
+Az Issue Boards egy eszköz, amely segítségével vizualizálhatjuk az Issue-k állapotát a GitLab projektben. Az Issue-kat oszlopokba rendezhetjük aszerint, hogy melyik állapotban vannak, például "To do", "In progress", "Done", stb.
+
 ### Hogyan lehet hozzáadni és eltávolítani Issue-kat az Issue Boards-ból?
+A Boards azokat az issuekat jeleníti meg amelyek szerepelnek a projektünkben, így ha hozzáadunk vagy kitörlünk bármilyen issuet akkor a Boardson is látszódni fog a változás.
+
+Az Issue-k hozzáadásához és eltávolításához az Issue Boards-ból a következő lépéseket kell követni:
+
+1. Nyissaukmeg az Issue Boards-ot a projekt oldalán.
+2. Válasszuk ki azt a kategóriát, amelyhez hozzá szeretnénk adni az Issue-t.
+3. Kattintsunk a „+” gombra, majd írjuk be az issue címét amelyet hozzá szeretnénk adni.
+![add-issue-boards](screenshots/add-issue-boards.png)
+4. A kiválasztott Issue hozzáadódik a kategóriához.
+5. Az Issue eltávolításához egyszerűen húzzuk ki azt a kategóriából.
+6. Ha magát az egész issuet szeretnénk kitörölni a projektből, akkor erre az egyetemi verzión még sajnos nincs lehetőség.
+
 ### Hogyan lehet módosítani az Issue-kat az Issue Boards-on?
+
+Az issuekat az Issue Boards oldalon is tudjuk módosítani, ehhez annyi a teendőnk hogy kattintsunk a szerkeszteni kívánt issuenkra, miután ezt megtettük oldalt megjelenik egy 'Issue details' fül, itt az 'Edit' gombra kattintva tudjuk módosítani az:
+
+1. Issue címét
+2. Hozzárendelt embert
+3. A mérföldkövet
+4. Time trackinget
+5. Határidőt
+6. Címkéket
+7. Láthatóságot
+
+![edit-issue-boards](screenshots/edit-issue-boards.png)
