@@ -67,10 +67,34 @@ Miután beállítottunk mindent, kattintsunk a `Submit issue` gombra, hogy létr
 Az Issue létrehozása után a fejlesztők megkezdhetik az Issue megcsinálását, és a címzettek kapnak értesítést az Issue-ról. Az Issue-kat később is szerkeszthetjük vagy frissíthetjük a `Issues` oldalon keresztül.
 
 ## Hogyan kell módosítani egy Issue-t?
+
+Egy issueban sok féle dolgot tudunk módosítani, ez függ a GitLab verziónktól és a jogainktól is mint felhasználó vagy fejlesztő az adott projectben.
+
 ### Hogyan lehet frissíteni a címet és a leírást?
+
+1. Lépjünk be a GitLab fiókunkba és nyissuk meg az adott projektet.
+2. Kattintsunk az "Issues" fülre.
+3. Kattintsunk az általunk szerkeszteni kívánt Issue-ra.
+4. Kattintsunk az "Edit title and description" gombra az Issue oldalán.
+![edit-issue-button](screenshots/edit-issue-button.png)
+5. Szerkesszük a címet és/vagy a leírást az adott mezőben.
+6. Kattintsunk a "Save changes" gombra.
+![edit-issue-save_changes](screenshots/edit-issue-save_changes.png)
+
 ### Hogyan lehet módosítani a címkéket, a felelősöket és a határidőket?
+
+1. Kattintsunk az általunk szerkeszteni kívánt Issue-ra.
+2. Jobb oldalt a szerkeszteni kívánt 'Assignee', 'Labels', 'Due date' fülek nyomjuk meg ad 'Edit' gombot
+![edit-labels](screenshots/edit-labels.png)
+3. Válasszuk ki a megfelelő címkéket amiket szeretnénk hozzáadni az issuenkhoz majd kattintsunk ki.
+4. Hasonló módon szerkeszthetjük a többi issuenkhoz tartozó információt mint például: Milestone, Time tracking, Condidentiality, Lock issue, stb...
 ### Hogyan lehet lezárni vagy újranyitni egy Issue-t?
 
+1. Kattintsunk az általunk szerkeszteni kívánt Issue-ra.
+2. Az issue címe felett található egy 'Close issue' vagy 'Reopen issue' gomb
+![open-issue](screenshots/open-issue.png)
+![reopen-issue](screenshots/reopen-issue.png)
+3. Megnyomásával az issuet le tudjuk zárni vagy már lezárt issuet újranyitni.
 ## Hogyan kell használni az Issue Boards-ot?
 ### Mi az Issue Boards és hogyan működik?
 ### Hogyan lehet hozzáadni és eltávolítani Issue-kat az Issue Boards-ból?
