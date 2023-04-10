@@ -79,7 +79,7 @@ Egy issueban sok féle dolgot tudunk módosítani, ez függ a GitLab verziónkt�
 ![edit-issue-button](screenshots/edit-issue-button.png)
 5. Szerkesszük a címet és/vagy a leírást az adott mezőben.
 6. Kattintsunk a "Save changes" gombra.
-![edit-issue-save_changes](screenshots/edit-issue-save_changes.png)
+![edit-issue-save_changes](screenshots/edit-issue-save-changes.png)
 
 ### Hogyan lehet módosítani a címkéket, a felelősöket és a határidőket?
 
@@ -92,7 +92,7 @@ Egy issueban sok féle dolgot tudunk módosítani, ez függ a GitLab verziónkt�
 
 1. Kattintsunk az általunk szerkeszteni kívánt Issue-ra.
 2. Az issue címe felett található egy 'Close issue' vagy 'Reopen issue' gomb
-![open-issue](screenshots/open-issue.png)
+![close-issue](screenshots/close-issue.png)
 ![reopen-issue](screenshots/reopen-issue.png)
 3. Megnyomásával az issuet le tudjuk zárni vagy már lezárt issuet újranyitni.
 
@@ -112,7 +112,7 @@ A Boards azokat az issuekat jeleníti meg amelyek szerepelnek a projektünkben, 
 
 Az Issue-k hozzáadásához és eltávolításához az Issue Boards-ból a következő lépéseket kell követni:
 
-1. Nyissaukmeg az Issue Boards-ot a projekt oldalán.
+1. Nyissuk meg az Issue Boards-ot a projekt oldalán.
 2. Válasszuk ki azt a kategóriát, amelyhez hozzá szeretnénk adni az Issue-t.
 3. Kattintsunk a „+” gombra, majd írjuk be az issue címét amelyet hozzá szeretnénk adni.
 ![add-issue-boards](screenshots/add-issue-boards.png)
