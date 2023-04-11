@@ -183,3 +183,19 @@ A Storage lapon változtathatjuk a vendégrendszerre kötött virtuális meghajt
 #### A Network lap fontosabb beállításai
 A Network lapon lehet a hálózati kártyákat kezelni a virtuális gépen belül. Az Oracle VirtualBox 4 virtuális hálózati kártyát tud a virtuális géphez hozzárendelni. A képen látható az ajánlott beállítás. Alapértelmezetten NAT a hálózat típusa, amellyel ugyan internetet elér a virtuális gép, de a fizikai gépünk (vagy azzal egy fizikai hálózatban lévő más eszközök) nem látják a virtuális gépünket. Érdemes Bridged Adapterré tenni legalább egy hálózati kártyát, amellyel belső hálózaton kommunikálunk.
 ![Virtuális gép beállításai (Network lap)](screenshots/VirtualBox_MACHINE-SETUP_6.png)
+
+#### A Shared Folders lap fontosabb beállításai
+A Shared Folders lapon megadhatóak a fizikai gép valamely tárolójára mutató csatolási pontok. Az integrációs szolgáltatások telepítése után ezek meghajtóként vagy mount-olt mappaként kezelhetőek, beállítástól függően csak-olvashatóak vagy írható-olvashatóak lesznek.
+
+Képünkön zöld kerettel jelzett gombra kattintva hozzáadhatunk egy ilyen felcsatolható pontot.
+![Virtuális gép beállításai (Shared folders lap)](screenshots/VirtualBox_MACHINE-SETUP_7.png)
+##### Megosztott mappa hozzáadása a virtuális géphez
+1. A "Folder Path" a helyi mappa útvonala a fizikai gépünkön. Lenyitva, majd az "Others" lehetőséget kiválasztva egy tallózási ablak nyílik, ahol kikereshető a mappa, amit meg akarunk osztani a fizikai gépünkből.
+2. A "Folder Name" egy tetszőleges név, amit a virtuális gépünknél, mint meghajtó neve, vagy mappanév látni fogunk. Automatikusan kitöltődik a "Folder Path" alapján.
+3. A "Mount point" értéke akár üresen is hagyható. Windows-on az első elérhető meghajtó betűjelre csatolja fel a rendszer, Linuxon pedig jobb, ha mi adjuk meg az fstab használatával, vagy a mount parancs segítségével, hova legyen felcsatolva.
+4. A Read-only bepipálható, ha írásvédetten szeretnénk hozzáférni a megosztási ponthoz.
+5. Az Auto-mount bepipálható, ha szeretnénk, hogy indulás után automatikusan felcsatlakozzon, amikor bejelentkezünk.
+
+Ha mindent tetszés szerint beállítottunk, nyomjuk meg az "OK" feliratú gombot.
+
+![Új megosztás hozzáadása](screenshots/VirtualBox_MACHINE-SETUP_7-1.png)
