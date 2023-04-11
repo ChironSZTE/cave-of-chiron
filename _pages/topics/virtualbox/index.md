@@ -52,10 +52,10 @@ Ha a jelölőnégyzet hamis értékre van állítva (nincs bejelölve pipával),
 4. Nézzük meg milyen kernellel rendelkezünk, majd az alapján telepítsük fel az alábbi csomagokat.
     - `linux` kernel esetén: `pacman -S virtualbox virtualbox-host-modules-arch`
     - `linux-lts`, `linux-hardened`, és `linux-zen` esetén: `pacman -S virtualbox virtualbox-host-dkms`
+5. Ha mindennel készen vagyunk, és nem kaptunk hibát, az alkalmazásmenüből a Rendszereszközök menüpont alatt elérhetjük "Oracle VM VirtualBox" néven.
 
 Le tudjuk kérdezni az aktuális kernelt az `uname -r` parancs segítségével.
 {: .notice--info}
-5. Ha mindennel készen vagyunk, és nem kaptunk hibát, az alkalmazásmenüből a Rendszereszközök menüpont alatt elérhetjük "Oracle VM VirtualBox" néven.
 
 ## A VirtualBox beállítása
 
