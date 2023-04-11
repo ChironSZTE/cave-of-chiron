@@ -164,10 +164,22 @@ Miközben létrehoztuk a gépünket, a legtöbb beállításon végigvezetett a 
 A továbbiakban néhány fontosabb beállítást fogunk bemutatni a fent említett lapokból néhányon.
 
 #### A System lap fontosabb beállításai
+Ezen a lapon beállítható a virtuális gép számára elérhető memória mennyisége, a bootsorrend, a chipset típusa, a TPM modul verziója (ha a fizikai gépünk rendelkezik TPM modullal) az egér típusa, és néhány kiegészítő beállítás.
+
+Fontos iránymutatások:
+- A Base memory értékét sose állítsuk a narancs vagy a vörös skálaszegmensekre, mert az a gazdagép összeomlásához vezethet.
+- A Chipset-et hagyjuk alapértelmezetten, hacsak nem találkoztunk erre utaló hibaüzenettel telepítés, vagy bootolás során.
+- A Pointing device-t a régebbi operációs rendszerekhez (illetve ha bizonytalanak vagyunk) állítsuk PS/2 Mouse-ra, újabb rendszereknél választhatunk az USB-s eszközökből is.
+![Virtuális gép beállításai (System lap)](screenshots/VirtualBox_MACHINE-SETUP_3.png)
 
 #### A Display lap fontosabb beállításai
+Ezen a lapon beállíthatóak a megjelenítéssel kapcsolatos opciók. Leggyakrabban a videó memória értékét szoktuk emelni, illetve a belső grafikus vezérlőt szoktuk átállítani. A VirtualBox integrációs szolgáltatása nem képes mindhárom grafikus kontrollerrel kompatibilis lenni minden operációs rendszeren, így érdemes itt kezdeni a hiba okának keresését, ha kicsiben marad a vendéggép képernyője az integrációs szolgáltatás telepítése (és a vendég gép újraindítása) után is.
+![Virtuális gép beállításai (Display lap)](screenshots/VirtualBox_MACHINE-SETUP_4.png)
 
 #### A Storage lap fontosabb beállításai
+A Storage lapon változtathatjuk a vendégrendszerre kötött virtuális meghajtókat (merevlemezek, optikai lemezek, floppy-k), illetve azok kontrollerjeit (SATA, IDE, SCSi). Ajánlott csak egy SATA controllert hagyni, és ahhoz hozzáadni a meghajtókat, ezzel egyszerűbbé téve sok telepítést.
+![Virtuális gép beállításai (Storage lap)](screenshots/VirtualBox_MACHINE-SETUP_5.png)
 
 #### A Network lap fontosabb beállításai
-
+A Network lapon lehet a hálózati kártyákat kezelni a virtuális gépen belül. Az Oracle VirtualBox 4 virtuális hálózati kártyát tud a virtuális géphez hozzárendelni. A képen látható az ajánlott beállítás. Alapértelmezetten NAT a hálózat típusa, amellyel ugyan internetet elér a virtuális gép, de a fizikai gépünk (vagy azzal egy fizikai hálózatban lévő más eszközök) nem látják a virtuális gépünket. Érdemes Bridged Adapterré tenni legalább egy hálózati kártyát, amellyel belső hálózaton kommunikálunk.
+![Virtuális gép beállításai (Network lap)](screenshots/VirtualBox_MACHINE-SETUP_6.png)
