@@ -199,3 +199,9 @@ Képünkön zöld kerettel jelzett gombra kattintva hozzáadhatunk egy ilyen fel
 Ha mindent tetszés szerint beállítottunk, nyomjuk meg az "OK" feliratú gombot.
 
 ![Új megosztás hozzáadása](screenshots/VirtualBox_MACHINE-SETUP_7-1.png)
+
+## A VirtualBox integrációs szolgáltatásának telepítése a vendég operációs rendszerre
+
+### Integrációs szolgáltatás Windows operációs rendszeren
+
+### Integrációs szolgáltatás GNU/Linux operációs rendszeren
