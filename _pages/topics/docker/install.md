@@ -1,6 +1,8 @@
 ---
 title: Installation
 tags: Docker
+sidebar:
+    nav: "docker"
 ---
 
 Docker has 2 editions you can choose from when installing:

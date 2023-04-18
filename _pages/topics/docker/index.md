@@ -1,6 +1,8 @@
 ---
 title: _ Using and configuring Docker
 tags: Docker
+sidebar:
+    nav: "docker"
 ---
 
 In this document I'll briefly introduce Docker, and the common operations of it you may need to use.
