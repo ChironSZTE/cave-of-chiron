@@ -9,8 +9,14 @@ docker:
     children:
       - title: 'Usage and configuration'
         url: /_pages/topics/docker/
+  - title: 'Installation'
+    children:
       - title: 'Installation'
         url: /_pages/topics/docker/install/
+      - title: 'Enabling necessary Windows features'
+        url: /_pages/topics/docker/docker-windows-enabled-features
+  - title: 'Usage'
+    children:
       - title: 'Container Images'
         url: /_pages/topics/docker/images/
       - title: 'Containers'
