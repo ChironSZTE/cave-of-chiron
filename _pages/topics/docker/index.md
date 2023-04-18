@@ -159,9 +159,9 @@ It also supports management of other containerization environments, like Podman,
 
 Some highlights:
 
-|Container list|Image list|Container details|
+|Container list|Image list| Container details |
 |---|---|---|
-|![Container list menu of Portainer.png](../../../assets/images/portainer-containers.png)|![Image list menu of Portainer](../../../assets/images/portainer-images.png)|![img.png](../../../assets/images/portainer-container-details.png)|
+|![Container list menu of Portainer](../../../assets/images/portainer-containers.png)|![Image list menu of Portainer](../../../assets/images/portainer-images.png)| ![Details of a running container in Portainer](../../../assets/images/portainer-container-details.png) |
 
 
 ## Similar software
