@@ -4,9 +4,9 @@ sidebar:
     nav: "docker"
 ---
 
-Containers are the objects that run your software, isolated from the system and other containers, and store its mutable state.  
+Containers are the objects that run your software - isolated from the system and other containers - and store its mutable state.  
 They also store a reference to the container image from which they were instantiated,
-and all of the files and container configuration that were changed compared to the image.
+and all of the files and container configuration that were changed compared to this image.
 
 ## Basic Usage
 
@@ -23,8 +23,10 @@ In this case it can be stopped by pressing `Ctrl+C`. If you press it twice, Dock
 
 Be aware that by default containers are not deleted when stopped.  
 That means, if you always create a new container this way, it might slowly fill up your storage space.
+{: .notice}
 
-Below are some useful options. You don't need to memorize them, you can always come back when you need one, but it is recommended to at least skim through what is available.
+Below are some useful options. You don't need to memorize them,
+you can always come back when you need one, but it is recommended to at least skim through to be aware of what is available.
 
 |Option|Meaning|  
 |---|---|
@@ -42,7 +44,8 @@ Below are some useful options. You don't need to memorize them, you can always c
 
 ### Listing existing containers
 
-If you have already created containers, you may list them with the `docker container ls --all` command. The `--all` option makes sure that containers that are currently not running are also listed.
+If you have already created containers, you may list them with the `docker container ls --all` command.
+The `--all` option makes sure that containers that are currently not running are also included.
 
 ```
 $ sudo docker container ls --all
@@ -79,7 +82,9 @@ If you don't need a container anymore, you can delete it with the `docker contai
 For deleting a running container, you will need to use the `--force` option.  
 For deleting all anonymous volumes of a container, you will need to use the `--volumes` option. This is recommended to use when you really don't need the container anymore.
 
-Deletions are not reversible, take extreme care when deleting containers or volumes.
+Deletions are not reversible.  
+Take extreme care when deleting containers or volumes.
+{: .notice--danger}
 
 ### The container upgrade procedure
 
@@ -88,10 +93,13 @@ Instead of updating the software in the container with the package manager or wi
 
 As all important data is stored on volumes, nothing of value should be lost.
 
+For persisting configuration values, you can use Docker Compose, but it is also possible to view the current configuration of a container.
+{: .notice--info}
+
 ## Advanced usage
 
 All of the container management commands are subcommands of the `docker container` command.  
-They can be listed by running `docker container --help`, but below I have made a list of the more useful ones:
+They can be listed by running `docker container --help`, but below is a list of the more useful ones:
 
 |Subcommand|Meaning|
 |---|---|
@@ -104,5 +112,5 @@ They can be listed by running `docker container --help`, but below I have made a
 |rename|Rename the container|
 |commit|Create a new container image from the current state of the container|
 
-All of the subcommands will print their detailed usage and available options when run with the `--help` option.
+All of the subcommands will print their detailed usage and available options when ran with the `--help` option.
 All of them are also documented in detail [here](https://docs.docker.com/engine/reference/commandline/container/).

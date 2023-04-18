@@ -8,8 +8,10 @@ Volumes are used for persistent file storage.
 They allow you to store contents of directories outside of containers, and in turn independently of their state.
 This means that when you delete and recreate them (e.g. because you have updated them), files stored in volumes are kept.
 
-Volumes may also be used for sharing files between multiple containers,
-but this setup needs to be supported by the software running in both of them, otherwise you should expect data corruption to happen.
+Volumes may also be used for sharing files between multiple containers.
+
+This setup needs to be supported by the software running in both of them, otherwise you should expect data corruption to happen, purely out of them overwriting each other's work.
+{: .notice--warning}
 
 Based on the volume driver in use, the files may be stored at a network location,
 they may be encrypted, compressed, and other possibilities may become available with them.
@@ -20,14 +22,14 @@ The official documentation can be read [here](https://docs.docker.com/storage/vo
 
 The volumes are primarily differentiated based on how can you refer to them.
 
-Anonymous volumes are ones you cant refer to.  
-They are created when it is defined in the container image that certain directories should be stored in a volume, but the user did not set them up as a named volume.  
+**Anonymous volumes** are ones you cant refer to.  
+They are created when it is defined in the container image that certain directories should be stored in a volume, but the user did not set up a named volume for them.  
 Although they are not automatically removed along with the container, recreating the container will result in new anonymous volumes being used.  
 Their main purpose is simply to indicate which directories should be persisted when the user wants that, but still not interfere when the user intends to create a totally temporary container.
 
-Named volumes can be referred to by their names, and they will be reused as expected when the container is recreated.
+**Named volumes** can be referred to by their names, and they will be reused as expected when the container is recreated.
 
-Bind mounts are not actually volumes, but it is useful to mention them here.  
+There are also **bind mounts**, which are not actually volumes, but it is useful to mention them here.  
 They will persist your data like a named volume, but Docker will not list them among volumes.
 You define them by specifying a filesystem path instead of a volume name.
 
@@ -78,8 +80,10 @@ Below you will find a brief summary of the volume management commands, but you m
 
 ### Creating volumes
 
-Volumes can be created with the `docker volume create [options] [name]` command.  
+Volumes can be created with the `docker volume create [options] [name]` command.
+
 Omitting the `name` parameter will result in an anonymous volume being created.
+{: .notice--info}
 
 A specific driver and driver options can be set with the `--driver` and `--driver-opts` options.
 
@@ -87,12 +91,16 @@ A specific driver and driver options can be set with the `--driver` and `--drive
 Existing volumes can be listed with the `docker volume list` command.
 
 ### Changing volume settings
-Changing volume settings after creation is not possible without recreating it.  
-Be sure to backup all data in the volume before you deleting it!
+Changing volume settings after creation is not possible without recreating it.
+
+Be sure to backup all data in the volume before deleting it!
+{: .notice--warning}
 
 ### Deleting volumes
-You can delete a volume with the `docker volume remove <name>` command.  
-Warning! All data will be lost!
+You can delete a volume with the `docker volume remove <name>` command.
+
+Deletion is permanent! All data will be lost!
+{: .notice--danger}
 
 ## Volume drivers
 
@@ -121,10 +129,11 @@ The following parameters are used:
 On configuration of the `local` driver on Linux systems further explanation can be read [here](https://docs.docker.com/storage/volumes/#block-storage-devices).
 Note that the page mentions specifically "block devices", but actually it is relevant independently to the kind of filesystem you use.
 
-Note: it is possible to create named volumes that also work like a bind mount.  
+It is possible to create named volumes that also work like a bind mount.  
 To achieve that, you will need to use the `volume-opt=type=none` and `volume-opt=o=bind` parameters, and also specifiy a bind destination with `volume-opt=device=...`.  
 Example: `--mount "type=volume,source=myapp_data,destination=/var/lib/myapp,volume-opt=type=none,volume-opt=o=bind,volume-opt=device=/srv/myapp/data"`.  
 It is important to note that the volume data will not be stored at the bound location, it is merely _available_ at that path. Data is stored at the original location, and takes up storage space there, which is unchanged from conventional named volumes.
+{: .notice}
 
 ### 3rd party drivers
 

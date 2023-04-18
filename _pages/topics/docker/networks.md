@@ -58,7 +58,7 @@ You can create a network with the `docker network create [options] <name>` comma
 docker network create my_network
 ```
 
-Useful options:
+Some useful options:
 
 |Option|Meaning|
 |---|---|
