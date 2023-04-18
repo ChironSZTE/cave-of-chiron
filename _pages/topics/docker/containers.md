@@ -1,6 +1,5 @@
 ---
 title: Docker Containers
-tags: Docker
 sidebar:
     nav: "docker"
 ---

@@ -1,5 +1,5 @@
 ---
-title: _ Using and configuring Docker
+title: Using and configuring Docker
 tags: Docker
 sidebar:
     nav: "docker"

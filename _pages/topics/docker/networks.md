@@ -1,6 +1,5 @@
 ---
 title: Docker Networks
-tags: Docker
 sidebar:
     nav: "docker"
 ---
