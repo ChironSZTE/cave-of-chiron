@@ -32,8 +32,10 @@ Status: Downloaded newer image for gitea/gitea:latest
 docker.io/gitea/gitea:latest
 ```
 
-With this command images are downloaded from a container registry.  
-When no container registry is given at the beginning of the name, it is downloaded from Docker Hub.
+With this command images are downloaded from a container registry.
+
+When no container registry is given at the beginning of the name, Docker Hub is assumed.
+{: .notice--info}
 
 ### Listing downloaded images
 
@@ -74,15 +76,24 @@ Their name is a human readable name, usually the name of a software. They might 
 - When obtained from a container registry, the name will also include the user or organization that publishes it (e.g. `gitea/gitea`).  
 - Names might also contain the container registry from where they were downloaded (e.g. `lscr.io/linuxserver/wireguard`).
 
+In this last example, the image is searched for and downloaded from the lscr.io container registry.
+{: .notice--info}
+
 Tags are used to differentiate between different flavors of the image, based on version number, release type (release, development, nightly), base linux distribution, or others.  
-When no tags are specified, `latest` is used, which frequently points to the last uploaded container image, which might be a nightly release when you just wanted the latest stable one, so its use is generally discouraged.  
-A specific NAME:TAG pair might still have further image variants when different images are built for different "platforms" (CPU architectures).
+When no tags are specified, `latest` is used.
+
+`latest` frequently points to the last uploaded container image, which might be a nightly release when you just wanted the latest stable one, so its use is generally discouraged.
+{: .notice--warning}
+
+A specific `NAME:TAG` pair might still have further image variants when different images are built for different "platforms" (CPU architectures).
+{: .notice}
 
 The digest is the checksum (usually SHA256) of (the top layer of) a container image.
+{: .notice}
 
 ### Additional ways for obtaining images
 
-#### Manually loading images in the OCI image format
+#### Manually loading images of the OCI image format
 
 Sometimes the image you want to use was built on a different system, and you may not want to upload it to a container registry.  
 In that case, you can export and import it in a tar file:
@@ -91,7 +102,8 @@ docker image save --output gitea_1.18.5.tar local/gitea:1.18.5
 docker image load --input gitea_1.18.5.tar
 ```
 
-Important: do not use the `docker export` and `docker import` commands for this task! They only manage the filesystem of the image, they ignore any metadata stored in it, such as the file to be ran on startup.
+Do not mix up `docker export` and `docker import` with these commands! They only manage the **filesystem** of the image, they ignore any **configuration** stored in it, such as the file to be ran on startup.
+{: .notice--warning}
 
 #### Uploading to a container registry
 
@@ -100,6 +112,6 @@ Then you can use `docker image push <image>` to start the upload process.
 
 ### Creating images
 
-You can also create container images, and for that you have 2 options:
+You can also create your own container images. There are 2 ways for that:
 - with the build process using `Dockerfile`s (the proper way)
 - by snapshotting a container, thus preserving its current state in a new immutable layer
