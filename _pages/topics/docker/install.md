@@ -1,6 +1,5 @@
 ---
 title: Installation
-tags: Docker
 sidebar:
     nav: "docker"
 ---

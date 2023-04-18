@@ -1,6 +1,5 @@
 ---
 title: Container Images
-tags: Docker
 sidebar:
     nav: "docker"
 ---

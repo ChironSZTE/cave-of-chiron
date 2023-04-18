@@ -1,6 +1,5 @@
 ---
 title: Docker Volumes
-tags: Docker
 sidebar:
     nav: "docker"
 ---
