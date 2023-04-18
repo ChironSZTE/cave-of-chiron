@@ -3,3 +3,19 @@ main:
     url: /tags/
   - title: "Rólunk"
     url: /about/
+
+docker:
+  - title: "Docker"
+    children:
+      - title: 'Usage and configuration'
+        url: /_pages/topics/docker/
+      - title: 'Installation'
+        url: /_pages/topics/docker/install/
+      - title: 'Container Images'
+        url: /_pages/topics/docker/images/
+      - title: 'Containers'
+        url: /_pages/topics/docker/containers/
+      - title: 'Networks'
+        url: /_pages/topics/docker/networks/
+      - title: 'Volumes'
+        url: /_pages/topics/docker/volumes/

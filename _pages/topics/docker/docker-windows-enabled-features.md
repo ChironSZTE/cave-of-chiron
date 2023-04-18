@@ -1,6 +1,8 @@
 ---
 title: Enabling Windows features required by Docker
 tags: Docker
+sidebar:
+    nav: "docker"
 ---
 
 Docker, when ran on Windows, requires enabling the features corresponding to the virtualization backend to be used.  

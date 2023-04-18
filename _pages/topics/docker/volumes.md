@@ -1,6 +1,8 @@
 ---
 title: Docker Volumes
 tags: Docker
+sidebar:
+    nav: "docker"
 ---
 
 Volumes are used for persistent file storage.  

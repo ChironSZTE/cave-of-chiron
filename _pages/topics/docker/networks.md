@@ -1,6 +1,8 @@
 ---
 title: Docker Networks
 tags: Docker
+sidebar:
+    nav: "docker"
 ---
 
 Use of Docker networks are required for containers that need any kind of network access.  
