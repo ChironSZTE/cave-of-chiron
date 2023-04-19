@@ -28,7 +28,7 @@ A jelenlegi és egy adott másik branch szétválása óta történt változáso
 ## Megpróbáltam a rebase/merge/etc parancsot, de csak rosszabb lett minden, valami kigyulladt, a rendőrök már a házban vannak, mit tegyek, melyik országba meneküljek?
 Mielőtt belekezdünk a rebase témába, érdemes tudni mit csinálj mikor garantáltan bajba jutsz az első próbálkozás során.
 
-### --abort
+### `--abort`
 Az első parancs a `git rebase --abort`.  Ez csak simán visszajuttat a rebase előtti állapotba.  Ez a pánik gomb.  Ha fogalmad sincs mi történt, ez kiment a szituációból és újrakezdheted a folyamatot egy ismert állapotból.  Hasonló módon van `git merge --abort`, `git cherry-pick --abort`, etc.
 
 ### `git reflog`
