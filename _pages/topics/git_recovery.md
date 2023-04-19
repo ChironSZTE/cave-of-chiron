@@ -31,7 +31,13 @@ Mielőtt belekezdünk a rebase témába, érdemes tudni mit csinálj mikor garan
 ### --abort
 Az első parancs a `git rebase --abort`.  Ez csak simán visszajuttat a rebase előtti állapotba.  Ez a pánik gomb.  Ha fogalmad sincs mi történt, ez kiment a szituációból és újrakezdheted a folyamatot egy ismert állapotból.  Hasonló módon van `git merge --abort`, `git cherry-pick --abort`, etc.
 
-A második a `git reflog`, ait
+### `git reflog`
+A reflog a jelenlegi branch lokális történelme.  Míg a `git log` a jelenlegi `HEAD` commit "családfáját" mutatja be, a reflog a branchen végzett (a `HEAD` célpontját változtató) műveletek időrendi sorrendjét követi.  Ez azért fontos, mert olyan műveleteket is követ amik átírják vagy akár törlik a branch "történelmét".
+
+Ha például befejezted a `rebase`-t, vagy rosszul használtad `reset --hard`-ot, akkor meg tudod nézni mi volt az előző commit ahova a `HEAD` mutatott, és átirányíthatod a branchet hogy arra mutasson.
+
+A formátumát itt részletesen nem tárgyaljuk, a kimenete eléggé önleíró.  A sor eleje mindig az "eredmény" commit ahova a sorban leírt művelet után került a branch, maga a szöveges leírás pedig általában elég ahhoz hogy tudd mi volt a konkrét művelet.
+
 ## Rebase
 Ez egy elég általános eszköz, ami veszélyes, de nagyon hasznos ha tudod mit csinálsz, és sok problémának a megoldása ebben rejlik.
 
