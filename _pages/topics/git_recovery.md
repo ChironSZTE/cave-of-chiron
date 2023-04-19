@@ -17,7 +17,7 @@ A `git restore --staged file1 file2 ...etc` parancs visszaállítja a neki megad
 
 ## `HEAD` commit-ba valami rossz került bele / rossz a leírása
 ### Szituáció
-Rosszul írtad le a commitodat, vagy esetleg rossz változtatások kerültek bele, vagy nem minden került bele.  Fontos: még **nem** futtattad a `git push` parancsot, **vagy** egy olyan branchen vagy amit mások nem használnak és senkit sem zavar a force pusholsz. (`git push --force`)
+Rosszul írtad le a commitodat, vagy esetleg rossz változtatások kerültek bele, vagy nem minden került bele.  Fontos: még **nem** futtattad a `git push` parancsot, **vagy** egy olyan branchen vagy amit mások nem használnak és senkit sem zavar ha force pusholsz. (`git push --force`)
 
 ### Megoldás
 A `git commit --amend` lecseréli a `HEAD` commitot, így ahelyett hogy lenne egy "add cool feature" commit és egyből utána egy "fix embarrassing typo in previous change" commit, csak egy "add cool feature" commit van typo nélkül.  A parancs amúgy ugyanúgy működik mint mindig, tehát a `git add` vagy `git commit --patch` hívása ugyanúgy szükséges a változtatások hozzáadásához, de ha csak a commit leírását akarod változtatni akkor nem.
