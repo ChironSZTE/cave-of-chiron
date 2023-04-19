@@ -8,6 +8,9 @@ Konyhanyelvre fordítva: egy commit nevét a commit tartalma és előzménye hat
 ### Mi fán terem a branch?
 A branch igazából csak egy név amit bármilyen commithoz rendelhetünk.  A tag kábé ugyanez, csak egy tag jó esetben létrehozása után örökké ugyanarra a commitra mutat, míg a branch lényege, hogy követi a történelem egy "fonalát" (vagyis inkább láncát), és újabb és újabb commitokra mutat.  Jó esetben ehhez a lánchoz csak újabb szemeket (commitokat) fűzünk.
 
+### Git merge
+A jelenlegi és egy adott másik branch szétválása óta történt változásokat fésüli össze arra a branchre amin jelenleg vagyunk. Többekközött a git pull is ezt használja hogy a remote repositoryba feltöltött változásokat beleolvassza a local repository kódjába, de bármelyik két tetszőleges branch változásait összefésülhetjük. Különbség a rebase-héz képest hogy a merge nem írja át/fésüli össze a két branch commit historyát az összegzés során, csak létrehoz egy merge commitot amiben az összes változás egyszerre jelenik meg.
+
 ## Véletlenül hozzáadott változtatás
 ### Szituáció:
 Nem nézted át miket változtattál, futtattál mondjuk egy `git add .` parancsot, de még **nem** futtattad a `git commit`-ot.  Lefuttatod a `git diff --staged` parancsot és látod, hogy hoppá, nem az van benne aminek lennie kéne.
@@ -21,9 +24,6 @@ Rosszul írtad le a commitodat, vagy esetleg rossz változtatások kerültek bel
 
 ### Megoldás
 A `git commit --amend` lecseréli a `HEAD` commitot, így ahelyett hogy lenne egy "add cool feature" commit és egyből utána egy "fix embarrassing typo in previous change" commit, csak egy "add cool feature" commit van typo nélkül.  A parancs amúgy ugyanúgy működik mint mindig, tehát a `git add [--patch]` vagy `git commit --patch` hívása ugyanúgy szükséges a változtatások hozzáadásához, de ha csak a commit leírását akarod változtatni akkor nem.
-
-### Git merge
-A jelenlegi és egy adott másik branch szétválása óta történt változásokat fésüli össze arra a branchre amin jelenleg vagyunk. Többekközött a git pull is ezt használja hogy a remote repositoryba feltöltött változásokat beleolvassza a local repository kódjába, de bármelyik két tetszőleges branch változásait összefésülhetjük. Különbség a rebase-héz képest hogy a merge nem írja át/fésüli össze a két branch commit historyát az összegzés során, csak létrehoz egy merge commitot amiben az összes változás egyszerre jelenik meg.
 
 ## Megpróbáltam a rebase/merge/etc parancsot, de csak rosszabb lett minden, valami kigyulladt, a rendőrök már a házban vannak, mit tegyek, melyik országba meneküljek?
 Mielőtt belekezdünk a rebase témába, érdemes tudni mit csinálj mikor garantáltan bajba jutsz az első próbálkozás során.
