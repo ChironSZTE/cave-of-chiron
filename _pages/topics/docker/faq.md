@@ -14,6 +14,8 @@ Container image names tipically look like one of these:
 
 These are also commonly found on websites of Container Registries, like Docker Hub, but also in your software's (e.g. Gitea) own documentation.
 
+You can find more details [here](images.md#identification-of-images) on how to identify a container image name. 
+
 ## I have the name of a container image, how can I run it?
 
 Your team has said you need to start up a new container thats called this way: `gitea/gitea:1.19`.   
