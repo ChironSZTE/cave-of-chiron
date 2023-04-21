@@ -40,6 +40,10 @@ You can find information about installating Docker [on this page](install.md).
 
 ## Usage
 
+If you are in a hurry, and only use Docker because you were told to, head to the [FAQ](faq.md) for a very brief article about operations with which you can get going quikcly.  
+After reading it, it is still worthwhile to understand the basics. Continue with the rest of the article if you want to know more.  
+{: .notice}
+
 When using Docker, frequently you will deal with containers, and the resources used by them.  
 When you use Docker Engine (but should apply to Docker Desktop too), you'll be able to manage these through the `docker` command and its subcommands.
 
