@@ -201,7 +201,8 @@ Ha mindent tetszés szerint beállítottunk, nyomjuk meg az "OK" feliratú gombo
 ![Új megosztás hozzáadása](screenshots/VirtualBox_MACHINE-SETUP_7-1.png)
 
 ## A VirtualBox integrációs szolgáltatásának telepítése a vendég operációs rendszerre
+A VirtualBox minden funkciójának kihasználásához szükséges a vendég operációs rendszerre telepíteni a VirtualBox Integrációs Szolgáltatásait. Ezen a háttér szolgáltatáson keresztül lehetséges kommunikálni a gazdagép és virtuális gép között. Segítségével lehet többek közt az előző fejezetben megosztott mappát ténylegesen használni, de a vendégképernyő felbontásán is ennek segítségével lehet változtatni. Az integrációs szolgáltatás telepítése az alábbi két alfejezet alapján elvégezhető Windows operációs rendszert, valamint ArchLinux operációs rendszert futtató virtuális gépre.
 
 ### Integrációs szolgáltatás Windows operációs rendszeren
 
-### Integrációs szolgáltatás GNU/Linux operációs rendszeren
+### Integrációs szolgáltatás ArchLinux operációs rendszeren
