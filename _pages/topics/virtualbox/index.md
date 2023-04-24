@@ -203,6 +203,22 @@ Ha mindent tetszés szerint beállítottunk, nyomjuk meg az "OK" feliratú gombo
 ## A VirtualBox integrációs szolgáltatásának telepítése a vendég operációs rendszerre
 A VirtualBox minden funkciójának kihasználásához szükséges a vendég operációs rendszerre telepíteni a VirtualBox Integrációs Szolgáltatásait. Ezen a háttér szolgáltatáson keresztül lehetséges kommunikálni a gazdagép és virtuális gép között. Segítségével lehet többek közt az előző fejezetben megosztott mappát ténylegesen használni, de a vendégképernyő felbontásán is ennek segítségével lehet változtatni. Az integrációs szolgáltatás telepítése az alábbi két alfejezet alapján elvégezhető Windows operációs rendszert, valamint ArchLinux operációs rendszert futtató virtuális gépre.
 
+A Drag-N-Drop és a Vágólap működését külön engedélyezni, (és módját beállítani) kézzel kell. Ezt a virtuális gépünk Settings->General->Advanced beállításai közt találhatjuk meg.
+Ha el van indítva a virtuális gépünk, akkor a Devices menüből elérhető a Shared Clipboard és a Drag and Drop menüpontoknál.
+{: .notice--primary}
+
 ### Integrációs szolgáltatás Windows operációs rendszeren
 
 ### Integrációs szolgáltatás ArchLinux operációs rendszeren
+Hasonlóan a Windows-ra való telepítés esetén, itt is használható lenne a menüből való felcsatolás, de általában frissebb csomag érhető el az Arch repository-ból, mint amit a VirtualBoxunk felajánl. Ebből következik, hogy érdemesebb pacman segítségével feltelepíteni, ráadásul kevesebb lépésből is áll.
+1. Nyissunk egy terminált a virtuális gépünkön, vagy válasszunk egy tetszőleges tty felületet, és váljunk superuser-ré.
+2. Írjuk be az alábbi parancsot: `sudo pacman -Syuu`. Ezzel lefrissítjük a rendszerünket.
+3. Telepítsük fel a *virtualbox-guest-utils* csomagot, ha van X támogatásunk (körülbelül minden esetben, ha grafikus felületünk is van), vagy a *virtualbox-guest-utils-nox* csomagot, ha nincs X támogatásunk (csak karakteres felület) az alábbi paranccsal:
+    - `sudo pacman -Sy virtualbox-guest-utils` vagy
+    - `sudo pacman -Sy virtualbox-guest-utils-nox`.
+4. Engedélyezzük a szolgáltatást az alábbi paranccsal:
+    - `sudo systemctl enable vboxservice.service`
+5. Indítsuk újra a virtuális gépünket. Miután bejelentkeztünk, a VirtualBox View menüjéből használhatóvá válik a Virtual Screen 1 újraméretezése. Természetesen más szolgáltatásoknak is, mint az osztott vágólap, vagy a megosztott mappa, működnie kell.
+
+Ha valamiért nem működne a felbontás váltása, mindenképpen nézzük meg, hogy a virtuális gép konfigurációjánál a grafikai vezérlő **VMSVGA**-e.
+{: .notice--warning}
