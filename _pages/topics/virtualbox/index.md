@@ -151,7 +151,7 @@ Miközben létrehoztuk a gépünket, a legtöbb beállításon végigvezetett a 
 ![Beállítások kontextus-menüje](screenshots/VirtualBox_MACHINE-SETUP_1.png)
 2. Megjelent a beállítási ablak, mely kinézetre hasonlít a kezelőfelület beállítási ablakához.
 ![Virtuális gép beállításai](screenshots/VirtualBox_MACHINE-SETUP_2.png)
-    - A General lapon lehet általános beállításokat tenni. Általában nincs szükség beállításokat módosítani itt.
+    - A General lapon lehet általános beállításokat tenni. Általában nincs szükség beállításokat módosítani itt, azonban érdemes megjegyezni az Advanced fülön lévő lehetőséget a vágólap és a Drag-N-Drop irányának a beállítására. Ezek a funkciók csak abban az esetben működnek, ha van feltelepítve a virtuális gép operációs rendszerére az integrációs szolgáltatás. A szolgáltatás telepítéséről később fogunk írni.
     - A System lapon lehet befolyásolni a memória- és processzor-erőforrások mennyiségét, a boot sorrendet, a chipsetet, a TPM modul verzióját, az egérmutató típusát, és még sok mást.
     - A Display lapon lehet megjelenítési beállításokat (videó memória, grafikus vezérlő, 3D gyorsítás, stb.) eszközölni.
     - A Storage lapon lehet további vezérlőket (SATA, IDE, SCSI, floppy, SAS, NVMe), illetve vezérlőkhöz további tárolóeszközöket hozzáadni, azok beállításait változtatni.
