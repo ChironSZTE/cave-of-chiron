@@ -11,7 +11,7 @@ tags:
 A Wiki oldalak segítségével különböző `Markdown` formátumú leírásokat adhatunk hozzá a projektünkhöz. 
 
 ### Miért hasznos a Wiki oldal?
-A Wiki segítségével a projektmenedzsment dolgát lehet megkönnyíteni, itt el tudunk készíteni meeting memokat, fejlesztési terveket, illetve a tesztelés dokumentálása is történhet.
+A Wiki segítségével a projektmenedzsment dolgát lehet megkönnyíteni, itt el tudunk készíteni meeting memokat, fejlesztési terveket, különböző összegző dokumentumokat, illetve a tesztelés dokumentálása is történhet.
 
 ### Hogyan lehet elérni a Wiki-t a GitLab-on keresztül?
 Az issue-k eléréséhez először be kell jelentkezni a GitLab-fiókba, majd válasszuk ki a megfelelő projektet. A projekt oldalán a navigációs sávban kattintsunk az `Wiki` menüpontra.
