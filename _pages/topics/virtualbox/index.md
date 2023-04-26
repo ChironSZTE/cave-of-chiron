@@ -208,6 +208,24 @@ Ha el van indítva a virtuális gépünk, akkor a Devices menüből elérhető a
 {: .notice--primary}
 
 ### Integrációs szolgáltatás Windows operációs rendszeren
+A telepítés egy Windows 10 PRO operációs rendszert futtató virtuális gépen fog bemutatásra kerülni. A nulladik lépésként indítsuk el a virtuális gépünket, és lépjünk be egy felhasználóval, lehetőleg olyannal, akinek rendszergazdai jogai vannak.
+
+1. Kattintsunk a virtuális gépünk Devices menüjébe, és kattintsunk az "Insert Guest Additions CD image..." menüpontra. Ezzel a VirualBox felcsatol egy egyedi CD ISO-t, amelyen minden nagyobb operációs rendszerre megtalálható telepítő formájában a szolgáltatás.
+![Integrációs szolgáltatás ISO felcsatolása](screenshots/VirtualBox_INTSERVICE_1.png)
+2. Miután felcsatoltuk, nyissunk egy Fájlkezelőt a vendég gépen, és nyissuk meg a CDROM meghajtónkat. A képen megjelölt futtatható fájlt nyissuk meg.
+![Fájlkezelő CDROM meghajtó](screenshots/VirtualBox_INTSERVICE_2.png)
+3. Engedélyezzük, a telepítő futtatását rendszergazdaként.
+![Fájlkezelő CDROM meghajtó](screenshots/VirtualBox_INTSERVICE_3.png)
+4. Kattintsunk a "Next" feliratú gombra a telepítés folytatásához.
+5. Válasszuk ki a telepítés helyét, majd kattintsunk a "Next" feliratú gombra.
+6. Döntsük el, hogy szeretnénk-e Start menü bejegyzést a programról, és az "Install" gombbal telepítsük fel az integrációs szolgáltatásokat.
+7. Ha a folyamatsáv végig ért, a telepítés a végéhez ér. Az utolsó lapon (még a bezárás előtt) megkérdezi tőlünk a telepítő, hogy újra szeretnénk-e most indítani a gépet, vagy később szeretnénk manuálisan. Érdemes azonnal újraindítani. Válasszuk ki a nekünk megfelelő újraindítási módot, majd kattinsunk a "Finish" gombra. Ezzel a telepítés befejeződött.
+
+Miután újraindítottuk a gépünket, a bejelentkezés után meg kell várjuk, hogy az integrálási szolgáltatás elinduljon. Ez általában kevesebb, mint egy perc szokott lenni azután, hogy látjuk az asztalunkat. Ezek után mind a képernyőfelbontás változtatása, mind a megosztott mappa, és ha beállítottuk, akkor a vágólapnak és a drag-n-drop-nak is működőképesnek kell legyen.
+{: .notice--info}
+
+Ha valamiért nem működne a felbontás váltása, mindenképpen nézzük meg, hogy a virtuális gép konfigurációjánál a grafikai vezérlő **VMSVGA**-e.
+{: .notice--warning}
 
 ### Integrációs szolgáltatás ArchLinux operációs rendszeren
 Hasonlóan a Windows-ra való telepítés esetén, itt is használható lenne a menüből való felcsatolás, de általában frissebb csomag érhető el az Arch repository-ból, mint amit a VirtualBoxunk felajánl. Ebből következik, hogy érdemesebb pacman segítségével feltelepíteni, ráadásul kevesebb lépésből is áll.
