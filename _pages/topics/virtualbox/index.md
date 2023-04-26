@@ -207,6 +207,9 @@ A Drag-N-Drop és a Vágólap működését külön engedélyezni, (és módját
 Ha el van indítva a virtuális gépünk, akkor a Devices menüből elérhető a Shared Clipboard és a Drag and Drop menüpontoknál.
 {: .notice--primary}
 
+A képernyő átméretezése (felbontásának változtatása) a VirtualBox View menüjéből elérhető, a Virtual Screen 1 almenüpontjaiként.
+{: .notice--info}
+
 ### Integrációs szolgáltatás Windows operációs rendszeren
 A telepítés egy Windows 10 PRO operációs rendszert futtató virtuális gépen fog bemutatásra kerülni. A nulladik lépésként indítsuk el a virtuális gépünket, és lépjünk be egy felhasználóval, lehetőleg olyannal, akinek rendszergazdai jogai vannak.
 
@@ -236,7 +239,7 @@ Hasonlóan a Windows-ra való telepítés esetén, itt is használható lenne a 
     - `sudo pacman -Sy virtualbox-guest-utils-nox`.
 4. Engedélyezzük a szolgáltatást az alábbi paranccsal:
     - `sudo systemctl enable vboxservice.service`
-5. Indítsuk újra a virtuális gépünket. Miután bejelentkeztünk, a VirtualBox View menüjéből használhatóvá válik a Virtual Screen 1 újraméretezése. Természetesen más szolgáltatásoknak is, mint az osztott vágólap, vagy a megosztott mappa, működnie kell.
+5. Indítsuk újra a virtuális gépünket. Miután bejelentkeztünk, a VirtualBox View menüjéből használhatóvá válik a képernyő újraméretezése. Természetesen más szolgáltatásoknak is, mint az osztott vágólap, vagy a megosztott mappa, működnie kell.
 
 Ha valamiért nem működne a felbontás váltása, mindenképpen nézzük meg, hogy a virtuális gép konfigurációjánál a grafikai vezérlő **VMSVGA**-e.
 {: .notice--warning}
