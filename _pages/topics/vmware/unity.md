@@ -1,9 +1,8 @@
 ---
 title: "VMware"
-tags:
-- vmware
-- vm
-- Unity mode
+tags: vmware
+sidebar:
+nav: "vmware"
 
 ---
 ## VM megjelenítés és vezérlés:

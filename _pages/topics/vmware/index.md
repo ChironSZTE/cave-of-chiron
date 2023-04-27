@@ -1,8 +1,8 @@
 ---
 title: "VMware"
-tags:
-    - vmware
-    - vm
+tags: vmware
+sidebar:
+    nav: "vmware"
 
 ---
 ## Mi is az a VMware Workstation:
