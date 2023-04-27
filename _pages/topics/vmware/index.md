@@ -18,6 +18,8 @@ A Player verzió lehetővé teszi az egyszerű virtuális számítógép létreh
 
 - Szükséged lenne egy egyszerű "**sandbox**"-ra? Akkor pár perc alatt létre tudsz hozni egy új teljesen elszigetelt virtuális gépet, hogy biztonságban legyen a gazdagép és az azon tárolt adatok internetes bőngészés alatt.
 - Vagy esetleg **sok kis apró programot** kell telepítened tanulás miatt, és nem szeretnéd feleslegesen terhelni a saját géped? Mert ha egy (vagy esetleg több) virtuális gépbe kiszervezed a ritkán, vagy csak egyszeri használat miatt telepített alkalmazásokat, akkor meg tudod válogatni a futtatni kívántakat. 
+Ez főként jellemző azokra a szoftverekre amik csak adott operációs rendszereken érhetők el. 
+- Fejlesztői célból a virtuális gépek futtatása lehetővé teszi a könnyebb tesztelést és az alkalmazások gyorsabb telepítését, konfigurálását és tesztelését.
 
 ---
 
