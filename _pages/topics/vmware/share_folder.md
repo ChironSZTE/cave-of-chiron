@@ -1,9 +1,8 @@
 ---
 title: "VMware"
-tags:
-- vmware
-- vm
-- share
+tags: vmware
+sidebar:
+nav: "vmware"
 
 ---
 ## Mappa megosztása VM és Host között:

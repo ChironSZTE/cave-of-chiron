@@ -1,9 +1,8 @@
 ---
 title: "VMware"
-tags:
-- vmware
-- vm
-- share
+tags: vmware
+sidebar:
+nav: "vmware"
 
 ---
 ## Eszköz átadása a VM-nek:

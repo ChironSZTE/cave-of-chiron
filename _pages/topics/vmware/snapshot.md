@@ -1,9 +1,8 @@
 ---
 title: "VMware"
-tags:
-- vmware
-- vm
-- Snapshot
+tags: vmware
+sidebar:
+nav: "vmware"
 
 ---
 ## Snapshot-ok kezelése:
