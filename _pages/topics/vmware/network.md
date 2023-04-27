@@ -1,8 +1,7 @@
 ---
 title: "VMware"
-tags: vmware
 sidebar:
-nav: "vmware"
+    nav: "vmware"
 
 ---
 ## VMware network settings:
