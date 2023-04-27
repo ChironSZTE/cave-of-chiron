@@ -45,3 +45,7 @@ vmware:
         url: /_pages/topics/vmware/share_device
       - title: 'Network settings'
         url: /_pages/topics/vmware/network
+      - title: 'Display'
+        url: /_pages/topics/vmware/unity
+      - title: 'SnapShot'
+        url: /_pages/topics/vmware/snapshot
