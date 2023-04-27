@@ -1,52 +1,50 @@
 ---
-title: "Komponens diagram használata"
+title: "VMware"
 tags:
-    - uml
+    - vmware
+    - vm
 
 ---
-## Rövid bemutatás
+## Mi is az a VMware Workstation:
 
-A UML (Unified Modeling Language) egy szoftverfejlesztésben előszeretettel használt modellező nyelv, mely diagramok, modellek létrehozására alkalmas.
+A VMware Workstation egy modern virtualizációs eszköz, mely egyszerű és átlátható felületet biztosít a felhasaználóknak.
+A Workstation programnak két verziójával foglalkozunk. Az egy a **Workstation Player** a másik pedig a **Workstation Pro**.
 
-A komponens diagram is egy UML diagram, azon belül szerkezeti diagram, ami egy adott szoftver szolgáltatásait és az azok közötti kapcsolatokat modellezi.
+A Player verzió lehetővé teszi az egyszerű virtuális számítógép létrehozását, és karbantartását.
 
-Egy **komponens** szolgáltatások egy halmazát foglalja magában.
-Természetesen egy komponens tartalmazhat több kisebb komponenst is.
-Ezek a komponensek egymást **interfészeken** keresztül érik el, és ezeken keresztül kommunikálnak egymással.
-Az interfészeknek két fajtája van, **nyújtott interfész** és **megkövetelt interfész**. Míg az első a külvilág felé szolgáltatásokat nyújt, addig a második ezeket másoktól igényli.
-A komponensek a külvilághoz **portokon** keresztül kapcsolódnak, és egy porthoz több interfész is kapcsolódhat.
+---
+
+## Mire lehet használni:
+
+- Szükséged lenne egy egyszerű "**sandbox**"-ra? Akkor pár perc alatt létre tudsz hozni egy új teljesen elszigetelt virtuális gépet, hogy biztonságban legyen a gazdagép és az azon tárolt adatok internetes bőngészés alatt.
+- Vagy esetleg **sok kis apró programot** kell telepítened tanulás miatt, és nem szeretnéd feleslegesen terhelni a saját géped? Mert ha egy (vagy esetleg több) virtuális gépbe kiszervezed a ritkán, vagy csak egyszeri használat miatt telepített alkalmazásokat, akkor meg tudod válogatni a futtatni kívántakat. 
+
+---
+
+## Hogyan tudod használni:
+Összeszedtünk pár alap funkciót VMware Worksation program használatával kapcsolatban.
+
+### Windows 10-et telepítenél?
+Itt egy jó leírás: [Windows 10 telepítése](windows.md)
+
+### Vagy esetleg Linux-on gondolkozol?
+Egy sikeres telepítés menete: [Linux telepítése](linux.md)
+
+### Gondod akadt a virtuális gép és a host közti adatátvitellel?
+Ossz meg egy mappát: [Mappa megosztása](share_folder.md)
+
+### Valamilyen külső eszközt csatlakoztatnál?
+Így csináld: [Eszköz átadása a VM-nek](share_device.md)
+
+### Nem elég jó az alap hálózati beállítás?
+Részletek: [Hálózati beállítások](network.md)
+
+### Zavar hogy váltogatnod kell a VM és a Host között?
+VM megjelenítés és vezérlés egyszerűen: [Unity mód](unity.md)
+
+### Veszélyes műveletre készülsz az VM-mel?
+Ne aggódj lehet snapshot-ot készíteni: [Snapshot](snapshot.md)
 
 
-![full_example](images/full_example.png)
-
-
-## Jelölésrendszer
-
-- **Komponens**: <\<component\>> előtaggal, vagy az alábbi jelöléssel
-  ![component](images/component.png)
-
-
-- **Interfész**: 
-  - nyújtott interfész: körrel
-  - megkövetelt interfész: félkörrel
-
-  ![interface](images/interface.png)
-
-
-- **Port**: téglalap, a komponens határvonalán
-  ![port](images/port.png)
-
-
-## Rajzprogramok
-
-- [draw.io](http://draw.io/)
-- [Lucidchart](https://www.lucidchart.com/pages/)
-- [EdrawMax](https://www.edrawsoft.com/ad/edrawmax/)
-- [PlantUML](https://plantuml.com/component-diagram)
-
-
-## További hasznos linkek
-- [Visual-Paradigma](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-component-diagram/)
-- [Wikipédia](https://en.wikipedia.org/wiki/Component_diagram)
-- [YouTube Tutorial - UML 2 Component Diagrams](https://www.youtube.com/watch?v=KQUGFFN4M90&ab_channel=DerekBanas)
-- [YouTube Tutorial az EdrawMax-hoz](https://www.youtube.com/watch?v=_iiOOxIDrGA&ab_channel=WondershareEdraw)
+### Források:
+[VMware.com](https://www.vmware.com/products/workstation-player.html)

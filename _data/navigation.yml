@@ -27,3 +27,21 @@ docker:
         url: /_pages/topics/docker/volumes/
       - title: 'FAQ'
         url: /_pages/topics/docker/faq/
+
+
+vmware:
+  - title: 'Install OS'
+    children:
+      - title: 'Install Windows 10'
+        url: /_pages/topics/vmware/windows
+      - title: 'Install Linux'
+        url: /_pages/topics/vmware/linux
+
+  - title: 'Usage'
+    children:
+      - title: 'Share folder'
+        url: /_pages/topics/vmware/share_folder
+      - title: 'Share device'
+        url: /_pages/topics/vmware/share_device
+      - title: 'Network settings'
+        url: /_pages/topics/vmware/network
