@@ -5,17 +5,17 @@ tags:
 ---
 
 ## Bevezetés
-Miért a Markdown? Ez egy nagyon jó kérdés. Egy nagyon hasznos, és könnyen használható, illetve kevés helyet felhasználó nyelv, amit **John Gruber** talált fel 2004-ben. A nyelv haszna főleg a szövegformázásra, nagyon hasznos szintaxisokkal ellátott beágyazásokkal volt ellátva, dokumentálásra és tesztelésekre tökéletes volt az alkalmazása, mind a mai napig.
+Miért is a Markdown? Ez egy nagyon jó kérdés. Egy nagyon hasznos, és könnyen használható, illetve kevés helyet felhasználó nyelv, amit **John Gruber** talált fel 2004-ben. A nyelv nagyon hasznos szintaxisokkal ellátott beágyazásokkal lett ellátva, szövegformázás terén nagyon hatékony, éppen ezért dokumentálásra és tesztelésekre tökéletes az alkalmazása, mind a mai napig.
 
-**FONTOS: A GitHub és GitLab nagyon hasonló `.md` nyelvet használ, ezért nem lesz különbontás, hanem egyben fogok őket venni.**
+**FONTOS: A GitHub és GitLab nagyon hasonló `.md` nyelvet használ, ezért nem lesz különbontás, hanem egyben fogom őket venni.**
 
 
-***A következő pár bekezdés során végigmegyünk a Markdown legfontosabb elemein, szintaxist és példákon keresztül megismerjük a nyelvet. A fő fókusz az alapokon van, de van sok más felhasználása is, ami most nem kerül bemutatásra.***
+***A következő pár bekezdés során végigmegyünk a Markdown legfontosabb elemein, megnézzük a szintaxist és példákon keresztül megismerjük a nyelvet. A fő fókusz az alapokon van, de van sok más felhasználása is, ami most nem kerül bemutatásra.***
 <br>
 
 Csapjunk is bele!
 ## Fejlécek
-Ahhoz, hogy készítsünk egy fejlécet, egy `#` karakternek kell állnia a szöveg előtt, egy szóközzel követve. A `#` száma fogja meghatározni, hogy mekkora lesz a fejlécünk.
+Ahhoz, hogy készítsünk egy fejlécet, egy `#` karakternek kell állnia a szöveg előtt, amit egy szóköz fog követni. A `#` száma fogja meghatározni, hogy mekkora lesz a fejlécünk. 1-től megyünk lefelé a nagyságrendekben.
 ```
 # Ez ugyanaz, mint a <h1> elem a HTML-ben
 ## Ez ugyanaz, mint a <h2> elem a HTML-ben
@@ -33,11 +33,11 @@ Sokfajta szövegformázás létezik, például vastag, dőlt, áthúzott, alsó 
 - Alsóindex -> `<sub></sub>` -> Ez egy pelda<sub>formula</sub> szoveg
 - Felsőindex -> `<sup></sup>` -> Ez egy pelda<sup>formula</sup> szoveg
 
-## Szövegkiemelés, idézés
+## Szövegkiemelés, idézés, kódblokkok
 Idézheted is a szöveged, ami azt jelenti, hogy kap egy szürke vonalat a container elé, illetve szürke lesz maga a szöveg is.
 > Ez egy pelda idezett szoveg
 
-Használhatjuk szövegen belül, az ún. 'tompa ékezet' használatával.
+Használhatjuk szövegen belül is, az ún. 'tompa ékezet' használatával.
 Ez egy nagyon jo peldaszoveg `koddal` a vegen.
 
 Ezzel a tompa ékezettel tudunk kódblokkokat is létrehozni, egymás utána 3-at is kell a blokk elé és végére tenni. Ha esetleg értelmes kódot is tartalmaz, akkor az első 3 tompa ékezet után a nyelvet is megadhatjuk, ekkor kiszinezi nekünk a kulcsszavakat automatikusan. Erre két példa is lesz, hogy lássuk a különbséget.
@@ -67,10 +67,10 @@ Létrehozhatunk linkeket egyedi névvel is. A beállítani kívánt név a szög
 `Ez egy pelda link a GitLabhoz: [Gitlab](https://about.gitlab.com/)`
 [GitLab](https://about.gitlab.com/)
 
-Ha szükséges, használhatunk **relatív útvonalat** is, a `/`, `./` és `../` használatával. Helyi fájloknál érdemes használni, kevesebb a hibalehetőség.
+Ha szükséges, használhatunk **relatív útvonalat** is, a `/`, `./` és `../` használatával. Helyi fájloknál érdemes használni, kevesebb a hibalehetőség, és szebben is néz ki.
 
 ## Képek
-Képeket is beszúrhatúnk kommentbe hasonló módon, mint ahogy linket is. A különbség az, hogy a szintaxis elé egy `!`-et kell rakni, és úgy már képként fogja érzékelni.
+Képeket is beszúrhatúnk hasonló módon, mint ahogy linket is. A különbség az, hogy a szintaxis elé egy `!`-et kell rakni, és úgy már képként fogja érzékelni.
 
 `![Ez egy pelda kep a GitLab ikonjarol](https://gitlab.com/uploads/-/system/group/avatar/6543/logo-extra-whitespace.png)`
 ![Ez egy pelda kep a GitLab ikonjarol](https://gitlab.com/uploads/-/system/group/avatar/6543/logo-extra-whitespace.png)
@@ -111,7 +111,7 @@ Kétfajta megemlítést különböztetünk meg:
 2. Issue-k és pull request-ek -> A `#` használatával -> `#<issue/pr_number>` -> #12
 
 ## Kommentek
-Kommentelhetsz ezzel a szintaxissal: `<!-- Ez egy pelda komment szoveg -->`
+Kommenteket készíteni ezzel a szintaxissal tudunk: `<!-- Ez egy pelda komment szoveg -->`
 
 ## Végső gondolatok
 Fontos megjegyezni, hogy lehet HTML elemeket is használni a Markdown nyelven belül. Én is sokat használtam. Illetve ez egy nagyon alap bemutatása ennek a nyelvnek, viszont ez bőven elég tudás, hogy tudjunk dolgozni vele, dokumentálni és amire kell használnunk.
