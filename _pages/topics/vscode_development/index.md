@@ -28,10 +28,7 @@ tehetik a fejlesztést.
 
 ### Linux
 
-Amennyiben a parancsokban `<fajlnev>`, `<eleresi-utvonal>`, vagy hasonló részt látsz, helyettesítsd be értelemszerűen.
-
 A telepítésről részletesebb leírást [itt](https://code.visualstudio.com/docs/setup/linux) találsz.
-
 
 #### Debian/Ubuntu alapú rendszerek
 
@@ -63,3 +60,13 @@ sudo dnf install code
 Amennyiben a rendszered a fentiek között nem szerepel, megtalálod a megfejelő útmutatót a [VS Code hivatalos oldalán](https://code.visualstudio.com/docs/setup/linux).
 
 ## Beállítás
+
+### Java fejlesztéshez
+
+Nincs más dolgod mint az 'Extension Pack for Java' kiegészítőcsomagot letöltened, és már készen is állsz a java projekted fejlesztésére.
+
+Java projektetkkel való interaktálásra (létrehozás, buildelés, stb.) a VS Code `Command Palette` funkcióját tudod használni, amit az `[F1]` gombbal, vagy a `[Ctrl+Shift+P]` billentyűkombinációval tudod előhívni.
+
+![command_palette](./screenshots/command_palette.png)
+
+További információt a témáról [itt](https://code.visualstudio.com/docs/languages/java#_getting-started) találsz
