@@ -41,19 +41,23 @@ Alternatívan a `git commit -m "<commit message>"`-el egysoros commit message-at
 
 ### Szinkronizálás távoli repository-val
 
-Ha már vannak commit-jaid, vagy másoknak vannak, akkor a `git pull` és `git push` parancsokkal lekérheted mások commit-jait, és feltöltheted a sajátaidat
+Ha már vannak commit-jaid, vagy másoknak vannak, akkor a `git pull` és `git push` parancsokkal lekérheted mások commit-jait, és feltöltheted a sajátaidat.
 
-Ha van olyan kódreészlet amit te is és más is módosított, akkor egy `merge conflict` fog keletkezni, és az érintett fileokban el kell döntened, hogy kinek a változtatásai maradjanak meg, magy egy hibrid változás keletkezzen
+Ha van olyan kódreészlet amit te is és más is módosított, akkor egy `merge conflict` fog keletkezni, és az érintett fileokban el kell döntened, hogy kinek a változtatásai maradjanak meg, magy egy hibrid változás keletkezzen.
 
-Ha rezolváltad a conflict-ot, akkor `git add <conflict-oló fileok>` majd `git commit` parancsokkal lezárhatod a merge-et
+Ha rezolváltad a conflict-ot, akkor `git add <conflict-oló fileok>` majd `git commit` parancsokkal lezárhatod a merge-et.
 
 ## Alap konfigurációs opciók
-Két féle git konfigurációs lehetőség van: global és local
+Két féle git konfigurációs lehetőség van: global és local.
 
 A global az alapvetően minden git repo-ra érvényes azon a számítógépen.
-A local config-okkal ezek a global opciók felülírhatók projeckt-speicifikus értékekkel
+A local config-okkal ezek a global opciók felülírhatók projeckt-specifikus értékekkel.
+Az elején ezt be is kell állítanunk, hogy a későbbiek a lássa is a többi fejlesztő, hogy ki által történt a commit.
+`git config --global user.name "neved"`
+`git config --global user.email "email-ed"`
+Érdemes viszont arra figyelni, hogy ilyenkor globálisan állítod be ezeket az adatokat. Ha egyszerre több külön projektre fejlesztesz más `repository`-kba akkor a global kifejezést elkell hagyni és az adott `git projekt` mappájában beállítani ezeket az adatokat.
 
-két féle config file-ban általában eltérő féle adatok vannak:
+Két féle config file-ban általában eltérő féle adatok vannak:
 a global configban általában git plugin-ok, és felhasználó név / email értékek szoktak szerepelni,
 a local configban ezek felülírhatók, és itt a jelen repo alapértelmezett vagy jelenleg kiválasztott remote-jai és branch-ei configurálhatók.
 
@@ -102,21 +106,47 @@ A mintákról részletesen a [git dokumentációban (https://git-scm.com/docs/gi
 ## Git müködése
 ### Commit-ok
 
-A háttérben valójában nem az egész `working tree` másolata mentődik el egy commit-ba, hanem csak a `diff`
+A háttérben valójában nem az egész `working tree` másolata mentődik el egy commit-ba, hanem csak a `diff`.
 
-A `diff` az egy linux program, ami szöveges fileok összehasonlítását végzi; ebből kifolyólag, egy commitban, csak az őt megelőző commit-hoz képest történt változások kerülnek mentésre
+A `diff` az egy linux program, ami szöveges fileok összehasonlítását végzi; ebből kifolyólag, egy commitban, csak az őt megelőző commit-hoz képest történt változások kerülnek mentésre.
 
-a `git diff <egyik commit hash>..<másik commit hash>` parancsal a két commit hasz között történt nettó változást nézhetjük meg, a két commit hash nem kell hogy "szomszédok" legyenek, vagy hogy egyáltalán ugyan azon a branch-on legyenek
+A `git diff <egyik commit hash>..<másik commit hash>` parancsal a két commit használat között történt nettó változást nézhetjük meg, a két commit hash nem kell hogy "szomszédok" legyenek, vagy hogy egyáltalán ugyan azon a branch-en legyenek.
 
-ezt a parancsot egy fileba is kiirányíthatjuk, és azt szerkezthetjük, és vissza apply-olhatjuk is akár
+Ezt a parancsot egy fileba is kiirányíthatjuk, és azt szerkezthetjük, és vissza apply-olhatjuk is akár.
+
+A `commit message` minél érthetőbb és lényegretörőbb legyen. 
+Ez azért fontos, mert a későbbiekben gyorsan meglehessen mondani, hogy annál a `commit`-nál mit fejlesztettünk, változtattunk. 
+A többi fejlesztő számára is hasznos és akik ezeket nézik / ellenőrzik számukra is egyszerűbb ha nem kell átnéznie a teljes `commit`-ot hanem a message-et olvasva értik, hogy ott mi történt.
+
+Érdemes ehhez haszálnunk különböző kulcsszavakat a `message` elejénél:
+- `fix`: Hiba javítása
+- `feat`: Új funkció
+- `docs`: Csak dokumentációs változtatások
+- `style`: Olyan változások, amelyek nem érintik a kód jelentését (szóközök, formázás, hiányzó pontosvesszők stb.)
+- `refactor`: Kódváltoztatás, amely nem javít hibát és nem ad hozzá új funkciót
+- `test`: Hiányzó tesztek hozzáadása
+- `chore`: Változások a build folyamatban vagy kiegészítő eszközökben és könyvtárakban, például dokumentáció generálásban.
+
+Példa: `feat: Implement user authentication`
+
+**git commit használata**
+Commit írásánál az alábbi parancsot futassuk le:
+`git commit -m "message"`
 
 ### Branch-ek
 
-A branch-ek lehetővé teszik, hogy egyszerre több ember dolgozzon párhuzamosan, és ezek ne akadjanak össze, vagy ha mégis, akkor egy lépésben (merge) le lehet kezelni az esetleges conflict-okat, és nem kell minden commitnál ezzel bajlódni
+A branch-ek lehetővé teszik, hogy egyszerre több ember dolgozzon párhuzamosan, és ezek ne akadjanak össze, vagy ha mégis, akkor egy lépésben (merge) le lehet kezelni az esetleges conflict-okat, és nem kell minden commitnál ezzel bajlódni.
 
-Egy új branch-et a `git branch <branch neve>` parancsal hozhatunk létre, ami alapból ott fog állni, ahol a parancs kiadásakor álltunk
+Egy új branch-et a `git branch <branch neve>` parancsal hozhatunk létre, ami alapból ott fog állni, ahol a parancs kiadásakor álltunk.
 
-Ahhoz hogy ezen a branch-on bírjunk dolgozni, át kell rá váltani a `git switch <branch neve>` vagy `git checkout <branch neve>` parancsok egyikével
+Ahhoz hogy ezen a branch-on bírjunk dolgozni, át kell rá váltani a `git switch <branch neve>` vagy `git checkout <branch neve>` parancsok egyikével.
+
+Általában az alábbi `branching modell`-t szokták használni:
+- `feature branches`: új funkcióknak szóló branchek
+- `develop`: a fő fejlesztési branch
+- `release branches`: itt történnek a finomítások és a metódusok ellenőrzése
+- `hotfixes`: hibák javítása
+- `master`: a kész működő rész. Ide csak a jól működő részeket `merge`-eljük be
 
 ### navigáció a history-ban
 
@@ -139,13 +169,21 @@ Git szervereken (pl GitHub, GitLab) ilyen repo-k vannak, ugyanis ha egy repo-hoz
 
 A git push a mi commit-jainkat elküldi egy távoli git szerverre
 
-A git pull az lekéri az összes változást (`git fetch --all`) majd megpróbál átváltani a legújabb commit-ra
+A git pull az lekéri az összes változást (`git fetch --all`) majd megpróbál átváltani a legújabb commit-ra.
 
-Ezt többféleképpne teheti meg, és az alapértelmezett viselkedés konfigurálható
+Ezt többféleképpne teheti meg, és az alapértelmezett viselkedés konfigurálható:
 
   - `fast-forward`: amikor neked nincs változtatásod (commit-od) akkor egyszerűen beállítja a jelenlegi branch-ot és a HEAD-et a legutóbbi commit-ra
   - `rebase`: amikor a te commitjaidat egyesével "rápakolja" a letöltött változások utánra, mintha már az új változások ott lettek volna amikor elkészítetted a változásaidat
   - `merge`: amikor a git megpróbálja összeolvasztani a változásokat (egy ilyen `merge commit` segítségével, aminek az összes többi commit-al ellentétben 2 szülő commit-ja van); amikor az automatikus összeolvasznás nem sierül, akkor egy `merge conflict`-ot kapunk, és a git az ütköző régiókba beleteszi mindkettő variációt, és nekünk kell feloldani a conflict-ot az egyik, másik vagy egy hibrid megoldás elkészítésével
+
+#### Feltöltés folyamata
+- Egy adott rész befejezésénél a változtatásokat `git add <file név>` vagy ha az összes változtatást szeretnénk feltölteni `git add .`
+- A következő lépés a `commit message` megírása `git commit -m "message"` paranccsal.
+- A `git status` paranccsal megtudjuk nézni mely változtatások kerültek `staging area`-ba.
+- A `git push` parancs kiadásával a `stage`-elt fájljainkat töltjük fel a local repository-ból a távoli repository-ba. 
+
+A `stage` egy köztes állapot ahol úgymond megjelölt módosított fájl/fájlok vannak. Ezeket a `git add`-al tudjuk megjelelölni. Ezeket töltjük majd fel a `git push` parancs kiadásával.
 
 ## Tippek
 ### git blame
@@ -186,6 +224,29 @@ Ahhoz hogy ezt használhassuk, csupán a git plugint kell bekapcsolni:
 ```shell
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 ```
-És amikor legközelebb autentikáljuk magunkat, akkor a git atuomatikusan elmenti a bejelentkezési adatokat, és a továbbiakban automatikusan felhasználja őket a kulcscsomóról;
+És amikor legközelebb autentikáljuk magunkat, akkor a git automatikusan elmenti a bejelentkezési adatokat, és a továbbiakban automatikusan felhasználja őket a kulcscsomóról;
 több részlet a [Gnome keyring arch wiki (https://wiki.archlinux.org/title/GNOME/Keyring#Git_integration)](https://wiki.archlinux.org/title/GNOME/Keyring#Git_integration) oldalán olvasható
+
+#### git tanulását, megértését segítő oldalak
+
+Egy nagyon hasznos oldal ahol játékosan tanulhatjuk a git parancsokat és segít a megértésében is ezeknek lépésről lépésre.
+[Learn Git Branching](https://learngitbranching.js.org/)
+
+Step by step guide a GitHub-hoz és hogy hogyan használjuk a git-et
+[Step by step guide](https://opensource.com/article/18/1/step-step-guide-git)
+
+A legismertebb git branching modell
+[Git branching](https://nvie.com/posts/a-successful-git-branching-model/)
+
+#### git kezelését segítő programok
+
+A GitHub-nak van egy saját desktop alkalmazása:
+[GitHub Desktop](https://desktop.github.com/)
+
+A Git Extensions egy UI felület a Git Repository-khoz ahol látjuk a commit-okat és a workflow-t
+[Git Extensions](http://gitextensions.github.io/)
+
+A Sourcetree egy egyszerű Git GUI alkalmazás
+[Sourcetree](https://www.sourcetreeapp.com/)
+
 
