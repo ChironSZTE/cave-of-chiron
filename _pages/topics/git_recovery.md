@@ -24,6 +24,11 @@ Például ha konfliktus alakult ki valamelyik fájlban, akkor azt itt láthatod.
 
 Ajánlott mindkettőnek a formátum opcióit megismerni, az egyik leghasznosabb saját tapasztalatom szerint a `git log --patch`, amivel át tudod nézni, hogy a változtatások megfelelnek-e a commitok leírásainak.
 
+#### távoli branchek állapota
+Merge, rebase, vagy cherry-pick esetén néha a más fejlesztők branchén talált commit leírása nem elég ahhoz, hogy a sajátunkkal integráljuk.  Ilyenkor a "mire gondolt a költő" misztériumát sokszor feloldja, ha megnézzük mi a commit (vagy a változtatott fájl vagy mappa) történelme.
+
+Ezeket egy `git fetch` futtatásával tudjuk lokálisan elérhetővé tenni.  Az  `origin` remote `main` branchét például `git fetch origin && git log origin/main` módon tudjuk átnézni.
+
 ### `reflog`
 A reflog a jelenlegi branch lokális történelme.  Míg a `git log` a jelenlegi `HEAD` commit "családfáját" mutatja be, a reflog a branchen végzett (a `HEAD` célpontját változtató) műveletek időrendi sorrendjét követi.  Ez azért fontos, mert olyan műveleteket is követ amik átírják vagy akár törlik a branch "történelmét".
 
@@ -48,8 +53,9 @@ A `git commit --amend` lecseréli a `HEAD` commitot, így ahelyett hogy lenne eg
 ## Megpróbáltam a rebase/merge/etc parancsot, de valami katasztrofális történt, mit csináljak?
 Mielőtt belekezdünk a rebase témába, érdemes tudni mit csinálj mikor garantáltan bajba jutsz az első próbálkozás során.
 
-### `--abort`
 Az első parancs a `git rebase --abort`.  Ez csak simán visszajuttat a rebase előtti állapotba.  Ez a pánik gomb.  Ha fogalmad sincs mi történt, ez kiment a szituációból és újrakezdheted a folyamatot egy ismert állapotból.  Hasonló módon van `git merge --abort`, `git cherry-pick --abort`, etc.
+
+A másik a reflog, amit fentebb már tárgyaltunk, de fontos még egyszer kiemelni, mivel nagyon hasznos.
 
 ## Rebase
 Ez egy elég általános eszköz, ami veszélyes, de nagyon hasznos ha tudod mit csinálsz, és sok problémának a megoldása ebben rejlik.
