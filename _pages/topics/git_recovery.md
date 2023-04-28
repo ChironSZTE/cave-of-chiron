@@ -45,9 +45,9 @@ Ez egy elég általános eszköz, ami veszélyes, de nagyon hasznos ha tudod mit
 A `merge` egy speciális commitot készít, míg a `rebase` egy commit listát szerkeszt, bizonyos értelemben átírva a "történelmet".  Merge helyett is használható, nem csak hibajavításra, mert fast-forward merge-et tesz lehetővé.
 
 ### fast-forward?
-Ha mergelés folyamán ha egy olyan commitot akarsz egy másik committal mergelni ami elérhető az első commit history-át követve, akkor a Git azzal egyszerűsíti le a dolgokat hogy a második commit head-jére állítja az első pointerét, mert nincsenek divergens változtatások amit mergelni kellene, ez a “fast-forward”.
+Ha mergelés folyamán egy olyan commitot akarsz egy másikkal mergelni aminek felmenője az első commit, akkor a Git azzal egyszerűsíti le a dolgokat hogy a másodikra állítja a branch `HEAD`-et, mert nincsenek divergens változtatások amit mergelni kellene, ez a “fast-forward”.
 
-Például, ha master nem divergált akkor egy új commit létrehozása helyett a master HEAD-jét az adott feature branch legutolsó commitjára állítja -> nem lesz merge commit sikeres fast forward esetén
+Például, ha master nem divergált akkor egy új commit létrehozása helyett a master HEAD-jét az adott feature branch legutolsó commitjára állítja, így nem lesz merge commit sikeres fast forward esetén.
 
 ## `reset`
 A Git resetet alapvetően arra használjuk hogy egy adott branchet egy korábbi tetszőleges állapotra álítsunk vissza. Ennek három különböző verziója van: hard, mixed és soft.
