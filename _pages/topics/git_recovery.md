@@ -68,6 +68,26 @@ Ha mergelés folyamán egy olyan commitot akarsz egy másikkal mergelni aminek f
 
 Például, ha master nem divergált akkor egy új commit létrehozása helyett a master HEAD-jét az adott feature branch legutolsó commitjára állítja, így nem lesz merge commit sikeres fast forward esetén.
 
+### interaktív mód
+Alapértelmezetten a rebase nem interaktív, vagyis nem ad beleszólást abba, hogy milyen sorrendben alkalmazza a commitokat, se azok szerkesztésére, de ha az `--interactive` opcióval indítjuk el, akkor egy úgynevezett "to do" listát kapunk, ahol nagyon sok mindenbe van beleszólásunk.
+
+### diagnózis
+A jelenlegi állapotot és a legutúbbi pár elvégzett műveletet `git status` is megmondja, de ha látni szeretnéd az összes elvégzett műveletet, akkor a `.git/rebase-merge/done` fájlt nyisd meg.  Ez csak rebase közben elérhető, utána a mappa törlődik.
+
+### commitok átrendezése
+Az egyik legegyszerűbb művelet a változtatások átrendezése más sorrendbe.  Ezt például azért akarhatjuk csinálni, mert az egyik commit nem tesztelhető egy utána következő nélkül, és könnyebbé szeretnénk tenni a review folyamatot azzal, hogy minden commit egyenként futtatható legyen, ami cherry pickelést is egyszerűsíti, ha arra jutna a sor.
+
+### squash, autosquash
+A squash több egymás után következő commitból egyet csinál, az autosqash specifikusan arra való, hogy fixup commitokat (lásd a `commit` parancs `--fixup` opcióját) squasholj.  Az utóbbi nem kérdezi, hogy akarod-e változtatni a squasholt commit leírását, az előbbi igen.
+
+### commitok eldobása
+Ha nem akarsz egy commitot használni mégse, mert kiderült, hogy felesleges, és például a merge request már nem egy változtatásra fókuszálna vele együtt, akkor ki is hagyhatod a rebase során, egyszerűen töröld a sorát a listából, vagy kommentáld ki.
+
+### the Dark Souls of commitok átrendezése
+Van egy advanced módja a commitok átrendezésének, ez az, amikor már egy rebase közepén vagy, és rájössz, hogy egy már elvégzett művelethez tartozó commitnak később kéne következnie, mert például nem tesztelhető önmagában, és szeretnéd ezt lehetővé tenni, mert akár kötelezi ezt a projekt amin dolgozol.
+
+Ez elég rizikós, de megoldható, csak végig tartsd fejben, hogy tényleg elvégezted a műveletet, vagy mondjuk konfliktus keletkezett és a Git nem engedett tovább.
+
 ## Reset
 A Git resetet alapvetően arra használjuk hogy egy adott branchet egy tetszőleges állapotra álítsunk vissza.  Ennek három különböző verziója van: hard, mixed és soft.
 
