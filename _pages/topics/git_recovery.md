@@ -89,22 +89,29 @@ Van egy advanced módja a commitok átrendezésének, ez az, amikor már egy reb
 Ez elég rizikós, de megoldható, csak végig tartsd fejben, hogy tényleg elvégezted a műveletet, vagy mondjuk konfliktus keletkezett és a Git nem engedett tovább.
 
 ## Reset
-A Git resetet alapvetően arra használjuk hogy egy adott branchet egy tetszőleges állapotra álítsunk vissza.  Ennek három különböző verziója van: hard, mixed és soft.
+A Git resetet alapvetően arra használjuk hogy egy adott branchet egy tetszőleges állapotra álítsunk vissza.
+
+### mikor használható?
+A legegyszerűbb használati eset az, amikor a branch előzményéből próbálunk visszaállítani egy állapotot, de használhatjuk például akkor is, ha el akarjuk dobni a lokális változtatásainkat és a branchet visszaállítani a remote állapotára, például mert egy rendes merge vagy rebase nem érné meg a fáradságot.  A `--hard`-on kívüli módok hasznosak akkor, ha például rebase közben egy commitot fel szeretnénk szeletelni kisebb egységekre, lásd feljebb.
+
+### reset módok
+Három különböző verziója van: hard, mixed és soft.
 
 Példának vegyük a következő commit historyt: `- A - B - C (main)`
 
-### `--soft`
+#### `--soft`
+
 A parancs kiadása előtt a `HEAD` és az index is C-re mutat, B-re akarjuk soft módon visszaállítani.
 
 A `git reset --soft B` parancs kiadása után a `HEAD` a B-re mutat, viszont az index tartalmazza a C commitban lévő változásokat.
 A `git status` parancs a C-ben lévő változásokat staged-ként jelöli meg, ha kiadjuk a commit parancsot új commitot kapunk a C-ben lévő változásokkal
 
-### `--mixed` (alapértelmezett)
+#### `--mixed` (alapértelmezett)
 A parancs kiadása előtt a `HEAD` és az index is C-re mutat, B-re akarjuk mixed módon visszaállítani.
 
 A `git reset --mixed B` parancs hatására a `HEAD` B-re mutat és az index is B-re mutat.  A C commitban lévő változások a lokális directory-ban unstaged állapotban jelennek meg, mivel az index B commit tartalmára mutat.  Git add és git commit parancs kiadása után új commit jön létre a nekünk megfelelő változtatásokkal
 
-### `--hard`
+#### `--hard`
 A parancs kiadása előtt a `HEAD` és az index is C-re mutat, B-re akarjuk hard módon visszaállítani.
 
 `git reset --hard B` parancs `HEAD` és index változás szempontjából sokban hasonlít a mixed verzióra, azzal a lényeges különbséggel hogy hard mód esetén az összes C commitban lévő változás és a commitálatlan lokális változtatások is elvesznek.  Ebből kifolyólag nagyon óvatosan kell használni a parancsot, kiadása előtt git statussal ellenőrizzük hogy van-e változás a lokális directory-ban illetve hogy megengedhető-e az adott commit utáni változások elvesztése.
