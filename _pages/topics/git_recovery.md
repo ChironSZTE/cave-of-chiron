@@ -49,23 +49,23 @@ Ha mergelés folyamán ha egy olyan commitot akarsz egy másik committal mergeln
 
 Például, ha master nem divergált akkor egy új commit létrehozása helyett a master HEAD-jét az adott feature branch legutolsó commitjára állítja -> nem lesz merge commit sikeres fast forward esetén
 
-### Git reset
+## `reset`
 A Git resetet alapvetően arra használjuk hogy egy adott branchet egy korábbi tetszőleges állapotra álítsunk vissza. Ennek három különböző verziója van: hard, mixed és soft.
 
 Példának vegyük a következő commit historyt: - A - B - C (master)
 
-## Git reset --soft
+### `--soft`
 A parancs kiadása előtt a HEAD és az index is C-re mutat, B-re akarjuk soft módon visszaállítani.
 
 A git reset --soft B parancs kiadása után a HEAD a B-re mutat, viszont az index tartalmazza a C commitban lévő változásokat.
 A git status parancs a C-ben lévő változásokat staged-ként jelöli meg, ha kiadjuk a commit parancsot új commitot kapunk a C-ben lévő változásokkal
 
-## Git reset --mixed (alapértelmezett reset mód)
+### `--mixed` (alapértelmezett)
 A parancs kiadása előtt a HEAD és az index is C-re mutat, B-re akarjuk mixed módon visszaállítani.
 
 A git reset --mixed B parancs hatására a HEAD B-re mutat és az index is B-re mutat. A C commitban lévő változások a lokális directory-ban unstaged állapotban jelennek meg, mivel az index B commit tartalmára mutat. Git add és git commit parancs kiadása után új commit jön létre a nekünk megfelelő változtatásokkal
 
-## Git reset --hard
+### `--hard`
 A parancs kiadása előtt a HEAD és az index is C-re mutat, B-re akarjuk hard módon visszaállítani.
 
 git reset --hard B parancs HEAD és index változás szempontjából sokban hasonlít a mixed verzióra, azzal a lényeges különbséggel hogy hard mód esetén az összes C commitban lévő változás és a commitálatlan lokális változtatások is elvesznek. Ebből kifolyólag nagyon óvatosan kell használni a parancsot, kiadása előtt git statussal ellenőrizzük hogy van-e változás a lokális directory-ban illetve hogy megengedhető-e az adott commit utáni változások elvesztése.
