@@ -12,7 +12,7 @@ A branch igazából csak egy név amit bármilyen commithoz rendelhetünk.  A ta
 A jelenlegi és egy adott másik branch szétválása óta történt változásokat fésüli össze arra a branchre amin jelenleg vagyunk. Többekközött a git pull is ezt használja hogy a remote repositoryba feltöltött változásokat beleolvassza a local repository kódjába, de bármelyik két tetszőleges branch változásait összefésülhetjük. Különbség a rebase-héz képest hogy a merge nem írja át/fésüli össze a két branch commit historyát az összegzés során, csak létrehoz egy merge commitot amiben az összes változás egyszerre jelenik meg.
 
 ## Véletlenül hozzáadott változtatás
-### Szituáció:
+### Szituáció
 Nem nézted át miket változtattál, futtattál mondjuk egy `git add .` parancsot, de még **nem** futtattad a `git commit`-ot.  Lefuttatod a `git diff --staged` parancsot és látod, hogy hoppá, nem az van benne aminek lennie kéne.
 
 ### Megoldás
