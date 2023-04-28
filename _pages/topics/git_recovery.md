@@ -25,7 +25,7 @@ Rosszul írtad le a commitodat, vagy esetleg rossz változtatások kerültek bel
 ### Megoldás
 A `git commit --amend` lecseréli a `HEAD` commitot, így ahelyett hogy lenne egy "add cool feature" commit és egyből utána egy "fix embarrassing typo in previous change" commit, csak egy "add cool feature" commit van typo nélkül.  A parancs amúgy ugyanúgy működik mint mindig, tehát a `git add [--patch]` vagy `git commit --patch` hívása ugyanúgy szükséges a változtatások hozzáadásához, de ha csak a commit leírását akarod változtatni akkor nem.
 
-## Megpróbáltam a rebase/merge/etc parancsot, de csak rosszabb lett minden, valami kigyulladt, a rendőrök már a házban vannak, mit tegyek, melyik országba meneküljek?
+## Megpróbáltam a rebase/merge/etc parancsot, de valami katasztrofális történt, mit csináljak?
 Mielőtt belekezdünk a rebase témába, érdemes tudni mit csinálj mikor garantáltan bajba jutsz az első próbálkozás során.
 
 ### `--abort`
