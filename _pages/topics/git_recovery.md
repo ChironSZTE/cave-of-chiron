@@ -88,6 +88,12 @@ Van egy advanced módja a commitok átrendezésének, ez az, amikor már egy reb
 
 Ez elég rizikós, de megoldható, csak végig tartsd fejben, hogy tényleg elvégezted a műveletet, vagy mondjuk konfliktus keletkezett és a Git nem engedett tovább.
 
+A munka menete nagyjából úgy néz ki, hogy észreveszed hogy a jelenlegi commit nem buildel, megnézed melyik későbbi commit tartalmazza a változtatást amitől működne (például egy hiányzó deklarációt), megkeresed a `done` fájlban, kivágod onnan, futtatod a `git rebase --edit-todo` parancsot, hozzáadod a megfelelő commit után amit kivágtál az előbb, futtatsz egy `git reset --hard <commit>` parancsot, ahol a commit a legutóbbi befejezett rebase parancs **eredménye**.
+
+Fontos, hogy ezt a logból tudod megkapni, **nem** a `done` fájlból.  Nem teljesen intuitív, de ha visszaemlékszel a bevezetőből a commitokra, akkor talán már érted is, hogy miért kell erre figyelni.  A rebase általában új történelmet kreál, amiben a commitoknak még ha a `--patch` nézete meg is egyezik, az őseik például mások, ezért nekik is más ellenőrzőösszegük lesz.  Tehát ha a `done` fájlból kapott hashre resetelsz, akkor az egész eddigi rebase-t gyakorlatilag a kukába dobod.
+
+Ha a resetet jól csináltad, akkor futtathatod a `git rebase --continue`-t és haladhatsz tovább.  A biztonság kedvéért itt mindig ellenőrizd, hogy a `git log --patch` kimenete tényleg az-e amire számítottál.  Nagyon kellemetlen egy nagy rebase-t az elejéről újrakezdeni.
+
 ## Reset
 A Git resetet alapvetően arra használjuk hogy egy adott branchet egy tetszőleges állapotra álítsunk vissza.
 
