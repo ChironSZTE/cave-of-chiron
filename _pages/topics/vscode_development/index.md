@@ -6,7 +6,7 @@ tags:
 
 ## Bevezető
 
-A [Visual Studio Code](https://code.visualstudio.com) könnyű, azonban sokoldalú, nyílt forráskódú kódszerkesztő program, amely asztali alkalmazásként fut. Telepíthető [Windows](#windows), [macOS](#macos), valamint [Linux](#linux) operációs rendszerekre. Beépített támogatása van JavaScript, TypeScript és Node.js nyelvekhez, illetve [kiegészítők széles választéka](#kiegészítők) áll a felhasználók rendelkezésére, amelyek sok más nyelven is hatékonnyá tehetik a fejlesztést.
+A [Visual Studio Code](https://code.visualstudio.com) egy könnyen használható, azonban sokoldalú, nyílt forráskódú kódszerkesztő program, amely asztali alkalmazásként fut. Telepíthető [Windows](#windows), [macOS](#macos), valamint [Linux](#linux) operációs rendszerekre. Beépített támogatása van JavaScript, TypeScript és Node.js nyelvekhez, illetve [kiegészítők széles választéka](#kiegészítők) áll a felhasználók rendelkezésére, amelyek sok más nyelven is hatékonnyá tehetik a fejlesztést.
 
 ![code_welcome.png](./screenshots/code_welcome.png)
 
@@ -166,23 +166,20 @@ A program futtatásához kattintsunk a jobb felső sarokban található indítá
 
 [Hivatalos Visual Studio Code dokumentáció](https://code.visualstudio.com/docs/languages/csharp)
 
-A C# kód futtatásához szükségünk van .NET keretrendszerre. Ennek beszerzéséhez nincs más dolgunk, mint ellátogatni a [Microsoft hivatalos weboldalára](https://dotnet.microsoft.com/en-us/download), és letölteni a legfrissebb verziót.
+fel kell teleoíteni a dotnet-et, link
 
-A .NET keretrendszeren kívül be kell szereznünk a Visual Studo Code C# kiegészítőjét is. A kiegészítők telepítéséről bővebben olvashatsz a [kiegészítők telepítése](#kiegészítők-telepítése) bekezdésben.
+extension
+()
 
-![csharp.png](./screenshots/csharp/csharp.png)
+létrelehet hozni a következő paranccsal : dotnet new console -o <név>
 
-Amennyiben végeztünk a telepítéssel, hozzuk létre első projektünket. Nyissunk meg egy terminált, majd futtassuk le a következő parancsot: ```dotnet new console -o <fájlnév>```
+nyissuk meg code-al a legenerált projektet
 
-Miután a projekt generálása megtörtént, nyissuk meg Visual Studio Code-al a mappát!
+írjuk be a parancsot: >.NET: GEnerate Assets for Build and Debug
+()
 
-Megnyitás után, válasszuk ki a ```View``` menüben található ```Command Palette``` funkciót (```[Ctrl + Shift + P]```), majd gépeljük be a következő parancsot: ```.NET: Generate Assets for Build and Debug```
-
-![generate_assets.png](./screenshots/csharp/generate_assets.png)
-
-A program futtatásához válasszuk ki a program bal oldali sávjában található ```Run and Debug``` menüpontot, majd kattintsunk az indítás gombra!
-
-![run_and_debug.png](./screenshots/csharp/run_and_debug.png)
+bal oldal run and debug majd kis nyíl
+()
 
 ## Hasznos kiegészítők
 

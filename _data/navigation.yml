@@ -3,3 +3,49 @@ main:
     url: /tags/
   - title: "Rólunk"
     url: /about/
+
+docker:
+  - title: "Docker"
+    children:
+      - title: 'Usage and configuration'
+        url: /_pages/topics/docker/
+  - title: 'Installation'
+    children:
+      - title: 'Installation'
+        url: /_pages/topics/docker/install/
+      - title: 'Enabling necessary Windows features'
+        url: /_pages/topics/docker/docker-windows-enabled-features
+  - title: 'Usage'
+    children:
+      - title: 'Container Images'
+        url: /_pages/topics/docker/images/
+      - title: 'Containers'
+        url: /_pages/topics/docker/containers/
+      - title: 'Networks'
+        url: /_pages/topics/docker/networks/
+      - title: 'Volumes'
+        url: /_pages/topics/docker/volumes/
+      - title: 'FAQ'
+        url: /_pages/topics/docker/faq/
+
+
+vmware:
+  - title: 'Install OS'
+    children:
+      - title: 'Install Windows 10'
+        url: /_pages/topics/vmware/windows
+      - title: 'Install Linux'
+        url: /_pages/topics/vmware/linux
+
+  - title: 'Usage'
+    children:
+      - title: 'Share folder'
+        url: /_pages/topics/vmware/share_folder
+      - title: 'Share device'
+        url: /_pages/topics/vmware/share_device
+      - title: 'Network settings'
+        url: /_pages/topics/vmware/network
+      - title: 'Display'
+        url: /_pages/topics/vmware/unity
+      - title: 'SnapShot'
+        url: /_pages/topics/vmware/snapshot
