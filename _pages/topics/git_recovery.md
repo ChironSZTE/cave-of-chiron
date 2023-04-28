@@ -8,7 +8,7 @@ Konyhanyelvre fordítva: egy commit nevét a commit tartalma és előzménye hat
 ### Mi fán terem a branch?
 A branch igazából csak egy név amit bármilyen commithoz rendelhetünk.  A tag kábé ugyanez, csak egy tag jó esetben létrehozása után örökké ugyanarra a commitra mutat, míg a branch lényege, hogy követi a történelem egy "fonalát" (vagyis inkább láncát), és újabb és újabb commitokra mutat.  Jó esetben ehhez a lánchoz csak újabb szemeket (commitokat) fűzünk.
 
-### Git merge
+### `merge`
 A jelenlegi és egy adott másik branch szétválása óta történt változásokat fésüli össze arra a branchre amin jelenleg vagyunk. Többekközött a git pull is ezt használja hogy a remote repositoryba feltöltött változásokat beleolvassza a local repository kódjába, de bármelyik két tetszőleges branch változásait összefésülhetjük. Különbség a rebase-héz képest hogy a merge nem írja át/fésüli össze a két branch commit historyát az összegzés során, csak létrehoz egy merge commitot amiben az összes változás egyszerre jelenik meg.
 
 ## Véletlenül hozzáadott változtatás
