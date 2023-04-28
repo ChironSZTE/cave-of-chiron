@@ -49,7 +49,7 @@ Ha mergelés folyamán egy olyan commitot akarsz egy másikkal mergelni aminek f
 
 Például, ha master nem divergált akkor egy új commit létrehozása helyett a master HEAD-jét az adott feature branch legutolsó commitjára állítja, így nem lesz merge commit sikeres fast forward esetén.
 
-## `reset`
+## Reset
 A Git resetet alapvetően arra használjuk hogy egy adott branchet egy korábbi tetszőleges állapotra álítsunk vissza. Ennek három különböző verziója van: hard, mixed és soft.
 
 Példának vegyük a következő commit historyt: - A - B - C (master)
