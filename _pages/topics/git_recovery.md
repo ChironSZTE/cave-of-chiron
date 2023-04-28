@@ -1,5 +1,7 @@
 # Git hibák helyreállítása
 ## Alapok
+Itt pár alapfogalmat ismétlünk, mivel a bevezetők és tutorialok sokszor csak egy felületes magyarázatot adnak, ami hibák javításakor téves mentális modellhez tud vezetni.
+
 ### Mégis mi egy commit valójában?
 Az első dolog amit tudni kell a gitről, hogy *tartalomalapú*, nem pedig változtatásalapú, ellentétben például a Pijul vagy Darcs verziókezelőkkel.
 Egy commit nem változtatásokat tartalmaz, hanem a repo mappa egy állapotát, plusz egy szöveges leírást, plusz a közvetlen előzmény commit / commitok azonosítóit.  Ebből generál a git egy azonosítót egy hash algoritmus segítségével, amire egy digitális ujjlenyomatként lehet gondolni.  Amit fontos tudni a mi szempontunkból a hashekről, hogy ha bármelyik változik a fenti bemenetekből, akkor a hash kimenete is változik, viszont ugyanarra a bemenetre mindig ugyanazt a kimenetet adja, tehát bár véletlenszerűnek néz ki a kimenet, valójában teljesen determinisztikus.
