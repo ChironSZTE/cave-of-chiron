@@ -4,62 +4,216 @@ tags:
     - Visual Studio Code
 ---
 
-## Alapok
+## Bevezető
 
-A [Visual Studio Code](https://code.visualstudio.com) egy könnyű, de sokoldalú nyílt forráskódú kódszerkesztő program, ami asztali alkalmazésként
-fut. Telepíthető [Windows](#windows), [macOS](#macos) és [Linux](#linux) operációs rendszerekre. Beépített támogatása van JavaScript, TypeScrpt és Node.js nyelvekhez, 
-ezenkívül [kiegészítők széles választéka](https://marketplace.visualstudio.com/VSCode) áll a felhasználók rendelkezésére, amik sok más nyelven is hatékonnyá
-tehetik a fejlesztést.
+A [Visual Studio Code](https://code.visualstudio.com) könnyű, azonban sokoldalú, nyílt forráskódú kódszerkesztő program, amely asztali alkalmazásként fut. Telepíthető [Windows](#windows), [macOS](#macos), valamint [Linux](#linux) operációs rendszerekre. Beépített támogatása van JavaScript, TypeScript és Node.js nyelvekhez, illetve [kiegészítők széles választéka](#kiegészítők) áll a felhasználók rendelkezésére, amelyek sok más nyelven is hatékonnyá tehetik a fejlesztést.
 
-![code_welcome](./screenshots/code_welcome.png)
+![code_welcome.png](./screenshots/code_welcome.png)
 
 ## Telepítés
 
 ### Windows
+    
+1. Töltsük le a Visual Studio Code telepítőjét a [hivatalos weboldalról](https://code.visualstudio.com/download)!
 
-- TODO
+2. A letöltést követően indítsuk el a telepítőt, majd kövessük a képernyőn megjelenő utasításokat!
+    - Fogadjuk el a felhasználási feltételeket!
+
+    ![step_1.png](./screenshots/setup_windows/step_1.png)
+
+    - Válasszuk ki a telepítés helyét!
+
+    ![step_2.png](./screenshots/setup_windows/step_2.png)
+
+    - Amennyiben nem szeretnénk létrehozni parancsikont a Star Menu-ben, pipáljuk be a "Don't create a Start Menu folder" lehetőséget!
+  
+    ![step_3.png](./screenshots/setup_windows/step_3.png)
+
+    - Válasszuk ki, hogy milyen beállításokkal szeretnénk telepíteni az alkalmazást!
+
+    ![step_4.png](./screenshots/setup_windows/step_4.png)
+
+    - Ha minden beállítást elvégeztünk, a programtól kapunk egy összefoglalót. Amennyiben mindent megfelelőnek találtunk, elkezdhetjük a telepítést!
+
+    ![step_5.png](./screenshots/setup_windows/step_5.png)
+
+    - Amennyiben befejezés után szeretnénk elindítani a programot, pipáljuk be a "Launch Visual Studio Code" lehetőséget!
+
+    ![step_6.png](./screenshots/setup_windows/step_6.png)
+
+3. A program indításához kattintsunk az asztalon lévő Visual Studio Code parancsikonra, vagy futtassuk a telepítés helyén található .exe fájlt!
 
 ### macOS
 
-1. Töltsd le a macOS csomagot [innen](https://code.visualstudio.com/Download)
-2. A letöltéseid között keresd meg a fájlt.
-3. Amennyiben archívum, bontsd ki.
-4. Húzd a Visual Studio Code.app fájlt az Alkalmazások mappába.
+1. Töltsük le a Visual Studio Code csomagot a [hivatalos weboldalról](https://code.visualstudio.com/download)!
+2. A letöltést követően másoljuk át az alkalmazást az "Applications" mappába!
+3. A program indításához kattintsunk az imént áthelyezett parancsikonra, vagy keressünk rá a program nevére Spotlight segítségével!
 
 ### Linux
 
-Amennyiben a parancsokban `<fajlnev>`, `<eleresi-utvonal>`, vagy hasonló részt látsz, helyettesítsd be értelemszerűen.
-
-A telepítésről részletesebb leírást [itt](https://code.visualstudio.com/docs/setup/linux) találsz.
-
-
 #### Debian/Ubuntu alapú rendszerek
 
-1. Töltsük le a .deb csomagot a [hivatalos oldalról](https://code.visualstudio.com/Download)
+1. Töltsük le a Visual Studio Code .deb csomagját a [hivatalos weboldalról](https://code.visualstudio.com/download)!
 
-2. Telepítsük a programot
-    - A legtöbb rendszeren elegendő futtatni a .deb fájlt
-    - Amennyiben nem tudjuk egyszerűen futtatni adjuk ki a következő parancsot rá:   
-    ```
-    sudo apt install ./<fajlnev>.deb
-    ```
+2. A letöltést követően futtassuk a letöltött .deb fájlt! (Amennyiben a rendszerünk nem engedi, használjuk a következő parancsot: ```sudo apt install ./<fájlnév>.deb```)
 
 #### RHEL, Fedora, és CentOS alapú rendszerek
 
-1. Vegyük fel a VS Code repository-t:  
+1. A telepítés első lépéseként vegyük fel a Visual Studio Code repository-t, használjuk a következő parancsokat:
 ```
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 ```
 
-2. Telepítsük a programot:  
+1. Indítsuk el a telepítést: 
 ```
 dnf check-update
 sudo dnf install code
 ```
 
-#### Egyebek
+#### Egyéb rendszerek
 
-Amennyiben a rendszered a fentiek között nem szerepel, megtalálod a megfejelő útmutatót a [VS Code hivatalos oldalán](https://code.visualstudio.com/docs/setup/linux).
+Amennyiben rendszered nem szerepel a fentiek között, a részletes telepítési útmutatót megtalálod a [Visual Studio Code hivatalos weboldalán](https://code.visualstudio.com/docs/setup/linux).
 
-## Beállítás
+## Kiegészítők
+
+Ahogy a bevezetőben már említettünk, a programhoz különféle kiegészítők készültek. Ezeknek fő célja, hogy egyszerűbbé tegyék a beépített nyelveken kívüli fejlesztést.
+
+### Kiegészítők telepítése
+
+   1. Válasszuk ki a program bal oldali sávjában található ```Extensions``` menüpontot!
+   2. Keressünk rá a telepítendő kiegészítő nevére! 
+   3. A találatok közül válasszuk ki a szimpatikus kiegészítőt, majd kattintsunk rá!
+   4. A kiegészítő telepítéséhez nyomjunk rá az ```Install``` gombra!
+
+## Beállítás Java fejlesztéshez
+
+[Hivatalos Visual Studio Code dokumentáció](https://code.visualstudio.com/docs/languages/java)
+
+Mielőtt nekifognánk a Visual Studio Code beállításának, telepítenünk kell a Java-t számítógépünkre. Ehhez nincs más dolgunk, mint ellátogatni a [Java hivatalos weboldalára](https://www.java.com/download/ie_manual.jsp), és letölteni a legfrissebb verziót.
+
+Amennyiben ezzel készen vagyunk, fel kell telepítenünk a Java-hoz tartozó kiegészítő csomagot. A kiegészítők telepítéséről bővebben olvashatsz a [kiegészítők telepítése](#kiegészítők-telepítése) bekezdésben.
+
+![java.png](./screenshots/java/java.png)
+
+A kiegészítő beszerzése után, készen vagyunk a beállítással, hozzuk létre első Java projektünket!
+
+Válasszuk ki a ```View``` menüben található ```Command Palette``` funkciót! (```[Ctrl + Shift + P]```)
+
+Gépeljük be a ```Java: Create Java Project``` parancsot, majd válasszuk ki a projekt típusát!
+    
+![project_type.png](./screenshots/java/project_type.png)
+
+Adjuk meg, hogy hova szeretnénk létrehozni a projektet, valamint ezt követően írjuk be a projekt nevét!
+
+![project_name.png](./screenshots/java/project_name.png)
+
+A program futtatásához kattintsunk a jobb felső sarokban található indítás gombra!
+
+![run.png](./screenshots/run.png)
+
+## Beállítás egyéb fejlesztéshez
+
+### Python
+
+[Hivatalos Visual Studio Code dokumentáció](https://code.visualstudio.com/docs/languages/python)
+
+Első lépésként telepítenünk kell egy Python interpretert számítógépünkre. Ehhez nincs más dolgunk, mint ellátogatni a [Python hivatalos weboldalára](https://www.python.org/downloads), és letölteni a legfrissebb verziót.
+
+Ezt követően fel kell telepítenünk a Visual Studio Code-hoz készült Python kiegészítőt. A kiegészítők telepítéséről bővebben olvashatsz a [kiegészítők telepítése](#kiegészítők-telepítése) bekezdésben.
+
+![python.png](./screenshots/python/python.png)
+
+A kiegészítő beszerzése után, be kell állítanunk az imént feltelepített interpreter-t. Ezt a következőképpen tehetjük meg:
+   1. Válasszuk ki a ```View``` menüben található ```Command Palette``` funkciót! (```[Ctrl + Shift + P]```)
+   2. Írjuk be a ```Python: Select Interpreter``` parancsot, majd válasszuk ki a telepített interpreter-t a listából!
+
+   ![select_interpreter.png](./screenshots/python/select_interpreter.png)
+
+Miután végeztünk minden lépéssel, létrehozhatjuk első programunkat. Ehhez gépeljük be a ```Python: New Python File``` parancsot!
+
+![new_python_file.png](./screenshots/python/new_python_file.png)
+
+A program futtatásához kattintsunk a jobb felső sarokban található indítás gombra!
+
+![run.png](./screenshots/run.png)
+
+### C, C++
+
+[Hivatalos Visual Studio Code dokumentáció](https://code.visualstudio.com/docs/languages/cpp)
+
+A Java és Python nyelvekhez hasonlóan, a C és C++ futtatásához is szükségesünk van egy fordítóra. Ennek beszerzéséhez nincs más dolgunk, mint ellátogatni a [MinGW hivatalos weboldalára](https://www.mingw-w64.org/downloads), és letölteni a legfrissebb verziót.
+
+A MinGW telepítése után, szükségünk van a C/C++ és Code Runner kiegészítőkre. A kiegészítők telepítéséről bővebben olvashatsz a [kiegészítők telepítése](#kiegészítők-telepítése) bekezdésben.
+
+![c_and_cpp.png](./screenshots/c_and_cpp/c_and_cpp.png)
+
+![code_runner.png](./screenshots/c_and_cpp/code_runner.png)
+
+A kiegészítők beszerzése után, hozzuk létre első C vagy C++ programunkat!
+
+Válasszuk ki a ```View``` menüben található ```Command Palette``` funkciót! (```[Ctrl + Shift + P]```)
+
+Gépeljük be a ```Create: New File``` parancsot, majd adjuk meg a létrehozandó fájl nevét és kiterjesztését! (```.c```/```.cpp```)
+
+![new_file.png](./screenshots/c_and_cpp/new_file.png)
+
+A program futtatásához kattintsunk a jobb felső sarokban található indítás gombra!
+
+![run.png](./screenshots/run.png)
+
+### C#
+
+[Hivatalos Visual Studio Code dokumentáció](https://code.visualstudio.com/docs/languages/csharp)
+
+A C# kód futtatásához szükségünk van .NET keretrendszerre. Ennek beszerzéséhez nincs más dolgunk, mint ellátogatni a [Microsoft hivatalos weboldalára](https://dotnet.microsoft.com/en-us/download), és letölteni a legfrissebb verziót.
+
+A .NET keretrendszeren kívül be kell szereznünk a Visual Studo Code C# kiegészítőjét is. A kiegészítők telepítéséről bővebben olvashatsz a [kiegészítők telepítése](#kiegészítők-telepítése) bekezdésben.
+
+![csharp.png](./screenshots/csharp/csharp.png)
+
+Amennyiben végeztünk a telepítéssel, hozzuk létre első projektünket. Nyissunk meg egy terminált, majd futtassuk le a következő parancsot: ```dotnet new console -o <fájlnév>```
+
+Miután a projekt generálása megtörtént, nyissuk meg Visual Studio Code-al a mappát!
+
+Megnyitás után, válasszuk ki a ```View``` menüben található ```Command Palette``` funkciót (```[Ctrl + Shift + P]```), majd gépeljük be a következő parancsot: ```.NET: Generate Assets for Build and Debug```
+
+![generate_assets.png](./screenshots/csharp/generate_assets.png)
+
+A program futtatásához válasszuk ki a program bal oldali sávjában található ```Run and Debug``` menüpontot, majd kattintsunk az indítás gombra!
+
+![run_and_debug.png](./screenshots/csharp/run_and_debug.png)
+
+## Hasznos kiegészítők
+
+Az eddig említett kiegészítőkön kívül, rengeteg olyan hasznos csomag létezik, amelyek még egyszerűbbé és gördülékenyebbé teszik a fejlesztés folyamatát.
+
+### Better Comments
+
+![better_comments.png](./screenshots/extensions/better_comments.png)
+
+Lehetővé teszi a személyre szabott és interaktív megjegyzések létrehozását a kódban.
+
+### Bookmarks
+
+![bookmarks.png](./screenshots/extensions/bookmarks.png)
+
+Lehetővé teszi a kód sorainak jelölését és navigációját.
+
+### GitLens
+
+![gitlens.png](./screenshots/extensions/gitlens.png)
+
+Bővíti a Git integrációt, lehetővé teszi a kód változásainak vizsgálatát és nyomon követését, valamint a szerzők és az időbélyegzők megjelenítését.
+
+### Markdown All in One
+
+![markdown_all_in_one.png](./screenshots/extensions/markdown_all_in_one.png)
+
+Lehetővé teszi a Markdown szintaxis egyszerűbb használatát.
+
+### Prettier
+
+![prettier.png](./screenshots/extensions/prettier.png)
+
+Lehetővé teszi a kód automatikus formázását a kiválasztott beállítások alapján.
